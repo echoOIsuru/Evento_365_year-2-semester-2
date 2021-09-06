@@ -6,7 +6,7 @@ Please go under edit and edit this file as needed for your project
 ### Member 2 - IT20274252 - Y.G.I.S.Wickramanayake (IT20274252)
 ### Member 3 - IT20133290 - R.M.Isuru Sahan Kumarasingha (IT20133290)
 ### Member 4 - IT20224370 - D.M.C.L.B Dissanayake (IT20224370)
-### Member 5 - 
+### Member 5 - IT20198336 - V.D.M.H.D Rathnayake (IT20198336)
 ### Member 6 - 
 ### Member 7 - 
 ### Member 8 - 
