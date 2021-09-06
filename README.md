@@ -2,7 +2,7 @@ Please go under edit and edit this file as needed for your project
 
 # Project Name - Evento 365 Event Management System  
 # Batch - KDY _2021_ WD/WE02
-### Group Leader - IT20205638 - U.M.D.B.Alahakoon (DarkRayStar)
+### Group Leader - IT20205638 - U.M.D.B.Alahakoon (IT20205638)
 ### Member 2 - 
 ### Member 3 - 
 ### Member 4 - 
