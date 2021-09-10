@@ -7,12 +7,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
-@Table(name = "booking")
 
-public class Booking {
+@Entity
+@Table(name = "deletebooking")
+public class DeletedBooking {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY )
+	private long record_id;
+	
+	@Column(name ="booking_id")
 	private long booking_id;
 	
 	@Column(name = "customer_id")
@@ -39,11 +42,11 @@ public class Booking {
 	@Column(name = "status")
 	private String status;
 	
-	public Booking() {
+	public DeletedBooking() {
 		
 	}
 	
-	public Booking(String customer_id, String booking_date, String event_type, long location_id, long gusts,
+	public DeletedBooking(String customer_id, String booking_date, String event_type, long location_id, long gusts,
 			String total, String date, String status) {
 		super();
 		this.customer_id = customer_id;
@@ -56,6 +59,16 @@ public class Booking {
 		this.status = status;
 	}
 	
+	
+	
+	public long getRecord_id() {
+		return record_id;
+	}
+
+	public void setRecord_id(long record_id) {
+		this.record_id = record_id;
+	}
+
 	public String getStatus() {
 		return status;
 	}
@@ -111,6 +124,5 @@ public class Booking {
 	public void setDate(String date) {
 		this.date = date;
 	}
-	
 	
 }
