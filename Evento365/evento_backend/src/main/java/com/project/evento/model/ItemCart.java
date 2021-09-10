@@ -8,13 +8,16 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "temporary_item_cart")
+@Table(name = "item_cart")
 
-public class TemporaryItemCart {
+public class ItemCart {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int rentalitemid;
+	private int rentalid;
+	
+	@Column(name = "booking_id")
+	private int bookingid;
 	
 	@Column(name = "item_name")
 	private String name;
@@ -25,23 +28,34 @@ public class TemporaryItemCart {
 	@Column(name = "price")
 	private double price;
 	
-	public TemporaryItemCart() {
+	public ItemCart() {
 		
 	}
 
-	public TemporaryItemCart(String name, int quantity, double price) {
+	public ItemCart(int bookingid, String name, int quantity, double price) {
 		super();
+		this.bookingid = bookingid;
 		this.name = name;
 		this.quantity = quantity;
 		this.price = price;
 	}
+	
+	
 
-	public int getRentalitemid() {
-		return rentalitemid;
+	public int getBookingid() {
+		return bookingid;
 	}
 
-	public void setRentalitemid(int rentalitemid) {
-		this.rentalitemid = rentalitemid;
+	public void setBookingid(int bookingid) {
+		this.bookingid = bookingid;
+	}
+
+	public int getRentalid() {
+		return rentalid;
+	}
+
+	public void setRentalid(int rentalitemid) {
+		this.rentalid = rentalitemid;
 	}
 
 	public String getName() {
@@ -64,7 +78,7 @@ public class TemporaryItemCart {
 		return price;
 	}
 
-	public void setRentalperday(double price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
 	
