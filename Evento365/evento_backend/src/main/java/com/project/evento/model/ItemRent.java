@@ -13,27 +13,28 @@ public class ItemRent {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int rentid;
+	private int rent;
 	
 	@Column(name = "booking_id")
 	private int bookingid;
 	
 	@Column(name = "total_price")
-	private float totalprice;
+	private double totalprice;
 	
 	public ItemRent() {
 		
 	}
 	
-	public ItemRent(float totalprice) {
+	public ItemRent(int bookingid, double totalprice) {
 		super();
+		this.bookingid = bookingid;
 		this.totalprice = totalprice;
 	}
-	public int getRentid() {
-		return rentid;
+	public int getRent() {
+		return rent;
 	}
-	public void setRentid(int rentid) {
-		this.rentid = rentid;
+	public void setRent(int rent) {
+		this.rent = rent;
 	}
 	public int getBookingid() {
 		return bookingid;
@@ -41,7 +42,7 @@ public class ItemRent {
 	public void setBookingid(int bookingid) {
 		this.bookingid = bookingid;
 	}
-	public float getTotalprice() {
+	public double getTotalprice() {
 		return totalprice;
 	}
 	public void setTotalprice(float totalprice) {
