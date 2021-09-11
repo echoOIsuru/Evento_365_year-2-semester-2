@@ -12,6 +12,9 @@ import ListLocationComponent from './bookingComponents/ListLocationComponent';
 
 
 
+
+
+
 import ListVehicleComponent from './vehiclemanagementComponents/ListVehicleComponent';
 import CreateVehicleComponent from './vehiclemanagementComponents/CreateVehicleComponent';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -62,11 +65,27 @@ import HeaderComponent from './StoreComponents/HeaderComponent';
 
 
 
+import ListFoodComponent from './foodComponents/ListFoodComponent';
+import CreateFoodComponent from './foodComponents/CreateFoodComponent';
+import UpdateFoodComponent from './foodComponents/UpdateFoodComponent';
+import ViewFoodComponent from './foodComponents/ViewFoodComponent';
+import customerFoodList from './foodComponents/customerFoodList';
+import bookingFoodComponent from './foodComponents/bookingFoodComponent';
+import customerviewcomponent from './foodComponents/customerviewcomponent';
+import chinesefoodComponent from './foodComponents/chinesefoodComponent';
+
+
+
+
+
 
 function App() {
   return (
 
+
  
+
+
 
 
     <div >
@@ -120,6 +139,7 @@ function App() {
                   <Route path = "/card" component = {CreditCardComponent}></Route>
                   <Route path = "/complete" component = {PaymentComplete}></Route>
 
+
                  <Route path ="/onlinestore"  component = {OnlineStore} ></Route>  
                  <Route path="/orders" exact component={CartCheckout} /> 
                 <Route path ="/stores" exact component = {ListStoreComponent} ></Route>
@@ -130,11 +150,32 @@ function App() {
                 <Route path ="/orderlist" exact component = {ListOrderComponent} ></Route>
                 <Route path = "/Checkout" component = {Checkout}></Route>
 
+
+
+                  <Route path="/" exact component = {ListFoodComponent}></Route>
+                    <Route path="/food"  component = {ListFoodComponent}></Route>  
+                    <Route path="/add-food" component = {CreateFoodComponent}></Route>
+                    <Route path="/update-food/:id" component = {UpdateFoodComponent}></Route>
+                    <Route path="/view-food/:id" component = {ViewFoodComponent}></Route>
+                    <Route path="/custom"  component = {customerFoodList}></Route>
+                    <Route path="/cus-book-food/:id"  component = {bookingFoodComponent}></Route>
+
+                    <Route path="/cusview"  component = {customerviewcomponent}></Route>
+                    
+                    <Route path="/chinese/:id"  component = {chinesefoodComponent}></Route>
+
+
+
+
             </Switch>
           </div>
           <FooterComponent />
         </Router>
       </div>
+
+
+                            
+
     </div>
 
   );

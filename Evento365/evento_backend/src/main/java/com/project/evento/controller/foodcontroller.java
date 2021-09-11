@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.project.evento.exception.ResourceNotFoundException;
@@ -90,9 +92,22 @@ public class foodcontroller {
 		return ResponseEntity.ok(response);
 	}
 	
+	//get food packages according to the foodcategoryid
+	@GetMapping("/retrievefood2/{value}")
+	public ResponseEntity<List<food>> findAllSearch(@PathVariable("value") String value){
+		List<food> result = FoodRepository.retrievefood2(value);
+			
+		return ResponseEntity.ok(result);
+	}
 	
-	
-	
+	//search
+		@GetMapping("/bookings/search")
+		public ResponseEntity<List<Booking>> findAllSearch(@RequestParam("id") Long searchText,
+				@RequestParam("value") String name){
+			List<Booking> booking = bookingRepository.findAllSearchBooking(searchText,name);
+			//List<Booking> booking = null;
+			return ResponseEntity.ok(booking);
+		}
 	
 	
 	
