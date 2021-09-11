@@ -484,7 +484,12 @@ aside.aside-left {
 
 /* Background Colors */
 .background-white, .primary-color-white .background-primary {
-  background-color: #fff !important;
+  background-color: rgb(255, 255, 255) !important;
+
+}
+.background-color, .primary-color-white .background-primary {
+  background-color: rgb(255, 255, 255) !important;
+
 }
 .background-primary, .primary-color-primary .background-primary {
   background-color: #E4A600 !important;
