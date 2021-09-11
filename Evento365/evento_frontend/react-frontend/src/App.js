@@ -44,9 +44,19 @@ import PaymentComplete from './PaymentHandlingComponents/PaymentComplete';
 import ListPayDetailComponent from './PaymentHandlingComponents/ListPayDetailComponent';
 
 
+import ListEmployeeComponent from './rentingComponent/ListEmployeeComponent';
+import test from './rentingComponent/test';
+import RentalItemComponent from './rentingComponent/RentalItemComponent';
+import CreateItemComponent from './rentingComponent/CreateItemComponent';
+import UpdateItemComponent from './rentingComponent/UpdateItemComponent';
+import RentingServiceHomeComponent from './rentingComponent/RentingServiceHomeComponent';
+import ItemDetailComponent from './rentingComponent/ItemDetailComponent';
+import OrderDetailComponent from './rentingComponent/OrderDetailComponent';
+
 
 function App() {
   return (
+
     <div >
       <div className="bg-image"
         style={{ backgroundImage: "url('https://thumbs.dreamstime.com/b/wedding-floral-decorative-vintage-background-ecru-bege-wedding-floral-decorative-vintage-background-ecru-bege-pale-wallpaper-119328289.jpg')" }} >
@@ -97,6 +107,22 @@ function App() {
                   <Route path = "/update-promo/:id" component = {UpdatePromoCodeComponent}></Route>
                   <Route path = "/card" component = {CreditCardComponent}></Route>
                   <Route path = "/complete" component = {PaymentComplete}></Route>
+
+                  <Route path ="/bookings" component = {ListBookingComponent} ></Route>
+                <Route path ="/add-bookings/:id" component = {CreateBookingComponent}></Route>
+                <Route path ="/update-bookings/:id" component = {UpdateBookingComponent}></Route>
+                <Route path ="/view-bookings/:id" component = {ViewBookingComponent}></Route>
+                <Route path ="/success-booking" component = {SuccessBooking}></Route>
+                <Route path ="/locations" component = {ListLocationComponent}></Route>
+
+                <Route path="/" exact component = {RentalItemComponent}></Route>
+                <Route path="/rentalitems" component = {RentalItemComponent}></Route>
+                <Route path="/add-rentalitem" component = {CreateItemComponent}></Route>
+                <Route path="/update-rentalitem/:rentalitemid" component = {UpdateItemComponent}></Route>
+                <Route path="/test123" component = {RentingServiceHomeComponent}></Route>
+                <Route path="/item-detail/:rentalitemid" component = {ItemDetailComponent}></Route>
+                <Route path="/order-detail" component = {OrderDetailComponent}></Route>
+                <Route path="/test" component = {test}></Route>
 
             </Switch>
           </div>
