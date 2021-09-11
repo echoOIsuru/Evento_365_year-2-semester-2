@@ -78,12 +78,24 @@ import chinesefoodComponent from './foodComponents/chinesefoodComponent';
 
 
 
+import ListEmployeeComponent from './rentingComponent/ListEmployeeComponent';
+import test from './rentingComponent/test';
+import RentalItemComponent from './rentingComponent/RentalItemComponent';
+import CreateItemComponent from './rentingComponent/CreateItemComponent';
+import UpdateItemComponent from './rentingComponent/UpdateItemComponent';
+import RentingServiceHomeComponent from './rentingComponent/RentingServiceHomeComponent';
+import ItemDetailComponent from './rentingComponent/ItemDetailComponent';
+import OrderDetailComponent from './rentingComponent/OrderDetailComponent';
+
 
 function App() {
   return (
 
 
+
+
  
+
 
 
 
@@ -140,6 +152,7 @@ function App() {
                   <Route path = "/complete" component = {PaymentComplete}></Route>
 
 
+
                  <Route path ="/onlinestore"  component = {OnlineStore} ></Route>  
                  <Route path="/orders" exact component={CartCheckout} /> 
                 <Route path ="/stores" exact component = {ListStoreComponent} ></Route>
@@ -159,11 +172,17 @@ function App() {
                     <Route path="/view-food/:id" component = {ViewFoodComponent}></Route>
                     <Route path="/custom"  component = {customerFoodList}></Route>
                     <Route path="/cus-book-food/:id"  component = {bookingFoodComponent}></Route>
-
-                    <Route path="/cusview"  component = {customerviewcomponent}></Route>
-                    
+                    <Route path="/cusview"  component = {customerviewcomponent}></Route>           
                     <Route path="/chinese/:id"  component = {chinesefoodComponent}></Route>
 
+                    <Route path="/" exact component = {RentalItemComponent}></Route>
+                    <Route path="/rentalitems" component = {RentalItemComponent}></Route>
+                    <Route path="/add-rentalitem" component = {CreateItemComponent}></Route>
+                    <Route path="/update-rentalitem/:rentalitemid" component = {UpdateItemComponent}></Route>
+                    <Route path="/test123" component = {RentingServiceHomeComponent}></Route>
+                    <Route path="/item-detail/:rentalitemid" component = {ItemDetailComponent}></Route>
+                    <Route path="/order-detail" component = {OrderDetailComponent}></Route>
+                    <Route path="/test" component = {test}></Route>
 
 
 

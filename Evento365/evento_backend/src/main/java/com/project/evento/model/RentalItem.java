@@ -28,9 +28,11 @@ public class RentalItem {
 	@Column(name = "total_units")
 	private int totalunits;
 	
-//	@Column(name = "available_units")
-//	private int availableunits;
+	@Column(name = "available_units")
+	private int availableunits;
 	
+	
+
 	@Column(name = "image")
 	private String image;
 	
@@ -46,7 +48,7 @@ public class RentalItem {
 		this.rentalperday = rentalperday;
 		this.totalunits = totalunits;
 		this.image = image;
-		//this.availableunits = totalunits;
+		this.availableunits = availableunits;
 	}
 	
 	public int getRentalitemid() {
@@ -87,15 +89,13 @@ public class RentalItem {
 	public void setImage(String image) {
 		this.image = image;
 	}
+	
+	public int getAvailableunits() {
+		return availableunits;
+	}
 
-//	public String getAvailableunits() {
-//		return availableunits;
-//	}
-//
-//	public void setAvailableunits(String availableunits) {
-//		this.availableunits = availableunits;
-//	}
-	
-	
+	public void setAvailableunits(int availableunits) {
+		this.availableunits = availableunits;
+	}
 	
 }
