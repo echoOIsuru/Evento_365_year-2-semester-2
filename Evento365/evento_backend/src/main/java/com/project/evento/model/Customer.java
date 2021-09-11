@@ -53,8 +53,7 @@ public class Customer {
 	@Column(name = "image")
 	private String image;
 	
-	@Column(name = "customer_type")
-	private String customerType;
+
 	
 	public Customer() {
 		
@@ -62,7 +61,7 @@ public class Customer {
 
 	public Customer(String name, String address, String nic, String gender, String username, String password,
 			String birthday, String mobile, String reg_date, String email, int sec_ques_no, String sec_ques_answer,
-			String image, String customer_type) {
+			String image) {
 		super();
 		this.name = name;
 		this.address = address;
@@ -77,7 +76,7 @@ public class Customer {
 		this.sec_ques_no = sec_ques_no;
 		this.sec_ques_answer = sec_ques_answer;
 		this.image = image;
-		this.customerType = customer_type;
+	
 	}
 
 	public long getId() {
@@ -192,26 +191,6 @@ public class Customer {
 		this.image = image;
 	}
 
-	public String getCustomer_type() {
-		return customerType;
-	}
 
-	public void setCustomer_type(String customer_type) {
-		this.customerType = customer_type;
-	}
-	
-	
-	
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }

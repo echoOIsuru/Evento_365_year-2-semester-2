@@ -17,33 +17,33 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.project.evento.exception.ResourceNotFoundException;
 import com.project.evento.model.RentalItem;
-import com.project.evento.model.TemporaryItemCart;
-import com.project.evento.repository.TemporaryItemCartRepository;
+import com.project.evento.model.ItemCart;
+import com.project.evento.repository.ItemCartRepository;
 
 @CrossOrigin(origins = "http://localhost:3000/")
 @RestController
 @RequestMapping("/api/v1")
-public class TemporaryItemCartController {
+public class ItemCartController {
 	
 	@Autowired
-	private TemporaryItemCartRepository temporaryitemcartrepository;
+	private ItemCartRepository temporaryitemcartrepository;
 	
 	//get items
 	@GetMapping("/temporaryitems")
-	public List<TemporaryItemCart> getItems(){
+	public List<ItemCart> getItems(){
 		return temporaryitemcartrepository.findAll();
 	}
 	
 	//create item rest api
 	@PostMapping("/temporaryitems")
-	public TemporaryItemCart createTemporaryItem(@RequestBody TemporaryItemCart temporaryitem) {
+	public ItemCart createTemporaryItem(@RequestBody ItemCart temporaryitem) {
 		return temporaryitemcartrepository.save(temporaryitem);
 	}
 	
 	//remove items rest API
 	@DeleteMapping("/temporaryitems/{rentalitemid}")
 	public ResponseEntity<Map<String, Boolean>> removeItem(@PathVariable int rentalitemid){
-		TemporaryItemCart temporaryitemcart = temporaryitemcartrepository.findById(rentalitemid)
+		ItemCart temporaryitemcart = temporaryitemcartrepository.findById(rentalitemid)
 				.orElseThrow(() -> new ResourceNotFoundException("Item not exist with id :" + rentalitemid));
 		
 		temporaryitemcartrepository.delete(temporaryitemcart);

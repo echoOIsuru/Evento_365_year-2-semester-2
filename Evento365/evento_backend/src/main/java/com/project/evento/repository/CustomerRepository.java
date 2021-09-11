@@ -20,7 +20,7 @@ public interface CustomerRepository extends JpaRepository<Customer,Long>{
 	
 	@Query("select c from Customer c where c.name like concat('%',:keyword,'%') or c.email like concat('%',:keyword,'%') "
 			+ "or c.address like concat('%',:keyword,'%') or c.nic like concat('%',:keyword,'%') or  c.birthday like concat('%',:keyword,'%') "
-			+ "or c.mobile like concat('%',:keyword,'%') or c.gender like concat('%',:keyword,'%') or c.customerType like concat('%',:keyword,'%')")
+			+ "or c.mobile like concat('%',:keyword,'%') or c.gender like concat('%',:keyword,'%')")
 	List<Customer> findByNameOrEmailOrAddressOrNicOrBirthdayOrMobileOrGenderOrCustomerType(@Param("keyword") String keyword);
 	
 }
