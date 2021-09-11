@@ -33,6 +33,16 @@ import CustomerForgetPassword from './UserProfileComponents/CustomerForgetPasswo
 import CustomerResetPassword from './UserProfileComponents/CustomerResetPassword';
 import EventoHomepage from './UserProfileComponents/EventoHomepage';
 
+import MakePaymentComponent from './PaymentHandlingComponents/MakePaymentComponent';
+import PaymentManagementComponent from './PaymentHandlingComponents/PaymentManagementComponent';
+import UpdatePaymentComponent from './PaymentHandlingComponents/UpdatePaymentComponent';
+import PromoCodeComponent from './PaymentHandlingComponents/PromoCodeComponent';
+import UpdatePromoCodeComponent from './PaymentHandlingComponents/UpdatePromoCodeComponent';
+import AddPromoComponent from './PaymentHandlingComponents/AddPromoComponent';
+import CreditCardComponent from './PaymentHandlingComponents/CreditCardComponent';
+import PaymentComplete from './PaymentHandlingComponents/PaymentComplete';
+import ListPayDetailComponent from './PaymentHandlingComponents/ListPayDetailComponent';
+
 
 
 function App() {
@@ -76,6 +86,17 @@ function App() {
               <Route path="/customer-passchange" component={CustomerForgetPassword}></Route>
               <Route path="/customer-passreset" component={CustomerResetPassword}></Route>
               <Route path="/homepage" component={EventoHomepage}></Route>
+
+	
+                  <Route path = "/payments" component = {ListPayDetailComponent}></Route>
+                  <Route path = "/addpaydetails" component = {MakePaymentComponent}></Route>
+                  <Route path = "/paymanagement" component = {PaymentManagementComponent}></Route>  
+                  <Route path = "/update-paydetails/:id" component = {UpdatePaymentComponent}></Route>
+                  <Route path = "/promomanage" component = {PromoCodeComponent}></Route>
+                  <Route path = "/addpromo" component = {AddPromoComponent}></Route>
+                  <Route path = "/update-promo/:id" component = {UpdatePromoCodeComponent}></Route>
+                  <Route path = "/card" component = {CreditCardComponent}></Route>
+                  <Route path = "/complete" component = {PaymentComplete}></Route>
 
             </Switch>
           </div>
