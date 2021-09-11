@@ -2,13 +2,18 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import FooterComponent from './bookingComponents/FooterComponent';
-import HeaderComponent from './bookingComponents/HeaderComponent';
+//import HeaderComponent from './bookingComponents/HeaderComponent';
 import ListBookingComponent from './bookingComponents/ListBookingComponent';
 import CreateBookingComponent from './bookingComponents/CreateBookingComponent';
 import UpdateBookingComponent from './bookingComponents/UpdateBookingComponent';
 import ViewBookingComponent from './bookingComponents/ViewBookingComponent';
 import SuccessBooking from './bookingComponents/SuccessBooking';
 import ListLocationComponent from './bookingComponents/ListLocationComponent';
+
+
+
+
+
 
 import ListVehicleComponent from './vehiclemanagementComponents/ListVehicleComponent';
 import CreateVehicleComponent from './vehiclemanagementComponents/CreateVehicleComponent';
@@ -43,6 +48,21 @@ import AddPromoComponent from './PaymentHandlingComponents/AddPromoComponent';
 import CreditCardComponent from './PaymentHandlingComponents/CreditCardComponent';
 import PaymentComplete from './PaymentHandlingComponents/PaymentComplete';
 import ListPayDetailComponent from './PaymentHandlingComponents/ListPayDetailComponent';
+import ListStoreComponent from './StoreComponents/ListStoreComponent';
+
+
+import CreateStoreComponent from './StoreComponents/CreateStoreComponent';
+import UpdateStoreComponent from './StoreComponents/UpdateStoreComponent';
+import ViewStoreComponent from './StoreComponents/ViewStoreComponent';
+import ViewStoreItem from './StoreComponents/ViewStoreItem';
+import CartCheckout from './StoreComponents/CartCheckout';
+import OnlineStore from './StoreComponents/OnlineStore';
+import Navbar from "./StoreComponents/Navbar";
+import Checkout from './StoreComponents/Checkout';
+import ListOrderComponent from './StoreComponents/ListOrderComponent';
+//import "materialize-css/dist/css/materialize.min.css";
+import HeaderComponent from './StoreComponents/HeaderComponent';
+
 
 
 import ListFoodComponent from './foodComponents/ListFoodComponent';
@@ -61,6 +81,12 @@ import chinesefoodComponent from './foodComponents/chinesefoodComponent';
 
 function App() {
   return (
+
+
+ 
+
+
+
 
     <div >
       <div className="bg-image"
@@ -114,6 +140,17 @@ function App() {
                   <Route path = "/complete" component = {PaymentComplete}></Route>
 
 
+                 <Route path ="/onlinestore"  component = {OnlineStore} ></Route>  
+                 <Route path="/orders" exact component={CartCheckout} /> 
+                <Route path ="/stores" exact component = {ListStoreComponent} ></Route>
+                <Route path ="/add-store" component = {CreateStoreComponent}></Route>
+                <Route path = "/view-store/:id" component = {ViewStoreComponent}></Route>
+                <Route path = "/view-storeitem/:id" component = {ViewStoreItem}></Route>
+                <Route path = "/update-store/:id" component = {UpdateStoreComponent}></Route>
+                <Route path ="/orderlist" exact component = {ListOrderComponent} ></Route>
+                <Route path = "/Checkout" component = {Checkout}></Route>
+
+
 
                   <Route path="/" exact component = {ListFoodComponent}></Route>
                     <Route path="/food"  component = {ListFoodComponent}></Route>  
@@ -129,6 +166,7 @@ function App() {
 
 
 
+
             </Switch>
           </div>
           <FooterComponent />
@@ -139,6 +177,7 @@ function App() {
                             
 
     </div>
+
   );
 }
 
