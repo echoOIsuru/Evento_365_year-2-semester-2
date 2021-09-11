@@ -125,3 +125,136 @@ li span {
   -moz-box-shadow: -1px 8px 15px 0px rgba(0, 0, 0, 0.44);
   box-shadow: -1px 8px 15px 0px rgba(0, 0, 0, 0.44);
 }
+
+#form_login {
+  width:80%;
+  vertical-align: middle;
+  display: inline-block;
+  margin-left: 10%;
+  margin-top: 3%;
+}
+
+.mainBackground{
+  height: 100%;
+  
+}
+
+.blackborder {
+    color: black;
+    font-weight: 500;
+    margin-top: 150px;
+    border: 3px solid #000000; 
+    vertical-align: middle;
+    
+   
+}
+
+.form_div{
+  height: 50%;
+}
+
+.admin_table_row{
+  text-align: center;
+  height: 50px;
+}
+
+.admin_table_main{
+  width: 100%;
+  height: 100px;
+  
+}
+
+.action_buttons{
+  margin-top: 5px;
+  margin-right: 5px;
+  width:75px;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.adminsearchArea{
+  border-radius: 10px;
+  margin-left: 68%;
+  width: 100%;
+}
+
+.customersearchArea{
+  border-radius: 10px;
+  margin-left: 52%;
+}
+
+.searchBox{
+  border-radius: 5px;
+  background-color: rgb(100, 149, 237,0.3) ;
+}
+
+.searchButtonAdmin{
+  background-color: #0d6efd; 
+  border: none;
+  color: white;
+  padding: 3px ;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  margin-left: 5px;
+  border-radius: 5px;
+  width:100px;
+}
+
+
+.searchButtonAdmin:hover {
+  background-color: rgb(100, 149, 237); /* Green */
+  color: white;
+}
+
+
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+.container {
+  max-width: 960px;
+}
+.border-top { border-top: 1px solid #e5e5e5; }
+.border-bottom { border-bottom: 1px solid #e5e5e5; }
+.box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
+
+.transformDiv {
+
+  padding: 30px;
+  margin-bottom: 60px;
+  border-radius: 10px;
+  -webkit-box-shadow: -1px 8px 15px 0px rgba(0, 0, 0);
+  -moz-box-shadow: -1px 8px 15px 0px rgba(0, 0, 0);
+  box-shadow: -1px 8px 15px 0px rgba(0, 0, 0);
+  background-color: rgba(163, 139, 82, 0.55);
+
+}
+
+/*
+#admin_login input{
+  background-color: rgba(163, 139, 82, 0.6);
+}
+
+#customer_login input{
+  background-color: rgb(163, 139, 82,0.6);
+} */
+
+.userButtons{
+  background-color: rgba(100, 97, 92, 0.7);
+  width: 100%;
+  height: 45px;
+  border-color: transparent;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.userButtons:hover{
+  background-color: rgb(116, 113, 108);
+}
