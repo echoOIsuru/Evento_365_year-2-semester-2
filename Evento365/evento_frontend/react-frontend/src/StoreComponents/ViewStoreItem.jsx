@@ -27,7 +27,7 @@ componentDidMount(){
 
 render() {
     return (
-        <div style={{ 
+        <div class="container" style={{ 
             backgroundImage: `url("https://thumbs.dreamstime.com/b/pastel-watercolor-background-abstract-as-144488478.jpg")` 
           }}>
         <div>

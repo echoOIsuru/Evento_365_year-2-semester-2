@@ -3,6 +3,9 @@ import M from "materialize-css";
 import { ToastContainer, toast, Slide } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
+import { useHistory } from "react-router-dom";
+import { Route , withRouter} from 'react-router-dom';
+
 
 
 
@@ -16,6 +19,7 @@ class Card extends Component {
     super(props);
     this.state ={
       all_stores: []
+      
       
   }
   }
@@ -46,7 +50,8 @@ class Card extends Component {
 
 
   view(){
-    this.props.history.push('/stores');
+    //this.props.history.push('/stores');
+    this.props.history.push(`/view-store/${17}`);
 }
   render() {
     return (
@@ -125,4 +130,4 @@ class Card extends Component {
   
 }
 
-export default Card;
+export default withRouter (Card);

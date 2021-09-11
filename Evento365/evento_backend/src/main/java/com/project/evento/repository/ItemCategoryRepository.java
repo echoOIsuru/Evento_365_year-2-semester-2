@@ -1,10 +1,10 @@
-package com.project.evento.repository;
+//package com.project.evento.repository;
 
-public interface ItemCategoryRepository {
+//public interface ItemCategoryRepository {
 
-}
-/*
-{
+//}
+
+//{
 
 
 
@@ -31,9 +31,9 @@ import com.project.evento.model.Store;
 	public interface ItemCategoryRepository extends JpaRepository<Store,String>{
 		
 
-  @Query(value= "select * from store where categoryid=:categoryid",nativeQuery=true)
-		public List<Store>retrieveStores(@Param("itemcategoryid") String itemcategoryid);
+  @Query(value= "select * from store where itemcategory=:itemcategory",nativeQuery=true)
+		public List<Store>retrieveStores(@Param("itemcategory") String itemcategory);
 	
 }
-*/
+
 	
