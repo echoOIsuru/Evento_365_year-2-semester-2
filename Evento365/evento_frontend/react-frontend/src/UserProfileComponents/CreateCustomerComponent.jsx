@@ -46,7 +46,7 @@ class CreateCustomerComponent extends React.Component {
 
     componentDidMount() {
 
-        if (this.id === '_add') {
+        if (this.id === '_addcus') {
             return
         } else {
             CustomerService.getCustomerById(this.state.id).then((res) => {
@@ -168,15 +168,14 @@ class CreateCustomerComponent extends React.Component {
 
             return (
                 <div class="col-md-6 mb-6 text-left">
-    
+
                     <label for="state">Security Question</label>
                     <select class="custom-select d-block w-100" onChange={this.changeSecQuesNoHandler} name="secQues" required>
-                        <option  disabled={true}>Choose...</option>
+                        <option disabled={true}>Choose...</option>
                         <option value="1" selected="selected" >What primary school did you attend?</option>
                         <option value="2" >What are the last five digits of your driver's license number?</option>
                         <option value="3" >What were the last four digits of childhood telephone number?</option>
                     </select>
-
                 </div>
             )
         } else if (this.state.sec_ques_no === 2) {
@@ -184,7 +183,7 @@ class CreateCustomerComponent extends React.Component {
                 <div class="col-md-6 mb-6 text-left">
                     <label for="state">Security Question</label>
                     <select class="custom-select d-block w-100" onChange={this.changeSecQuesNoHandler} name="secQues" required>
-                        <option  disabled={true}>Choose...</option>
+                        <option disabled={true}>Choose...</option>
                         <option value="1">What primary school did you attend?</option>
                         <option value="2" selected="selected" >What are the last five digits of your driver's license number?</option>
                         <option value="3" >What were the last four digits of childhood telephone number?</option>
@@ -197,7 +196,7 @@ class CreateCustomerComponent extends React.Component {
                 <div class="col-md-6 mb-6 text-left">
                     <label for="state">Security Question</label>
                     <select class="custom-select d-block w-100" onChange={this.changeSecQuesNoHandler} name="secQues" required>
-                        <option  disabled={true}>Choose...</option>
+                        <option disabled={true}>Choose...</option>
                         <option value="1">What primary school did you attend?</option>
                         <option value="2"  >What are the last five digits of your driver's license number?</option>
                         <option value="3" selected="selected">What were the last four digits of childhood telephone number?</option>
@@ -220,7 +219,6 @@ class CreateCustomerComponent extends React.Component {
             )
         }
     }
-
     changeGender() {
         if (this.state.gender === 'M') {
             return (
@@ -255,14 +253,11 @@ class CreateCustomerComponent extends React.Component {
         }
     }
 
-
     render() {
 
-
         return (
-
             <div >
-                <br/><br/><br/><br/>
+                <br /><br /><br /><br />
                 <div class="container">
                     <div class="py-5 text-center">
 
@@ -271,51 +266,48 @@ class CreateCustomerComponent extends React.Component {
                         }
                     </div>
 
-
                     <Grid container spacing={2} justify="center">
-                        <div className="text-center transformDiv" style={{ width: '750px',height:'800px'}}>
+                        <div className="text-center transformDiv" style={{ width: '750px', height: '820px' }}>
                             <h4 class="mb-3">EVENTO 365</h4>
-                            <form class="needs-validation" novalidate>
+                            <form class="needs-validation" onSubmit={this.saveOrUpdateCustomer} novalidate>
                                 <hr class="mb-4" />
                                 <div class="mb-3 text-left">
                                     <label >Name</label>
-                                    <input type="text" value={this.state.name} onChange={this.changeNameHandler} class="form-control" id="username" placeholder="Ex : John Doe" required />
+                                    <input type="text" value={this.state.name} onChange={this.changeNameHandler} class="form-control" placeholder="Ex : John Doe" required />
                                 </div>
-
                                 <div class="row">
                                     <div class="col-md-6 mb-3 text-left">
                                         <label for="firstName">Email</label>
-                                        <input type="text" value={this.state.email} onChange={this.changeEmailHandler} class="form-control" id="username" placeholder="abc@example.com" required />
+                                        <input type="text" value={this.state.email} onChange={this.changeEmailHandler} class="form-control" placeholder="abc@example.com" title='format : example@123.com' pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required />
                                         <div class="invalid-feedback">
                                             Valid first name is required.
                                         </div>
                                     </div>
                                     <div class="col-md-6 mb-3 text-left">
                                         <label for="lastName">NIC</label>
-                                        <input type="text" value={this.state.nic} onChange={this.changeNICHandler} class="form-control" id="username" placeholder="123456789V" required />
+                                        <input type="text" value={this.state.nic} onChange={this.changeNICHandler} class="form-control" placeholder="123456789V" pattern="[0-9]{9}[V]" title="Ex : 123456789V (Nine digits + V)" required />
                                         <div class="invalid-feedback">
                                             Valid last name is required.
                                         </div>
                                     </div>
                                 </div>
-
-
                                 <div class="mb-3 text-left">
-                                    <label for="email">Address </label>
-                                    <input type="email" value={this.state.address} onChange={this.changeAddressHandler} class="form-control" id="email" placeholder="you@example.com" />
+                                    <label >Address</label>
+                                    <input type="text" value={this.state.address} onChange={this.changeAddressHandler} class="form-control" id="email" placeholder="Address" required />
 
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6 mb-3 text-left">
                                         <label for="firstName">Username</label>
-                                        <input type="text" value={this.state.username} onChange={this.changeUsernameHandler} class="form-control" id="username" required />
+                                        <input type="text" value={this.state.username} onChange={this.changeUsernameHandler} class="form-control" pattern="[A-Za-z0-9]{5,20}" title="Minimum :5 Maximum:20 (Letters/Numbers)" required />
                                         <div class="invalid-feedback">
                                             Valid first name is required.
                                         </div>
                                     </div>
                                     <div class="col-md-6 mb-3 text-left">
                                         <label for="lastName">Password</label>
-                                        <input type="password" value={this.state.password} onChange={this.changePasswordHandler} class="form-control" id="username" required />
+                                        <input type="password" value={this.state.password} onChange={this.changePasswordHandler} class="form-control" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                            title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters" required />
                                         <div class="invalid-feedback">
                                             Valid last name is required.
                                         </div>
@@ -324,14 +316,14 @@ class CreateCustomerComponent extends React.Component {
                                 <div class="row">
                                     <div class="col-md-6 mb-3 text-left">
                                         <label for="firstName">Birthday</label>
-                                        <input type="date" value={this.state.birthday} onChange={this.changeBirthdayHandler} class="form-control" id="username" placeholder="077-XXXXXXX" required />
+                                        <input type="date" value={this.state.birthday} onChange={this.changeBirthdayHandler} class="form-control" required />
                                         <div class="invalid-feedback">
                                             Valid first name is required.
                                         </div>
                                     </div>
                                     <div class="col-md-6 mb-3 text-left">
                                         <label for="lastName">Mobile</label>
-                                        <input type="text" value={this.state.mobile} onChange={this.changeMobileHandler} class="form-control" id="username" placeholder="077-XXXXXXX" required />
+                                        <input type="text" value={this.state.mobile} onChange={this.changeMobileHandler} class="form-control" placeholder="077-XXXXXXX" pattern="[0-9]{10}" title="Must be 10 digits long." required />
                                         <div class="invalid-feedback">
                                             Valid last name is required.
                                         </div>
@@ -342,32 +334,21 @@ class CreateCustomerComponent extends React.Component {
                                         <label >Gender</label>
                                         {this.changeGender()}
                                     </div>
-
                                     {this.changeSecQues()}
-
                                     <div class="col-md-3 mb-2 text-left">
                                         <label for="zip">Answer</label>
-                                        <input type="text" value={this.state.sec_ques_answer} onChange={this.changeSecQuesAnsHandler} class="form-control" id="zip" placeholder="" required />
-                                        <div class="invalid-feedback">
-                                            Zip code required.
-                                        </div>
+                                        <input type="text" value={this.state.sec_ques_answer} onChange={this.changeSecQuesAnsHandler} class="form-control"  placeholder="Answer" required />
                                     </div>
                                 </div>
-
                                 <div class="mb-3 text-left">
                                     <label for="username">Image<span class="text-muted"> (Put your image link here.)</span></label>
                                     <div class="input-group">
-
-                                        <input type="text" value={this.state.image} onChange={this.changeImageHandler} class="form-control" id="username" placeholder="Ex: https://picsum.photos/200/300" required />
+                                        <input type="text" value={this.state.image} onChange={this.changeImageHandler} class="form-control"  placeholder="Ex: https://picsum.photos/200/300" required />
                                     </div>
                                 </div>
-
                                 <hr class="mb-4 " />
-
-                                <button className="userButtons" onClick={this.saveOrUpdateCustomer}>Save</button>
-
-
-                                
+                                <button type='submit' className="userButtons" value='SAVE' style={{marginBottom:'5px'}} >SAVE</button>
+                                <button className="userButtons" onClick={this.cancel.bind(this)} >Cancel</button>
                                 <hr class="mb-4" />
                             </form>
                             <br /><br /><br /><br /><br /><br />

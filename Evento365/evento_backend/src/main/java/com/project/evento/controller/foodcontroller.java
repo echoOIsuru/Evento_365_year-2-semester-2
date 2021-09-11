@@ -100,14 +100,14 @@ public class foodcontroller {
 		return ResponseEntity.ok(result);
 	}
 	
-	//search
-		@GetMapping("/bookings/search")
-		public ResponseEntity<List<Booking>> findAllSearch(@RequestParam("id") Long searchText,
-				@RequestParam("value") String name){
-			List<Booking> booking = bookingRepository.findAllSearchBooking(searchText,name);
-			//List<Booking> booking = null;
-			return ResponseEntity.ok(booking);
-		}
+//	//search
+//		@GetMapping("/bookings/search")
+//		public ResponseEntity<List<Booking>> findAllSearch(@RequestParam("id") Long searchText,
+//				@RequestParam("value") String name){
+//			List<Booking> booking = bookingRepository.findAllSearchBooking(searchText,name);
+//			//List<Booking> booking = null;
+//			return ResponseEntity.ok(booking);
+//		}
 	
 	
 	

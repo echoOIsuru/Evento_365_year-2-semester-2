@@ -56,23 +56,24 @@ class CustomerLogin extends Component {
                 <div style={{ width: '450px' }}>
 
                     <fieldset className="blackborder transformDiv">
-                        <form id="customer_login">
+                        <form id="customer_login" onSubmit={this.validateLoginInfo}>
                             <h3>Customer Login</h3>
                             <br />
 
-                            <div className="form-group">
+                            <div className="form-group" style={{marginTop:'10px',marginBottom:'10px'}}>
                                 <label>Username</label>
-                                <input type="email" className="form-control" placeholder="Enter Username" onChange={this.usernamehandle.bind(this)} />
+                                <input type="text" className="form-control" placeholder="Enter Username" onChange={this.usernamehandle.bind(this)} pattern="[A-Za-z0-9]{5,20}" title="Minimum :5 Maximum:20 (Letters/Numbers)" required/>
                             </div>
 
                             <div className="form-group">
                                 <label>Password</label>
-                                <input type="password" className="form-control" placeholder="Enter password" onChange={this.passwordhandle.bind(this)} />
+                                <input type="password" className="form-control" placeholder="Enter password" onChange={this.passwordhandle.bind(this)} pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                            title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters" required/>
                             </div>
 
                             <br />
 
-                            <button type="submit" onClick={this.validateLoginInfo} className="userButtons">LOGIN</button>
+                            <button type="submit"  className="userButtons">LOGIN</button>
                             <p className="forgot-password text-right">
                                 <a href="/customer-passchange">Forgot password?</a>
                             </p>

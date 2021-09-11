@@ -325,10 +325,35 @@ html {
 
 .userButtons:hover{
   background-color: rgb(116, 113, 108);
+<<<<<<< HEAD
+}
+
+.custom-select {
+  display: inline-block;
+  width: 100%;
+  height: calc(2.25rem + 2px);
+  padding: .375rem  .75rem;
+  line-height: 1.5;
+  color: #495057;
+  vertical-align: middle;
+  background-size: 8px 10px;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+   
+}
+
+.text-left {
+  text-align: left!important;
+  margin-bottom:5px;
+=======
 
 }
 .viewback2{
   background-color: rgb(245, 187, 80);
 
 
+>>>>>>> main
 }

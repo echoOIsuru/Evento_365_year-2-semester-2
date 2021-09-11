@@ -1,10 +1,10 @@
 import axios from 'axios';
 
-<<<<<<< Updated upstream
-const BOOKING_API_BASE_URL = "http://localhost:8090/api/v1/bookings";
-=======
-const BOOKING_API_BASE_URL = "http://localhost:8099/api/v1/bookings";
->>>>>>> Stashed changes
+
+const BOOKING_API_BASE_URL = "http://localhost:8080/api/v1/bookings";
+
+
+
 
 class BookingService{
 

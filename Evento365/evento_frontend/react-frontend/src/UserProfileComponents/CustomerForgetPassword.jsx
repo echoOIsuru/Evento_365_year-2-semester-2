@@ -110,7 +110,7 @@ class CustomerForgetPassword extends Component {
                     <input type="email" className="form-control" placeholder="Enter Email" onChange={this.emailhandle.bind(this)}/>
                 </div>
 
-                <button type="button" onClick={this.checkEmail}  className="userButtons">VALIDATE</button>
+                <button type="button" onClick={this.checkEmail}  className="userButtons" style={{marginTop:'10px'}}>VALIDATE</button>
                 <p className="forgot-password text-right">
                 
                 </p>
@@ -129,7 +129,7 @@ class CustomerForgetPassword extends Component {
 
     
 
-                <button type="button" onClick={() => { this.validateAnswer() }} className="userButtons">RESET PASSWORD</button>
+                <button type="button" onClick={() => { this.validateAnswer() }} className="userButtons" style={{marginTop:'10px'}}>RESET PASSWORD</button>
                 <p className="forgot-password text-right">
                 
                 </p>

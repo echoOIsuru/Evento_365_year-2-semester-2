@@ -167,10 +167,10 @@ class CreateAdminComponent extends React.Component {
         if (this.state.sec_ques_no === 1) {
 
             return (
-                <div class="col-md-6 mb-6">
+                <div class="col-md-6 mb-6 text-left">
                     <label for="state">Security Question</label>
                     <select class="custom-select d-block w-100" onChange={this.changeSecQuesNoHandler} name="secQues" required>
-                        <option value="">Choose...</option>
+                        <option value="">Choose...⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀▼</option>
                         <option value="1" selected="selected" >What primary school did you attend?</option>
                         <option value="2" >What are the last five digits of your driver's license number?</option>
                         <option value="3" >What were the last four digits of childhood telephone number?</option>
@@ -180,10 +180,10 @@ class CreateAdminComponent extends React.Component {
             )
         } else if (this.state.sec_ques_no === 2) {
             return (
-                <div class="col-md-6 mb-6">
+                <div class="col-md-6 mb-6 text-left">
                     <label for="state">Security Question</label>
                     <select class="custom-select d-block w-100" onChange={this.changeSecQuesNoHandler} name="secQues" required>
-                        <option value="">Choose...</option>
+                        <option value="">Choose...⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀▼</option>
                         <option value="1">What primary school did you attend?</option>
                         <option value="2" selected="selected" >What are the last five digits of your driver's license number?</option>
                         <option value="3" >What were the last four digits of childhood telephone number?</option>
@@ -193,10 +193,10 @@ class CreateAdminComponent extends React.Component {
             )
         } else if (this.state.sec_ques_no === 3) {
             return (
-                <div class="col-md-6 mb-6">
+                <div class="col-md-6 mb-6 text-left">
                     <label for="state">Security Question</label>
                     <select class="custom-select d-block w-100" onChange={this.changeSecQuesNoHandler} name="secQues" required>
-                        <option value="">Choose...</option>
+                        <option value="">Choose...⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀▼</option>
                         <option value="1">What primary school did you attend?</option>
                         <option value="2"  >What are the last five digits of your driver's license number?</option>
                         <option value="3" selected="selected">What were the last four digits of childhood telephone number?</option>
@@ -206,10 +206,10 @@ class CreateAdminComponent extends React.Component {
             )
         } else {
             return (
-                <div class="col-md-6 mb-6">
-                    <label for="state">Security Question</label>
+                <div class="col-md-6 mb-6 text-left">
+                    <label for="state ">Security Question</label>
                     <select class="custom-select d-block w-100" onChange={this.changeSecQuesNoHandler} name="secQues" required>
-                        <option value="" >Choose...</option>
+                        <option value="" >Choose...⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀▼</option>
                         <option value="1">What primary school did you attend?</option>
                         <option value="2"  >What are the last five digits of your driver's license number?</option>
                         <option value="3" >What were the last four digits of childhood telephone number?</option>
@@ -225,7 +225,7 @@ class CreateAdminComponent extends React.Component {
             return (
                 <div>
                     <select class="custom-select d-block w-100" onChange={this.changeGenderHandler} name="secQues" required>
-                        <option value="" >Choose...</option>
+                        <option value="" >Choose...⠀⠀⠀⠀⠀▼</option>
                         <option value='M' selected="selected">Male</option>
                         <option value='F' >Female</option>
                     </select>
@@ -235,7 +235,7 @@ class CreateAdminComponent extends React.Component {
             return (
                 <div>
                     <select class="custom-select d-block w-100" onChange={this.changeGenderHandler} name="secQues" required>
-                        <option value="" >Choose...</option>
+                        <option value="" >Choose...⠀⠀⠀⠀⠀▼</option>
                         <option value='M' >Male</option>
                         <option value='F' selected="selected" >Female</option>
                     </select>
@@ -245,7 +245,7 @@ class CreateAdminComponent extends React.Component {
             return (
                 <div>
                     <select class="custom-select d-block w-100" onChange={this.changeGenderHandler} name="secQues" required>
-                        <option value="" >Choose...</option>
+                        <option value="" >Choose...⠀⠀⠀⠀⠀▼</option>
                         <option value='M' >Male</option>
                         <option value='F' >Female</option>
                     </select>
@@ -269,12 +269,10 @@ class CreateAdminComponent extends React.Component {
                             this.getTitle2()
                         }
                     </div>
-
-
                     <Grid container spacing={2} justify="center">
-                    <div className="text-center transformDiv" style={{ width: '750px',height:'950px'}}>
+                    <div className="text-center transformDiv" style={{ width: '750px',height:'880px'}}>
                         <h4 class="mb-3">EVENTO 365</h4>
-                        <form class="needs-validation" novalidate>
+                        <form class="needs-validation" onSubmit={this.saveOrUpdateAdmin} novalidate>
                             <hr class="mb-4" />
                             <div class="mb-3 text-left">
                                 <label  >Name</label>
@@ -284,7 +282,7 @@ class CreateAdminComponent extends React.Component {
                             <div class="row">
                                 <div class="col-md-6 mb-3 text-left">
                                     <label for="firstName">Email</label>
-                                    <input type="text" value={this.state.email} onChange={this.changeEmailHandler} class="form-control" id="username" placeholder="abc@example.com" required />
+                                    <input type="text" value={this.state.email} onChange={this.changeEmailHandler} class="form-control" id="username" placeholder="abc@example.com" title='format : example@123.com' pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required />
                                     
                                 </div>
                                 <div class="col-md-6 mb-3 text-left">
@@ -302,24 +300,24 @@ class CreateAdminComponent extends React.Component {
                             </div>
                             <div class="row">
                                 <div class="col-md-6 mb-3 text-left">
-                                    <label for="firstName">Username</label>
+                                    <label >Username</label>
                                     <input type="text" value={this.state.username} onChange={this.changeUsernameHandler} class="form-control" id="username" required />
                                     
                                 </div>
                                 <div class="col-md-6 mb-3 text-left">
-                                    <label for="lastName">Password</label>
+                                    <label >Password</label>
                                     <input type="password" value={this.state.password} onChange={this.changePasswordHandler} class="form-control" id="username" required />
                                     
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6 mb-3 text-left">
-                                    <label for="firstName">Birthday</label>
+                                    <label >Birthday</label>
                                     <input type="date" value={this.state.birthday} onChange={this.changeBirthdayHandler} class="form-control" id="username" placeholder="077-XXXXXXX" required />
                                     
                                 </div>
                                 <div class="col-md-6 mb-3 text-left">
-                                    <label for="lastName">Mobile</label>
+                                    <label >Mobile</label>
                                     <input type="text" value={this.state.mobile} onChange={this.changeMobileHandler} class="form-control" id="username" placeholder="077-XXXXXXX" required />
                                     
                                 </div>
@@ -339,7 +337,7 @@ class CreateAdminComponent extends React.Component {
                             </div>
 
                             <div class="mb-3 text-left">
-                                <label for="username">Image<span class="text-muted"> (Put your image link here.)</span></label>
+                                <label >Image<span class="text-muted"> (Put your image link here.)</span></label>
                                 <div class="input-group">
 
                                     <input type="text" value={this.state.image} onChange={this.changeImageHandler} class="form-control" id="username" placeholder="Ex: https://picsum.photos/200/300" required />
@@ -347,7 +345,7 @@ class CreateAdminComponent extends React.Component {
                             </div>
 
                             <div class="mb-3 text-left">
-                                <label for="username">Admin Type</label>
+                                <label >Admin Type</label>
                                 <div class="input-group">
 
                                     <input type="text" value={this.state.admin_type} onChange={this.changeAdminTypeHandler} class="form-control" id="username" placeholder="Ex: Vehicle" required />
@@ -356,7 +354,7 @@ class CreateAdminComponent extends React.Component {
 
                             <hr class="mb-4" />
 
-                            <button className="userButtons" style={{marginBottom:'5px'}} onClick={this.saveOrUpdateAdmin.bind(this)}>Save</button>
+                            <button type='submit'className="userButtons" style={{marginBottom:'5px'}} >Save</button>
                             <button className="userButtons" onClick={this.cancel.bind(this)} >Cancel</button>
 
                             <br /><br />
