@@ -21,6 +21,9 @@ public class VehicleRent {
 	@Column(name = "rentdate")
 	private String date;
 	
+	@Column(name = "bookingId")
+	private String bookingId;
+	
 	public VehicleRent() {
 		
 	}
@@ -49,6 +52,14 @@ public class VehicleRent {
 
 	public void setDate(String date) {
 		this.date = date;
+	}
+
+	public String getBookingId() {
+		return bookingId;
+	}
+
+	public void setBookingId(String bookingId) {
+		this.bookingId = bookingId;
 	}
 	
 	

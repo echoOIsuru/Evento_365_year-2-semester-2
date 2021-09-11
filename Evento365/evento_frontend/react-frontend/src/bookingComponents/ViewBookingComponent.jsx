@@ -167,17 +167,17 @@ class ViewBookingComponent extends Component {
                         <br></br>
                     </div>
 
-                    <section class="full-width background-white">
+                    <section class="full-width background-white ">
 
                         <div>
 
                             <center>
                                 <lable onChange={this.chechZero()}>
                                 Time remaining
-                                    <ul>
-                                        <li><span style={{ paddingLeft: "20px" }}>{this.state.time.h<10?"0"+this.state.time.h:this.state.time.h} :</span> Hours</li>
-                                        <li><span style={{ paddingLeft: "30px" }}>{this.state.time.m<10?"0"+this.state.time.m:this.state.time.m} :</span> Minutes</li>
-                                        <li><span style={{ paddingLeft: "30px" }}>{this.state.time.s<10?"0"+this.state.time.s:this.state.time.s==60?"00":this.state.time.s} </span> Seconds</li>
+                                    <ul >
+                                        <li className="formDivgg"><span style={{ paddingLeft: "20px" }}>{this.state.time.h<10?"0"+this.state.time.h:this.state.time.h} :</span> Hours</li>
+                                        <li className="formDivgg"><span style={{ paddingLeft: "30px" }}>{this.state.time.m<10?"0"+this.state.time.m:this.state.time.m} :</span> Minutes</li>
+                                        <li className="formDivgg"><span style={{ paddingLeft: "30px",paddingRight:"20px" }}>{this.state.time.s<10?"0"+this.state.time.s:this.state.time.s==60?"00":this.state.time.s} </span> Seconds</li>
 
                                     </ul>
 
@@ -187,14 +187,14 @@ class ViewBookingComponent extends Component {
                         </div>
 
                         <br></br>
-                        <div className="container shadow-custom bg-image"
+                        <div className="container shadow-custom bg-image formDivgg"
                             style={{ backgroundImage: "url('https://www.bricoflor.co.uk/media/catalog/product/cache/7/image/1250x1250/9df78eab33525d08d6e5fb8d27136e95/3/0/305451_8.jpg')" }} >
                          <br/>  
-                        <div className="card col-md-6 offset-md-3 shadow-custom">
+                        <div className=" formDivgg shadow-custom">
                         <br/> 
-                             
-                            <h3 className="text-center">Booking Details</h3>
-                            <div className="card-body" >
+                           
+                            <h3 className="text-center formDivgg card col-md-6 offset-md-3">Booking Details</h3>
+                            <div className="card-body formDivgg card col-md-6 offset-md-3" >
                             <center>
                                 <div className="row">
                                     <label> <b>Booking ID</b> : {this.state.booking.booking_id} </label>
@@ -214,7 +214,7 @@ class ViewBookingComponent extends Component {
                                     
                                     <label> <b>Location</b> </label>
                                     <div> {this.state.items.locationName}</div>
-                                    <img style={{ height: "200px", width: "300px"}} src={this.state.items.picture} className="img-thumbnail" />
+                                    <img style={{ height: "200px", width: "300px"}} src={this.state.items.picture} className="img-thumbnail formDivgg" />
                                     
                                 </div>
                                 <br/>
@@ -229,7 +229,7 @@ class ViewBookingComponent extends Component {
                                 </div>
                                 <br/>
                                 <div>
-                                    <button onClick={() => this.editBooking(this.state.booking.booking_id)} disabled={this.state.approvedFlag==1?true:false} className="btn btn-info">Update My Booking</button>
+                                    <button onClick={() => this.editBooking(this.state.booking.booking_id)} disabled={this.state.approvedFlag==1?true:false} className="btn btn-info formDivgg">Update My Booking</button>
                                     <button style={{ marginLeft: "10px" }} disabled={this.state.approvedFlag==1?true:false}
                                         onClick={() => {
                                             const confirmBox = window.confirm(
@@ -239,7 +239,7 @@ class ViewBookingComponent extends Component {
                                                 this.deleteBooking(this.state.booking.booking_id)
                                             }
                                         }}
-                                        className="btn btn-danger">Cancel My Booking</button>
+                                        className="btn btn-danger formDivgg">Cancel My Booking</button>
                                 </div>
                                 </center>
                             </div>
