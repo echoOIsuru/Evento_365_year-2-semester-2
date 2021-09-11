@@ -1,5 +1,12 @@
 {
   "dependencies": {
-    "bootstrap": "^5.0.2"
+    "bootstrap": "^5.0.2",
+    "materialize-css": "^1.0.0-rc.2",
+    "moment": "^2.29.1",
+    "react-day-picker": "^7.4.10",
+    "react-materialize": "^3.9.9",
+    "react-moment": "^1.1.1",
+    "react-search-box": "^2.0.2",
+    "react-search-field": "^2.0.1"
   }
 }
