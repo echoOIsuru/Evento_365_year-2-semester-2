@@ -25,6 +25,19 @@ import FeedBackList from './eventPlannerComponents/FeedBackList';
 import CreateFeedback from './eventPlannerComponents/CreateFeedback';
 import UpdateFeedback from './eventPlannerComponents/UpdateFeedback';
 
+import ListHireComponent from './eventPlannerComponents/ListHireComponent';
+import CreateHirecomponents from './eventPlannerComponents/CreateHirecomponents';
+import UpdateHiringComponent from './eventPlannerComponents/UpdateHiringComponent';
+import ListEventPlannerComponent from './eventPlannerComponents/ListEventPlannerComponent';
+import CreateEventPlannerComponent from './eventPlannerComponents/CreateEventPlannerComponent';
+import UpdateEventPlannerComponent from './eventPlannerComponents/UpdateEventPlannerComponent';
+import UserInterface1 from './eventPlannerComponents/UserInterface1';
+import viewEventplannerProfile from './eventPlannerComponents/viewEventplannerProfile';
+import HiredEventPlannersList from './eventPlannerComponents/HiredEventPlannersList';
+import FeedBackList from './eventPlannerComponents/FeedBackList';
+import CreateFeedback from './eventPlannerComponents/CreateFeedback';
+import UpdateFeedback from './eventPlannerComponents/UpdateFeedback';
+
 
 function App() {
   return (
@@ -69,8 +82,19 @@ function App() {
               <Route path="/homepage" component={EventoHomepage}></Route>
 
 
-         
-            <Route path="/hiring" component ={ListHireComponent}></Route>
+	
+                  <Route path = "/payments" component = {ListPayDetailComponent}></Route>
+                  <Route path = "/addpaydetails" component = {MakePaymentComponent}></Route>
+                  <Route path = "/paymanagement" component = {PaymentManagementComponent}></Route>  
+                  <Route path = "/update-paydetails/:id" component = {UpdatePaymentComponent}></Route>
+                  <Route path = "/promomanage" component = {PromoCodeComponent}></Route>
+                  <Route path = "/addpromo" component = {AddPromoComponent}></Route>
+                  <Route path = "/update-promo/:id" component = {UpdatePromoCodeComponent}></Route>
+                  <Route path = "/card" component = {CreditCardComponent}></Route>
+                  <Route path = "/complete" component = {PaymentComplete}></Route>
+				  
+				  <Route path="/hiring" component ={ListHireComponent}></Route>
+
             <Route path="/add-hire" component ={CreateHirecomponents}></Route>
             <Route path="/update-hire/:id" component ={UpdateHiringComponent}></Route>
             <Route path="/eventplanner" component ={ ListEventPlannerComponent}></Route>
@@ -82,8 +106,6 @@ function App() {
             <Route path="/feedback" component ={ FeedBackList}></Route>
             <Route path="/create_feedback" component ={ CreateFeedback}></Route>
             <Route path="/update_feedback/:id" component ={UpdateFeedback}></Route>
-
-
 
             </Switch>
           </div>
