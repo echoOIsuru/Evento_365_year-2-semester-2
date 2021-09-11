@@ -121,12 +121,18 @@ class UpdateStoreComponent extends Component {
                                            onChange={this.changeDescriptionHandler} value={this.state.description}/>
                                     </div>
 
-                                    <div className = "form-group">
-                                    <lable>Item Category </lable>
-                                    <input placeholder="CAT001" name="itemcategoryid" className="form-control" 
-                                           onChange={this.changeItemCategoryHandler} value={this.state.itemcategory}/>
-                                           
-                                    </div>
+                                    <div className="form-group ">
+                                                <lable >Item Category ID</lable>
+                                                <select name="birthday" className="form-control" onChange={ this.changeItemCategoryHandler} value={this.state.itemcategory} required>
+                                                    <option value="" disabled={true}>------------Select Item Category------------</option>
+                                                    <option value="Marriage and Anniversary">Birthday</option>
+                                                    <option value="Family function">Bride to be party</option>
+                                                    <option value="Birthday">Birthday Party</option>
+                                                    <option value="Halloween">Anniversary Party</option>
+                                                    <option value="Theme party">Farewell Party</option>
+                                                    <option value="Baby Shower">College Event</option>
+                                                </select>
+                                            </div>
 
                 
                                     <div className = "form-group">
