@@ -267,7 +267,7 @@ class CreateCustomerComponent extends React.Component {
                     </div>
 
                     <Grid container spacing={2} justify="center">
-                        <div className="text-center transformDiv" style={{ width: '750px', height: '820px' }}>
+                        <div className="text-center transformDiv" style={{ width: '750px', height: '880px' }}>
                             <h4 class="mb-3">EVENTO 365</h4>
                             <form class="needs-validation" onSubmit={this.saveOrUpdateCustomer} novalidate>
                                 <hr class="mb-4" />
