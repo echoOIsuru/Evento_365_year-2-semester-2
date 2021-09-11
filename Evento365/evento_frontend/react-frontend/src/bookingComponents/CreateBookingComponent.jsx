@@ -20,8 +20,10 @@ class CreateBookingComponent extends Component {
             bookingDate: '',
             locationID: '',
             gustsCount: '',
-            total: '',
+            total: '', //location total
             toDay: new Date(),
+            totalAmount: 0, //for session total
+
 
             location: [],
             booking: [],
@@ -31,7 +33,8 @@ class CreateBookingComponent extends Component {
             date: [],
 
             allDate: [],
-            datePattern: 'gg'
+            datePattern: 'gg',
+            lastVal: 0 // for final total
         }
 
 
@@ -42,6 +45,7 @@ class CreateBookingComponent extends Component {
         this.saveOrUpdateBooking = this.saveOrUpdateBooking.bind(this);
         this.changeTotalPriceHandler = this.changeTotalPriceHandler.bind(this);
         this.disableCustomDt = this.disableCustomDt.bind(this);
+        this.TotalPrice = this.TotalPrice.bind(this);
 
     }
 
@@ -55,7 +59,7 @@ class CreateBookingComponent extends Component {
         //console.log('booking =>' +JSON.stringify(booking));
 
         if (this.state.id === "_add") {
-            let booking = { event_type: this.state.eventType, booking_date: this.state.bookingDate, gusts: this.state.gustsCount, location_id: this.state.locationID, date: this.state.toDay, status: "pending" };
+            let booking = { event_type: this.state.eventType, booking_date: this.state.bookingDate, gusts: this.state.gustsCount, location_id: this.state.locationID, date: this.state.toDay, status: "pending", total: this.state.total };
             if (this.state.bookingDate == this.state.datePattern && this.state.gustsCount <= 500) {
 
                 BookingService.createBooking(booking).then(res => {
@@ -77,9 +81,38 @@ class CreateBookingComponent extends Component {
                 }
             }
 
+        } else if (this.state.id === "_price") {
+            let booking = { event_type: this.state.eventType, booking_date: this.state.bookingDate, gusts: this.state.gustsCount, location_id: this.state.locationID, status: "pending", total: this. calcTotal() };
+
+            if (this.state.bookingDate == this.state.datePattern && this.state.gustsCount <= 500) {
+                var data = sessionStorage.getItem('bookingSession');
+                data = JSON.parse(data);
+
+
+                BookingService.updateBooking(booking, data.booking_id).then(res => {
+
+
+                    var data = res.data.booking_id;
+                    this.props.history.push(`/view-bookings/${data}`);
+                });
+            } else {
+
+
+                if (this.state.gustsCount > 500) {
+                    const confirmBox = window.alert(
+                        "Maximum guests count is 500 only!"
+                    )
+                } else {
+
+                    const confirmBox = window.alert(
+                        "Enter valid date!"
+                    )
+                }
+            }
+
 
         } else {
-            let booking = { event_type: this.state.eventType, booking_date: this.state.bookingDate, gusts: this.state.gustsCount, location_id: this.state.locationID, status: "pending" };
+            let booking = { event_type: this.state.eventType, booking_date: this.state.bookingDate, gusts: this.state.gustsCount, location_id: this.state.locationID, status: "pending", total: this.state.total };
 
             if (this.state.bookingDate == this.state.datePattern && this.state.gustsCount <= 500) {
                 BookingService.updateBooking(booking, this.state.id).then(res => {
@@ -123,6 +156,37 @@ class CreateBookingComponent extends Component {
                 });
             });
 
+        } else if (this.state.id === "_price") {
+
+            //Booking data catch
+            var data = sessionStorage.getItem('bookingSession');
+            data = JSON.parse(data);
+            console.log(data, "RETURN VALUES-------->");
+
+            this.setState({
+                eventType: data.event_type,
+                CustomerID: data.customer_id,
+                bookingDate: data.booking_date,
+                locationID: data.location_id,
+                gustsCount: data.gusts,
+                totalAmount: data.total,
+            })
+
+            //this.state.finalAmount = this.state.finalAmount+data.total;
+
+            BookingService.getBookings().then((res) => {
+                this.setState({
+                    booking: res.data
+                });
+            });
+
+
+            LocationService.getLocations().then((res) => {
+                this.setState({
+                    location: res.data
+                });
+            });
+
         } else {
 
             BookingService.getBookingById(this.state.id).then((res) => {
@@ -156,13 +220,18 @@ class CreateBookingComponent extends Component {
         }
     }
 
+
+
+
     changeTotalPriceHandler = (event) => {
 
         var temp = 0;
 
         this.state.location.forEach(loc => {
-            if (loc.location_id == this.state.locationID)
+            if (loc.location_id == this.state.locationID) {
                 temp = loc.locationPrice;
+                this.state.total = loc.locationPrice;
+            }
         });
 
         //this.setState({total: temp});  
@@ -183,19 +252,54 @@ class CreateBookingComponent extends Component {
         sessionStorage.setItem('locationName', JSON.stringify(obj));
 
 
+        return <div style={{ paddingTop: "20px", textAlign: "right" }}>
 
-        return <div className="form-group" style={{ paddingTop: "20px" }}>
-            <lable>Total Price</lable>
-            <input name="total" className="form-control formDivgg"
-                value={temp} required />
+            <label >
+                <h5> Rs: {temp} </h5>
+            </label>
         </div>
 
 
     }
 
+    calcTotal(){
+        let temp = this.state.totalAmount + parseInt(this.state.total);
+        let lasttotal = this.state.lastVal + temp
+        return lasttotal;
+    }
+
+
+    TotalPrice() {// meka hama state refresh ekkama cal wena ekai awla
+        let temp = this.state.totalAmount + parseInt(this.state.total);
+
+        //console.log(this.state.finalAmount,"Final Totalllllllllllllllllllllll")
+
+        //var last =  this.state.finalAmount + temp;
+
+        //this.state.finalAmount = last;
+        //this.state.lastVal = temp;
+
+        let lasttotal = this.state.lastVal + temp
+
+      
+
+        console.log(this.state.lastVal, "VALUEUUUUUUU")
+
+        if (temp > 0) {
+            return <div>
+                <br />
+                <div className="formDivgg" style={{ paddingTop: "20px", textAlign: "right" }}>
+                    <lable ><h5>Total Price</h5></lable>
+                    <lable >
+                        <h3> Rs: {lasttotal}</h3> </lable>
+                </div>
+            </div>
+        }
+    }
 
     changeEventTypeHandler = (event) => {
         this.setState({ eventType: event.target.value });
+
     }
     changeBookingDateHandler = (event) => {
         try {
@@ -283,7 +387,8 @@ class CreateBookingComponent extends Component {
         var tempReq = false;
 
         if (this.state.id === "_add") {
-            placeholder = 'DD-MM-YYYY';
+            placeholder = this.state.bookingDate;
+            this.state.datePattern = placeholder;
             tempReq = true;
         } else {
             placeholder = this.state.bookingDate;
@@ -316,6 +421,32 @@ class CreateBookingComponent extends Component {
     }
 
 
+    bookingSession(data) {
+        sessionStorage.setItem('bookingSession', JSON.stringify(data));
+    }
+
+    goToVh() {
+
+        let booking = { event_type: this.state.eventType, booking_date: this.state.bookingDate, gusts: this.state.gustsCount, location_id: this.state.locationID, date: this.state.toDay, status: "pending", total: this.state.finalAmount };
+        BookingService.createBooking(booking).then(res => {
+
+
+            this.bookingSession(res.data);
+            this.props.history.push(`/success-booking`);
+        });
+
+
+    }
+
+    goToFd() {
+
+        this.props.history.push('/success-booking');
+    }
+
+    goToEq() {
+
+        this.props.history.push('/success-booking');
+    }
 
     render() {
         return (
@@ -342,7 +473,7 @@ class CreateBookingComponent extends Component {
 
                                         <div className="card col-md-6 offset-md-3 offset-md-3 formDivgg">
                                             <form onSubmit={this.saveOrUpdateBooking.bind(this)}>
-                                                <div className="form-group">
+                                                <div className="form-group formDivgg">
                                                     <lable >Event type</lable>
                                                     <select name="evenType" className="form-control " onChange={this.changeEventTypeHandler} value={this.state.eventType} required>
                                                         <option value="" disabled={true} style={{ textAlign: "center" }}>------------Select Event Type------------</option>
@@ -356,13 +487,13 @@ class CreateBookingComponent extends Component {
                                                 </div>
                                                 <br></br>
 
-                                                <div className="form-group col-md-6 ">
+                                                <div className="form-group formDivgg col-md-6 ">
                                                     <lable>Booking date</lable>
                                                     {this.disableCustomDt()}
                                                 </div>
                                                 <br></br>
 
-                                                <div className="form-group">
+                                                <div className="form-group formDivgg">
                                                     <lable>Number of Guests</lable>
                                                     <input type="number" placeholder="No of Guest" name="GustsCount" className="form-control" min="1" max="500"
                                                         onChange={this.changeGustsHandler} value={this.state.gustsCount} required />
@@ -370,7 +501,7 @@ class CreateBookingComponent extends Component {
                                                 </div>
                                                 <br></br>
 
-                                                <div className="form-group col-md-6">
+                                                <div className="form-group  formDivgg">
                                                     <lable>Location</lable>
 
                                                     <select style={{ width: "300px" }} name="locationID" className="form-control" onChange={this.changeLocationHandler} value={this.state.locationID} placeholder="select one" required>
@@ -385,7 +516,13 @@ class CreateBookingComponent extends Component {
                                                         }
 
                                                     </select>
+                                                    {
+                                                        this.changeTotalPriceHandler()
+                                                    }
                                                 </div>
+
+
+
 
                                                 <br></br>
                                                 <div class="row ">
@@ -395,7 +532,7 @@ class CreateBookingComponent extends Component {
                                                                 <img src="https://lh3.googleusercontent.com/proxy/jHEZjdw9IL6zXr-AY5HRbs8SX0i2tpJOkfUTie7EDGYSNI-H8DpP-ulPrlbTQ2aVLapInm8GeNfUBGno0zWeyp_rY7hGMewnQUtP0aW3TQTSFrJ2Mxlxr_eRIVX8pgwoyrD8paUG646c"></img>
                                                                 <h5 class="card-title">GG WP</h5>
                                                                 {/* <p class="card-text">what the hell.</p> */}
-                                                                <a href="#" class="btn btn-dark">Go somewhere</a>
+                                                                <a onClick={this.goToEq.bind(this)} class="btn btn-dark">Go somewhere</a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -405,7 +542,7 @@ class CreateBookingComponent extends Component {
                                                                 <img src="https://i.pinimg.com/550x/de/86/ff/de86ff4993d4a4a76c539124b3b09ab4.jpg"></img>
                                                                 <h5 class="card-title">GG WP</h5>
                                                                 {/* <p class="card-text">what the hell.</p> */}
-                                                                <a href="#" class="btn btn-dark">Go somewhere</a>
+                                                                <a onClick={this.goToFd.bind(this)} class="btn btn-dark">Go somewhere</a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -415,7 +552,7 @@ class CreateBookingComponent extends Component {
                                                                 <img src="https://images.squarespace-cdn.com/content/v1/5c35f6b696e76f1526f6a93a/1578108805668-YBYW3HWY42BBA2SM3977/ke17ZwdGBToddI8pDm48kNgFyjlEyNHlSWEjE-QCU1p7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UdLKTLgsLX9_T7LnpaostY9WYLb0IFNaX6bgMhY2dUNBWIB-7cQgYKo_bDpR6cEVkg/PHOTO-2020-01-04-11-27-43.jpg?format=500w"></img>
                                                                 <h5 class="card-title">GG WP</h5>
                                                                 {/* <p class="card-text">what the hell.</p> */}
-                                                                <a href="#" class="btn btn-dark">Go somewhere</a>
+                                                                <a onClick={this.goToVh.bind(this)} class="btn btn-dark">Go somewhere</a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -424,10 +561,11 @@ class CreateBookingComponent extends Component {
 
 
 
-                                                {
-                                                    this.changeTotalPriceHandler()
-                                                }
 
+
+                                                {
+                                                    this.TotalPrice()
+                                                }
 
                                                 <div class="d-grid gap-2 col-6 mx-auto" style={{ marginTop: "20px" }}>
                                                     <input type="submit" className="btn btn-success formDivgg" style={{ marginTop: "20px" }} value="Make Booking"></input>

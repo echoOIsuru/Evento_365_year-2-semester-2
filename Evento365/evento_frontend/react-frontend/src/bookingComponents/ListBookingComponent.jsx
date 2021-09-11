@@ -93,7 +93,7 @@ class ListBookingComponent extends Component {
             search: event.target.value
         });
 
-        this.searchData();
+        //this.searchData();
 
     }
 
@@ -151,7 +151,7 @@ class ListBookingComponent extends Component {
                                                 class="nav-link active"
                                                 id="ex3-tab-1"
                                                 data-mdb-toggle="pill"
-                                                href="/add-bookings/_add"
+                                                href=""
                                                 role="tab"
                                                 aria-controls="ex3-pills-1"
                                                 aria-selected="true"
@@ -220,6 +220,7 @@ class ListBookingComponent extends Component {
                                     <table className="table table-striped table-bordered">
                                         <thead>
                                             <tr>
+                                                <th>Booking ID</th>
                                                 <th>Customer ID</th>
                                                 <th>Booking Date</th>
                                                 <th>Event Type</th>
@@ -239,6 +240,7 @@ class ListBookingComponent extends Component {
                                                 curretBookings.map(
                                                     bookings =>
                                                         <tr key={bookings.booking_id}>
+                                                            <td>{bookings.booking_id}</td>
                                                             <td>{bookings.customer_id}</td>
                                                             <td>{bookings.booking_date}</td>
                                                             <td>{bookings.event_type}</td>
