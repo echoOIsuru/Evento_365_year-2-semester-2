@@ -1,163 +1,95 @@
-body {
-  padding: 0;
-  margin: 0;
-  background-color: pink;
-  
+.App {
+  text-align: center;
 }
 
-#cartSection {
-  display: block !important;
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
 }
 
-.show {
-  display: block;
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
 }
 
-.hide {
-  display: none;
-}
-
-
-.socialMedia {
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
 }
 
-.socialMedia > div {
-  padding-right: 1vh;
+.App-link {
+  color: #61dafb;
 }
 
-.test {
-  
-  -moz-animation: fadein 1s; /* Firefox < 16 */
-  -ms-animation: fadein 1s; /* Internet Explorer */
-  -o-animation: fadein 1s; /* Opera < 12.1 */
-  animation: fadein 1s;
-}
-
-@keyframes fadein {
+@keyframes App-logo-spin {
   from {
-    opacity: 0;
+    transform: rotate(0deg);
   }
   to {
-    opacity: 1;
+    transform: rotate(360deg);
   }
 }
-
-/* Firefox < 16 */
-@-moz-keyframes fadein {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-/* Safari, Chrome and Opera > 12.1 */
-@-webkit-keyframes fadein {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-/* Internet Explorer */
-@-ms-keyframes fadein {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-/* Opera < 12.1 */
-@-o-keyframes fadein {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-
-.new-line{
-  white-space:pre-line;
-}
-
-
-
-
-
-
-
 /*
-  html {
-  font-size: 14px;
+.footer{
+  position: absolute;
+  bottom: 0;
+  width:100%;
+  height: 50px;
+  background-color: black;
+  text-align: center;
+  color: white;
 }
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-.container {
-  max-width: 960px;
-}
-.border-top { border-top: 1px solid #e5e5e5; }
-.border-bottom { border-bottom: 1px solid #e5e5e5; }
-.box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
- */
-
- .background-red {
-  background-color: red;
-}
-
-
-.store_pic{
-  width:250px;
-  height:250px;
-}
-
-.sidenav-overlay {
-  background-color: transparent;
+*/
+.footer{
+  background-color: black;
+  color: white;
   position: fixed;
-  z-index: 999; 
-}
-.navbar-fixed {
-  z-index: 999; 
-}
-.topnav input[type=text] {
-  float: right;
-  padding: 6px;
-  border: none;
-  margin-top: 8px;
-  margin-right: 16px;
-  font-size: 17px;
+  bottom: 0;
+  width:100%;
+  height: 30px;
+  background-color: black;
+  text-align: center;
+  color: white;
 }
 
-/* When the screen is less than 600px wide, stack the links and the search field vertically instead of horizontally */
-@media screen and (max-width: 600px) {
-  .topnav a, .topnav input[type=text] {
-    float: none;
-    display: block;
-    text-align: left;
-    width: 100%;
-    margin: 0;
-    padding: 14px;
+.shadow-custom {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .25), 0 3px 10px 5px rgba(0, 0, 0, 0.05) !important;
+}
+
+/*COUNT DOWN TIMER*/
+li {
+  display: inline-block;
+  font-size: 1.5em;
+  list-style-type: none;
+  padding: 1em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+li span {
+  display: block;
+  font-size: 4.5rem;
+}
+
+
+
+@media all and (max-width: 768px) {
+  
+  li {
+    font-size: 1.125rem;
+    padding: .75rem;
   }
-  .topnav input[type=text] {
-    border: 1px solid #ccc;
+  
+  li span {
+    font-size: 3.375rem;
   }
-}
-
-
-
-.search{
-  margin-right: 20px;
 }
 
 .nav-tabs {
@@ -325,7 +257,6 @@ html {
 
 .userButtons:hover{
   background-color: rgb(116, 113, 108);
-<<<<<<< HEAD
 }
 
 .custom-select {
@@ -347,13 +278,4 @@ html {
 
 .text-left {
   text-align: left!important;
-  margin-bottom:5px;
-=======
-
-}
-.viewback2{
-  background-color: rgb(245, 187, 80);
-
-
->>>>>>> main
 }

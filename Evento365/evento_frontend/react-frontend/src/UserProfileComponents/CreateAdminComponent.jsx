@@ -276,18 +276,18 @@ class CreateAdminComponent extends React.Component {
                             <hr class="mb-4" />
                             <div class="mb-3 text-left">
                                 <label  >Name</label>
-                                <input type="text" value={this.state.name} onChange={this.changeNameHandler} class="form-control" id="username" placeholder="Ex : John Doe" required />
+                                <input type="text" value={this.state.name} onChange={this.changeNameHandler} class="form-control"  placeholder="Ex : John Doe" required />
                             </div>
 
                             <div class="row">
                                 <div class="col-md-6 mb-3 text-left">
                                     <label for="firstName">Email</label>
-                                    <input type="text" value={this.state.email} onChange={this.changeEmailHandler} class="form-control" id="username" placeholder="abc@example.com" title='format : example@123.com' pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required />
+                                    <input type="text" value={this.state.email} onChange={this.changeEmailHandler} class="form-control"  placeholder="abc@example.com" title='format : example@123.com' pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required/>
                                     
                                 </div>
                                 <div class="col-md-6 mb-3 text-left">
                                     <label for="lastName">NIC</label>
-                                    <input type="text" value={this.state.nic} onChange={this.changeNICHandler} class="form-control" id="username" placeholder="123456789V" required />
+                                    <input type="text" value={this.state.nic} onChange={this.changeNICHandler} class="form-control"  placeholder="123456789V" pattern="[0-9]{9}[V]" title="Ex : 123456789V (Nine digits + V)" required/>
                                     
                                 </div>
                             </div>
@@ -295,18 +295,19 @@ class CreateAdminComponent extends React.Component {
 
                             <div class="mb-3 text-left">
                                 <label for="email">Address </label>
-                                <input type="email" value={this.state.address} onChange={this.changeAddressHandler} class="form-control" id="email" placeholder="you@example.com" />
+                                <input type="email" value={this.state.address} onChange={this.changeAddressHandler} class="form-control" id="email" placeholder="Address" required/>
 
                             </div>
                             <div class="row">
                                 <div class="col-md-6 mb-3 text-left">
                                     <label >Username</label>
-                                    <input type="text" value={this.state.username} onChange={this.changeUsernameHandler} class="form-control" id="username" required />
+                                    <input type="text" value={this.state.username} onChange={this.changeUsernameHandler} class="form-control" pattern="[A-Za-z0-9]{5,20}" title="Minimum :5 Maximum:20 (Letters/Numbers)" required />
                                     
                                 </div>
                                 <div class="col-md-6 mb-3 text-left">
                                     <label >Password</label>
-                                    <input type="password" value={this.state.password} onChange={this.changePasswordHandler} class="form-control" id="username" required />
+                                    <input type="password" value={this.state.password} onChange={this.changePasswordHandler} class="form-control" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                            title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters" required />
                                     
                                 </div>
                             </div>
@@ -318,7 +319,7 @@ class CreateAdminComponent extends React.Component {
                                 </div>
                                 <div class="col-md-6 mb-3 text-left">
                                     <label >Mobile</label>
-                                    <input type="text" value={this.state.mobile} onChange={this.changeMobileHandler} class="form-control" id="username" placeholder="077-XXXXXXX" required />
+                                    <input type="text" value={this.state.mobile} onChange={this.changeMobileHandler} class="form-control" id="username" placeholder="077-XXXXXXX" pattern="[0-9]{10}" title="Must be 10 digits long." required />
                                     
                                 </div>
                             </div>
@@ -332,7 +333,7 @@ class CreateAdminComponent extends React.Component {
 
                                 <div class="col-md-3 mb-2 text-left">
                                     <label for="zip">Answer</label>
-                                    <input type="text" value={this.state.sec_ques_answer} onChange={this.changeSecQuesAnsHandler} class="form-control" id="zip" placeholder="" required />
+                                    <input type="text" value={this.state.sec_ques_answer} onChange={this.changeSecQuesAnsHandler} class="form-control" id="zip" placeholder="Answer" required />
                                 </div>
                             </div>
 
