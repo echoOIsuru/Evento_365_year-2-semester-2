@@ -67,7 +67,6 @@ public class CustomerController {
 		customer.setReg_date(customerDetails.getReg_date());
 		customer.setEmail(customerDetails.getEmail());
 		customer.setImage(customerDetails.getImage());
-		customer.setCustomer_type(customerDetails.getCustomer_type());
 		customer.setSec_ques_no(customerDetails.getSec_ques_no());
 		customer.setSec_ques_answer(customerDetails.getSec_ques_answer());
 		customer.setGender(customerDetails.getGender());
