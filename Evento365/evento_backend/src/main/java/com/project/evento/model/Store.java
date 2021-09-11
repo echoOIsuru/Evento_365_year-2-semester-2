@@ -1,5 +1,7 @@
 package com.project.evento.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,8 +25,8 @@ public class Store {
 	@Column(name = "description")
 	private String description;
 	
-	@Column(name = "itemcategoryid")
-	private String itemcategoryid;
+	@Column(name = "itemcategory")
+	private String itemcategory;
 	
 	@Column(name = "colour")
 	private String colour;
@@ -49,13 +51,13 @@ public class Store {
 		
 	}
 	
-	public Store(String item_title, String description , String itemcategoryid,String colour ,
+	public Store(String item_title, String description , String itemcategory,String colour ,
 			String additional,Double price, String img_url,String availability ) {
 		super();
 		
 		this.item_title = item_title;
 		this.description = description;
-		this.itemcategoryid = itemcategoryid;
+		this.itemcategory = itemcategory;
 		this.colour = colour;
 		
 		this.additional = additional;
@@ -94,12 +96,10 @@ public class Store {
 
 	
 
-	public String getItemcategoryid() {
-		return itemcategoryid;
-	}
+	
 
-	public void setItemcategoryid(String itemcategoryid) {
-		this.itemcategoryid = itemcategoryid;
+	public void setItemcategory(String itemcategory) {
+		this.itemcategory = itemcategory;
 	}
 
 	public String getColour() {
@@ -141,6 +141,12 @@ public class Store {
 	public void setAvailability(String availability) {
 		this.availability = availability;
 	}
+
+	public String getItemcategory() {
+		return itemcategory;
+	}
+
+	
 
 	
 }
