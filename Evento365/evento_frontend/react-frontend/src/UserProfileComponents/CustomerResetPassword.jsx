@@ -132,23 +132,24 @@ class CustomerResetPassword extends Component {
                     <div style={{ width: '450px' }}>
 
                         <fieldset className="blackborder transformDiv">
-                            <form >
+                            <form onSubmit={this.validatePasswords}>
                                 <h3>Reset Password</h3>
                                 <br />
 
                                 <div className="form-group">
                                     <label>New Password :</label>
-                                    <input type="password" onChange={this.changePasswordHandler1} className="form-control" placeholder="New Password" />
+                                    <input type="password" onChange={this.changePasswordHandler1} className="form-control" placeholder="New Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                            title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters" required/>
                                 </div>
 
                                 <div className="form-group">
                                     <label>Re-enter Password :</label>
-                                    <input type="password" onChange={this.changePasswordHandler2} className="form-control" placeholder="New Password" />
+                                    <input type="password" onChange={this.changePasswordHandler2} className="form-control" placeholder="New Password" required/>
                                 </div>
 
                                 <br />
 
-                                <button type="submit" onClick={this.validatePasswords} className="userButtons">CHANGE PASSWORD</button>
+                                <button type="submit"  className="userButtons">CHANGE PASSWORD</button>
                                 <br /><br />
 
                             </form>

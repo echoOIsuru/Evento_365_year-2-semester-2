@@ -41,7 +41,7 @@ public class Customer {
 	@Column(name = "reg_date")
 	private String reg_date;
 	
-	@Column(name = "email")
+	@Column(unique = true ,name = "email")
 	private String email;
 	
 	@Column(name = "sec_ques_no")
