@@ -1,6 +1,10 @@
 import axios from 'axios';
 
+<<<<<<< Updated upstream
 const LOCATION_API_BASE_URL = "http://localhost:8090/api/v1/locations";
+=======
+const LOCATION_API_BASE_URL = "http://localhost:8099/api/v1/locations";
+>>>>>>> Stashed changes
 
 class LocationService{
 

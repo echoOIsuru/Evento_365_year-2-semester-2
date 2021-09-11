@@ -92,6 +92,7 @@ li span {
   }
 }
 
+
 .nav-tabs {
   border-bottom:none;
 }
@@ -257,4 +258,8 @@ html {
 
 .userButtons:hover{
   background-color: rgb(116, 113, 108);
+}
+.viewback2{
+  background-color: rgb(245, 187, 80);
+
 }
