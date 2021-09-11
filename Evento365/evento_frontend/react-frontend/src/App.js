@@ -12,6 +12,19 @@ import ListLocationComponent from './bookingComponents/ListLocationComponent';
 
 
 
+import ListHireComponent from './eventPlannerComponents/ListHireComponent';
+import CreateHirecomponents from './eventPlannerComponents/CreateHirecomponents';
+import UpdateHiringComponent from './eventPlannerComponents/UpdateHiringComponent';
+import ListEventPlannerComponent from './eventPlannerComponents/ListEventPlannerComponent';
+import CreateEventPlannerComponent from './eventPlannerComponents/CreateEventPlannerComponent';
+import UpdateEventPlannerComponent from './eventPlannerComponents/UpdateEventPlannerComponent';
+import UserInterface1 from './eventPlannerComponents/UserInterface1';
+import viewEventplannerProfile from './eventPlannerComponents/viewEventplannerProfile';
+import HiredEventPlannersList from './eventPlannerComponents/HiredEventPlannersList';
+import FeedBackList from './eventPlannerComponents/FeedBackList';
+import CreateFeedback from './eventPlannerComponents/CreateFeedback';
+import UpdateFeedback from './eventPlannerComponents/UpdateFeedback';
+
 
 
 
@@ -91,15 +104,6 @@ import OrderDetailComponent from './rentingComponent/OrderDetailComponent';
 function App() {
   return (
 
-
-
-
- 
-
-
-
-
-
     <div >
       <div className="bg-image"
         style={{ backgroundImage: "url('https://thumbs.dreamstime.com/b/wedding-floral-decorative-vintage-background-ecru-bege-wedding-floral-decorative-vintage-background-ecru-bege-pale-wallpaper-119328289.jpg')" }} >
@@ -140,6 +144,9 @@ function App() {
               <Route path="/customer-passreset" component={CustomerResetPassword}></Route>
               <Route path="/homepage" component={EventoHomepage}></Route>
 
+
+
+
 	
                   <Route path = "/payments" component = {ListPayDetailComponent}></Route>
                   <Route path = "/addpaydetails" component = {MakePaymentComponent}></Route>
@@ -150,6 +157,22 @@ function App() {
                   <Route path = "/update-promo/:id" component = {UpdatePromoCodeComponent}></Route>
                   <Route path = "/card" component = {CreditCardComponent}></Route>
                   <Route path = "/complete" component = {PaymentComplete}></Route>
+
+				  
+				  <Route path="/hiring" component ={ListHireComponent}></Route>
+
+            <Route path="/add-hire" component ={CreateHirecomponents}></Route>
+            <Route path="/update-hire/:id" component ={UpdateHiringComponent}></Route>
+            <Route path="/eventplanner" component ={ ListEventPlannerComponent}></Route>
+            <Route path="/add-eventplanner" component ={ CreateEventPlannerComponent}></Route>
+            <Route path="/Update-eventplanner/:id" component ={ UpdateEventPlannerComponent}></Route>
+            <Route path="/ui" component ={ UserInterface1}></Route>
+            <Route path="/eventplannerprofile/:id" component ={ viewEventplannerProfile}></Route>
+            <Route path="/hiredlist" component ={ HiredEventPlannersList}></Route>
+            <Route path="/feedback" component ={ FeedBackList}></Route>
+            <Route path="/create_feedback" component ={ CreateFeedback}></Route>
+            <Route path="/update_feedback/:id" component ={UpdateFeedback}></Route>
+
 
 
 
@@ -186,14 +209,13 @@ function App() {
 
 
 
+
             </Switch>
           </div>
           <FooterComponent />
         </Router>
       </div>
-
-
-                            
+                   
 
     </div>
 
