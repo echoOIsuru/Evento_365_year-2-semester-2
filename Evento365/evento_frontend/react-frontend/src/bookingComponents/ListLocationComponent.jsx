@@ -330,11 +330,50 @@ class ListLocationComponent extends Component {
                             <section class="full-width background-white">
 
                                 <div className="row">
-                                    <button className="btn btn-primary" onClick={this.addLocation}>Create Location</button>
+                                    
+                                <ul class="nav nav-tabs nav-justified mb-3" id="ex1" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <a
+                                            class="nav-link"
+                                            id="ex3-tab-1"
+                                            data-mdb-toggle="pill"
+                                            href="/bookings"
+                                            role="tab"
+                                            aria-controls="ex3-pills-1"
+                                            aria-selected="true"
+                                        >Booking DashBoard</a
+                                        >
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <a
+                                            class="nav-link active"
+                                            id="ex3-tab-2"
+                                            data-mdb-toggle="pill"
+                                            href="/locations"
+                                            role="tab"
+                                            aria-controls="ex3-pills-2"
+                                            aria-selected="false"
+                                        >Location Panel</a
+                                        >
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <a
+                                            class="nav-link"
+                                            id="ex3-tab-3"
+                                            data-mdb-toggle="pill"
+                                            href="#ex3-pills-3"
+                                            role="tab"
+                                            aria-controls="ex3-pills-3"
+                                            aria-selected="false"
+                                        >Overview and Report</a
+                                        >
+                                    </li>
+                                </ul>
+
                                 </div>
                                 <br></br>
 
-                                <div className="row">
+                                <div className="row formDivgg">
                                     <div style={{ background: "#F2F2F2" }}>
 
                                         <div style={{ "float": "left" }}>
