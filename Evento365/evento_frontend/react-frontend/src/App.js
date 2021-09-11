@@ -9,6 +9,7 @@ import UpdateBookingComponent from './bookingComponents/UpdateBookingComponent';
 import ViewBookingComponent from './bookingComponents/ViewBookingComponent';
 import SuccessBooking from './bookingComponents/SuccessBooking';
 import ListLocationComponent from './bookingComponents/ListLocationComponent';
+
 import ListVehicleComponent from './vehiclemanagementComponents/ListVehicleComponent';
 import CreateVehicleComponent from './vehiclemanagementComponents/CreateVehicleComponent';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -44,9 +45,23 @@ import PaymentComplete from './PaymentHandlingComponents/PaymentComplete';
 import ListPayDetailComponent from './PaymentHandlingComponents/ListPayDetailComponent';
 
 
+import ListFoodComponent from './foodComponents/ListFoodComponent';
+import CreateFoodComponent from './foodComponents/CreateFoodComponent';
+import UpdateFoodComponent from './foodComponents/UpdateFoodComponent';
+import ViewFoodComponent from './foodComponents/ViewFoodComponent';
+import customerFoodList from './foodComponents/customerFoodList';
+import bookingFoodComponent from './foodComponents/bookingFoodComponent';
+import customerviewcomponent from './foodComponents/customerviewcomponent';
+import chinesefoodComponent from './foodComponents/chinesefoodComponent';
+
+
+
+
+
 
 function App() {
   return (
+
     <div >
       <div className="bg-image"
         style={{ backgroundImage: "url('https://thumbs.dreamstime.com/b/wedding-floral-decorative-vintage-background-ecru-bege-wedding-floral-decorative-vintage-background-ecru-bege-pale-wallpaper-119328289.jpg')" }} >
@@ -98,11 +113,31 @@ function App() {
                   <Route path = "/card" component = {CreditCardComponent}></Route>
                   <Route path = "/complete" component = {PaymentComplete}></Route>
 
+
+
+                  <Route path="/" exact component = {ListFoodComponent}></Route>
+                    <Route path="/food"  component = {ListFoodComponent}></Route>  
+                    <Route path="/add-food" component = {CreateFoodComponent}></Route>
+                    <Route path="/update-food/:id" component = {UpdateFoodComponent}></Route>
+                    <Route path="/view-food/:id" component = {ViewFoodComponent}></Route>
+                    <Route path="/custom"  component = {customerFoodList}></Route>
+                    <Route path="/cus-book-food/:id"  component = {bookingFoodComponent}></Route>
+
+                    <Route path="/cusview"  component = {customerviewcomponent}></Route>
+                    
+                    <Route path="/chinese/:id"  component = {chinesefoodComponent}></Route>
+
+
+
             </Switch>
           </div>
           <FooterComponent />
         </Router>
       </div>
+
+
+                            
+
     </div>
   );
 }
