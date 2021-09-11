@@ -84,7 +84,7 @@ class ListBookingComponent extends Component {
     }
 
     addBooking() {
-        sessionStorage.setItem('testCase',"NICE");
+        sessionStorage.setItem('testCase', "NICE");
         this.props.history.push('/add-bookings/_add');
     }
 
@@ -93,7 +93,7 @@ class ListBookingComponent extends Component {
             search: event.target.value
         });
 
-        this.searchData();
+        //this.searchData();
 
     }
 
@@ -119,7 +119,7 @@ class ListBookingComponent extends Component {
                 currentPage: 1
             });
         });
- 
+
     }
 
 
@@ -144,11 +144,50 @@ class ListBookingComponent extends Component {
                             <section class="full-width background-white">
 
                                 <div className="row">
-                                    <button className="btn btn-primary" onClick={this.addBooking}>Create Booking</button>
+
+                                    <ul class="nav nav-tabs nav-justified mb-3 " id="ex1" role="tablist">
+                                        <li class="nav-item " role="presentation">
+                                            <a
+                                                class="nav-link active"
+                                                id="ex3-tab-1"
+                                                data-mdb-toggle="pill"
+                                                href=""
+                                                role="tab"
+                                                aria-controls="ex3-pills-1"
+                                                aria-selected="true"
+                                            >Booking DashBoard</a
+                                            >
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <a
+                                                class="nav-link"
+                                                id="ex3-tab-2"
+                                                data-mdb-toggle="pill"
+                                                href="/locations"
+                                                role="tab"
+                                                aria-controls="ex3-pills-2"
+                                                aria-selected="false"
+                                            >Location Panel</a
+                                            >
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <a
+                                                class="nav-link"
+                                                id="ex3-tab-3"
+                                                data-mdb-toggle="pill"
+                                                href="#ex3-pills-3"
+                                                role="tab"
+                                                aria-controls="ex3-pills-3"
+                                                aria-selected="false"
+                                            >Overview and Report</a
+                                            >
+                                        </li>
+                                    </ul>
+
                                 </div>
                                 <br></br>
 
-                                <div className="row">
+                                <div className="row formDivgg">
                                     <div style={{ background: "#F2F2F2" }}>
 
                                         <div style={{ "float": "left" }}>
@@ -181,6 +220,7 @@ class ListBookingComponent extends Component {
                                     <table className="table table-striped table-bordered">
                                         <thead>
                                             <tr>
+                                                <th>Booking ID</th>
                                                 <th>Customer ID</th>
                                                 <th>Booking Date</th>
                                                 <th>Event Type</th>
@@ -200,6 +240,7 @@ class ListBookingComponent extends Component {
                                                 curretBookings.map(
                                                     bookings =>
                                                         <tr key={bookings.booking_id}>
+                                                            <td>{bookings.booking_id}</td>
                                                             <td>{bookings.customer_id}</td>
                                                             <td>{bookings.booking_date}</td>
                                                             <td>{bookings.event_type}</td>
@@ -209,30 +250,30 @@ class ListBookingComponent extends Component {
                                                             <td>{bookings.date}</td>
                                                             <td>{bookings.total}</td>
                                                             <td>
-                                                            <div class="btn-group" role="group" >
-                                                                
-                                                                <button onClick={() => this.editBooking(bookings.booking_id)} className="btn btn-outline-success" style={{width:"80px"}}>Update</button>
-                                                                
-                                                                <button className="btn btn-outline-danger" style={{width:"80px"}}      
-                                                                  onClick={() => {
-                                                                    const confirmBox = window.confirm(
-                                                                      "Do you really want to delete this record?"
-                                                                    )
-                                                                    if (confirmBox === true) {
-                                                                        this.deleteBooking(bookings.booking_id)
-                                                                    }
-                                                                  }}>Delete</button>
-                                                                
-                                                                {/*<button onClick={() => this.viewBooking(bookings.booking_id)} className="btn btn-outline-secondary" style={{width:"80px"}}>View</button>*/}
-                                                            
-                                                            </div>
+                                                                <div class="btn-group" role="group" >
+
+                                                                    <button onClick={() => this.editBooking(bookings.booking_id)} className="btn btn-outline-success" style={{ width: "80px" }}>Update</button>
+
+                                                                    <button className="btn btn-outline-danger" style={{ width: "80px" }}
+                                                                        onClick={() => {
+                                                                            const confirmBox = window.confirm(
+                                                                                "Do you really want to delete this record?"
+                                                                            )
+                                                                            if (confirmBox === true) {
+                                                                                this.deleteBooking(bookings.booking_id)
+                                                                            }
+                                                                        }}>Delete</button>
+
+                                                                    {/*<button onClick={() => this.viewBooking(bookings.booking_id)} className="btn btn-outline-secondary" style={{width:"80px"}}>View</button>*/}
+
+                                                                </div>
                                                             </td>
                                                         </tr>
                                                 )
                                             }
                                         </tbody>
                                     </table>
-                                    <tfoot>
+                                    <tfoot >
                                         <div style={{ "float": "left" }}>
                                             Showing Page {currentPage} of {totalPage}
                                         </div>

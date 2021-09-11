@@ -60,6 +60,8 @@ public class RentalItemController {
 		rentalitem.setDescription(rentalitemDetails.getDescription());
 		rentalitem.setRentalperday(rentalitemDetails.getRentalperday());
 		rentalitem.setTotalunits(rentalitemDetails.getTotalunits());
+		rentalitem.setImage(rentalitemDetails.getImage());
+		rentalitem.setAvailableunits(rentalitemDetails.getAvailableunits());
 		
 		RentalItem updatedRentalItem = rentRepository.save(rentalitem);
 		
@@ -77,5 +79,25 @@ public class RentalItemController {
 		Map<String, Boolean> response = new HashMap<>(); 
 		response.put("deleted", Boolean.TRUE);
 		return ResponseEntity.ok(response);
+	}
+	
+	//update available units
+	@PutMapping("/updateavailable/{rentalitemid}")
+	public ResponseEntity<RentalItem> updateAvailableUnits(@PathVariable int rentalitemid, @RequestBody RentalItem rentalitemavl){
+		
+		RentalItem rentalitem = rentRepository.findById(rentalitemid)
+				.orElseThrow(() -> new ResourceNotFoundException("Item not exist with id :" + rentalitemid));
+		
+		rentalitem.setName(rentalitemavl.getName());
+		rentalitem.setDescription(rentalitemavl.getDescription());
+		rentalitem.setRentalperday(rentalitemavl.getRentalperday());
+		rentalitem.setTotalunits(rentalitemavl.getTotalunits());
+		rentalitem.setImage(rentalitemavl.getImage());
+		rentalitem.setAvailableunits(rentalitemavl.getAvailableunits());
+		
+		RentalItem updatedRentalItem = rentRepository.save(rentalitem);
+		
+		return ResponseEntity.ok(updatedRentalItem);
+		
 	}
 }

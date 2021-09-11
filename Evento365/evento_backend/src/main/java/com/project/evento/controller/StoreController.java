@@ -61,7 +61,7 @@ public class StoreController {
 		
 		store.setItem_title(storeDe.getItem_title());
 		store.setDescription(storeDe.getDescription());
-		store.setItemcategoryid(storeDe.getItemcategoryid());
+		store.setItemcategory(storeDe.getItemcategory());
 		store.setColour(storeDe.getColour());
 		
 		store.setAdditional(storeDe.getAdditional());
@@ -85,7 +85,6 @@ public class StoreController {
 		response.put("deleted", Boolean.TRUE);
 		return ResponseEntity.ok(response);
 	}
-	
 	
 	
 }

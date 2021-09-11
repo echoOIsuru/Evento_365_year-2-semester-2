@@ -19,10 +19,22 @@ class SuccessBooking extends Component {
             });
 
         });
+        
+        var data = sessionStorage.getItem('bookingSession');
+        data = JSON.parse(data);
 
-
+        console.log(data,"JSON");
+        data.total = 800000;    
+       sessionStorage.setItem('bookingSession',JSON.stringify(data));
+        
     }
 
+
+    
+    goToFd(){
+      
+        this.props.history.push('/add-bookings/_price');
+    }
 
     render() {
         return (
@@ -41,6 +53,7 @@ class SuccessBooking extends Component {
                         <br></br>
                         <div className="card col-md-6 offset-md-3">
                             <h3 className="text-center">Booking Details</h3>
+                            <button onClick={this.goToFd.bind(this)}>GO</button>
                             <div className="card-body">
 
                                 {

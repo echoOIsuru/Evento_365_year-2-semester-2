@@ -80,7 +80,7 @@ public class BokingController {
 		booking.setEvent_type(bookingDe.getEvent_type());
 		booking.setGusts(bookingDe.getGusts());
 		booking.setLocation_id(bookingDe.getLocation_id());
-		//booking.setTotal(bookingDe.getTotal());
+		booking.setTotal(bookingDe.getTotal());
 		booking.setStatus(bookingDe.getStatus());
 		
 		Booking updateBooking = bookingRepository.save(booking);
