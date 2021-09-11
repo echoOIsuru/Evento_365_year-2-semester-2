@@ -9,7 +9,7 @@
     letter-spacing:1px;
     display: grid;
     grid-template-columns: 1fr auto 1fr;
-    grid-template-rows: 16px 0;
+    grid-template-rows: 25px 0;
     grid-gap: 22px;
  
     
@@ -17,6 +17,6 @@
 .headingMods:after,.headingMods:before {
     content: " ";
     display: block;
-    border-bottom: 2px solid #ccc;
-    background-color:white;
+    border-bottom: 5px solid rgb(63, 63, 63);
+    
 }
