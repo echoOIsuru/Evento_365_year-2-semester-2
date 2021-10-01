@@ -76,7 +76,7 @@ class CreateItemComponent extends Component {
                                         <label style={{marginBottom:"10px",marginLeft:"5px"}}> Item Name </label>
                                         <input style={{marginBottom:"10px"}} placeholder="Item Name" name="name" className="form-control" 
                                         value={this.state.name} onChange={this.changeNameHandler} 
-                                        pattern="[A-Za-z0-9]{0,50}" title="The name should consist of maximum 50 numerical values and characters" required/>
+                                        pattern="[A-Za-z0-9 ]{0,50}" title="The name should consist of maximum 50 numerical values and characters" required/>
                                         
                                     </div>
 
@@ -84,7 +84,7 @@ class CreateItemComponent extends Component {
                                         <label style={{marginBottom:"10px",marginLeft:"5px"}}> Description </label>
                                         <input style={{marginBottom:"10px"}} placeholder="Description" name="description" className="form-control" 
                                         value={this.state.description} onChange={this.changeDescriptionHandler} 
-                                        pattern="[A-Za-z]{0,100}" title="The description should consist of maximum 100 characters" required/>
+                                        pattern="[A-Za-z0-9 ]{0,100}" title="The description should consist of maximum 100 characters" required/>
                                     </div>
 
                                     <div className="form-group">
@@ -116,7 +116,7 @@ class CreateItemComponent extends Component {
 
                                     {/* <button className="btn btn-success" onClick={this.saveItems}> Save </button> */}
                                     <input style={{width:"150px", height:"40px",marginTop:"20px"}} className="btn btn-success" type="submit" value="Save"/>
-                                    <button className="btn btn-danger" onClick={this.cancel.bind(this)} style= {{marginLeft: "300px",width:"150px", height:"40px",marginTop:"20px"}}> Cancel</button>
+                                    <button className="btn btn-danger" onClick={this.cancel.bind(this)} style= {{marginLeft: "300px", height:"40px",marginTop:"20px"}}> Cancel</button>
                                 </form>
                             </div>
                         </div>

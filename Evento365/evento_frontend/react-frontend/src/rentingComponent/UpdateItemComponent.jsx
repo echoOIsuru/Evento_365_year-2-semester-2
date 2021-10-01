@@ -10,13 +10,17 @@ class UpdateItemComponent extends Component {
             name:'',
             description:'',
             rentalperday:'',
-            totalunits:''
+            totalunits:'',
+            availableunits:'',
+            image: '',
         }
         this.changeNameHandler = this.changeNameHandler.bind(this);
         this.changeDescriptionHandler = this.changeDescriptionHandler.bind(this);
         this.changeRentalPerDayHandler = this.changeRentalPerDayHandler.bind(this);
         this.changeTotalUnitsHandler = this.changeTotalUnitsHandler.bind(this);
         this.updateItem = this.updateItem.bind(this);
+        this.changeAvalUnitsHandler = this.changeAvalUnitsHandler.bind(this);
+        this.changeImageHandler = this.changeImageHandler.bind(this);
     }
 
     componentDidMount(){
@@ -25,7 +29,9 @@ class UpdateItemComponent extends Component {
             this.setState({name: rentalitem.name,
                 description: rentalitem.description,
                 rentalperday: rentalitem.rentalperday,
-                totalunits: rentalitem.totalunits
+                totalunits: rentalitem.totalunits,
+                availableunits : rentalitem.availableunits,
+                image: rentalitem.image,
             });
         } );
     }
@@ -35,7 +41,9 @@ class UpdateItemComponent extends Component {
         let rentalitem =   {name:this.state.name,
             description:this.state.description,
             rentalperday:this.state.rentalperday,
-            totalunits:this.state.totalunits
+            totalunits:this.state.totalunits,
+            availableunits: this.state.availableunits,
+            image: this.state.image
         };
        
         RentalItemService.updateItem(rentalitem, this.state.rentalitemid).then(res => {
@@ -61,6 +69,14 @@ class UpdateItemComponent extends Component {
 
     changeTotalUnitsHandler= (event) => {
         this.setState({totalunits: event.target.value});
+    }
+
+    changeAvalUnitsHandler= (event) => {
+        this.setState({availableunits: event.target.value});
+    }
+
+    changeImageHandler= (event) => {
+        this.setState({image: event.target.value});
     }
 
     render() {
@@ -95,6 +111,18 @@ class UpdateItemComponent extends Component {
                                         <label> Total Units </label>
                                         <input placeholder="Total Units" name="totalunits" className="form-control" 
                                         value={this.state.totalunits} onChange={this.changeTotalUnitsHandler} />
+                                    </div>
+
+                                    <div className="form-group">
+                                        <label> Available Units </label>
+                                        <input placeholder="Available units" name="availableunits" className="form-control" 
+                                        value={this.state.availableunits} onChange={this.changeAvalUnitsHandler} />
+                                    </div>
+
+                                    <div className="form-group">
+                                        <label> Image </label>
+                                        <input placeholder="image" name="image" className="form-control" 
+                                        value={this.state.image} onChange={this.changeImageHandler} />
                                     </div>
 
                                     <button className="btn btn-success" onClick={this.updateItem}> Save </button>

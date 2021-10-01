@@ -73,7 +73,7 @@ import ListPayDetailComponent from './PaymentHandlingComponents/ListPayDetailCom
 
 function App() {
   return (
-    <div >
+    <div>
       <div className="bg-image"
         style={{ backgroundImage: "url('https://thumbs.dreamstime.com/b/wedding-floral-decorative-vintage-background-ecru-bege-wedding-floral-decorative-vintage-background-ecru-bege-pale-wallpaper-119328289.jpg')" }} >
         <Router>
