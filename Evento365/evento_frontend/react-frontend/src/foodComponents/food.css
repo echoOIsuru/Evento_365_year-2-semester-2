@@ -1,0 +1,15 @@
+.viewback2{
+    background-color: rgb(245, 187, 80);
+    border-radius: 20px;
+    margin-bottom: 25px;
+  }
+  
+  .foodGrid{
+    -webkit-box-shadow: -1px 8px 15px 0px rgba(0, 0, 0, 0.44);
+  
+      -moz-box-shadow: -1px 8px 15px 0px rgba(0, 0, 0, 0.44);
+  
+      box-shadow: -1px 8px 15px 0px rgba(0, 0, 0, 0.44);
+  
+      
+  }
