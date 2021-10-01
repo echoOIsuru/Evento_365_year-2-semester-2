@@ -10,7 +10,7 @@ class ItemDetailComponent extends Component {
                 rentalitemid : this.props.match.params.rentalitemid,
                 name:'',
                 quantity:'',
-                bookingid:'2',
+                bookingid:'',
                 image:'',
                 price:'',
                 description: '',
@@ -29,34 +29,64 @@ class ItemDetailComponent extends Component {
 
     addItem= (e) => {   
         e.preventDefault();
+
+        var data = sessionStorage.getItem('bookingSession');
+        data = JSON.parse(data);
+
+        this.state.bookingid = data.booking_id;
+
+
         let temporaryitem = {quantity: this.state.quantity,name:this.state.name,
             price:(this.state.quantity*this.state.rentalperday),
-            bookingid: this.state.bookingid};
+            bookingid: data.booking_id};
         console.log('tempraryitem => ' + JSON.stringify(temporaryitem));
 
-        if (this.state.availableunits < this.state.quantity){
+        var flag = 0;
 
-            window.alert("We have only " + this.state.availableunits + " items");
-        }
-        else {
-            RentalItemService.createTemporaryItemCart(temporaryitem).then(res => {
-                //this.props.history.push('/temporaryitems');
-                this.props.history.push('/order-detail');
-            })
+        //30-sep
         
-            let rentalitem =   {name:this.state.name,
-                description:this.state.description,
-                rentalperday:this.state.rentalperday,
-                image: this.state.image,
-                totalunits:this.state.totalunits,
-                availableunits: this.state.availableunits - this.state.quantity,
-            };
-           
-            RentalItemService.updateAvailable(rentalitem, this.state.rentalitemid).then(res => {
-                
-            }); 
+        RentalItemService.retrieveItems(data.booking_id).then((res) => {
+            let items = res.data;
+            var len = items.length;
+            
 
-        }  
+            for (var i = 0; i < len; i++){
+                if(items[i].name = this.state.name){
+                    flag = 1
+                    break;
+                }
+            }
+        })
+
+        if (flag ==1){
+            RentalItemService.updateQuantity(this.state.name).then(res => {
+                       
+            });
+        } else {
+            if (this.state.availableunits < this.state.quantity){
+
+                window.alert("We have only " + this.state.availableunits + " items");
+            }
+            else {
+                RentalItemService.createTemporaryItemCart(temporaryitem).then(res => {
+                    //this.props.history.push('/temporaryitems');
+                    this.props.history.push('/order-detail');
+                })
+            
+                let rentalitem =   {name:this.state.name,
+                    description:this.state.description,
+                    rentalperday:this.state.rentalperday,
+                    image: this.state.image,
+                    totalunits:this.state.totalunits,
+                    availableunits: this.state.availableunits - this.state.quantity,
+                };
+               
+                RentalItemService.updateAvailable(rentalitem, this.state.rentalitemid).then(res => {
+                    
+                }); 
+    
+            }
+        }
     }
 
     componentDidMount(){
@@ -69,8 +99,11 @@ class ItemDetailComponent extends Component {
                 image: rentalitem.image,
                 availableunits: rentalitem.availableunits,
                 totalunits: rentalitem.totalunits,
-            });
+            }); 
+
         });
+
+        
 
     }
 
@@ -84,7 +117,7 @@ class ItemDetailComponent extends Component {
 
             {/* <center> */}
 
-            <div class="formDiv" >
+            <div class="formrDivitemrent1" >
                 <main class="mt-5 pt-4">
                     <div class="container dark-grey-text mt-5">
                         <div class="row wow fadeIn">
@@ -92,25 +125,27 @@ class ItemDetailComponent extends Component {
                             <div class="col-md-6 mb-4"> 
                             <div>
                             <center>
-                                <img style={{width:"500px", height:"500px"}} src={this.state.image}></img> 
+                                <img style={{width:"400px", height:"400px",borderRadius:"20px",marginRight:"200px"}} src={this.state.image}></img> 
                             </center>
                             </div>
                             </div>
 
                             <div class="col-md-6 mb-4">  
 
-                                <div class="p-4">
-                                    <p class="lead font-weight-bold"> {this.state.name} </p>
-                                    <p class="lead"> Rs.{this.state.rentalperday} Per day </p>     
+                                <div class="p-4" style={{marginLeft:"100px"}}>
+                                    <p style={{fontSize:"30px",textTransform:"uppercase"}} class="lead font-weight-bold"> {this.state.name} </p>
+                                    <p style={{fontSize:"23px", fontWeight:"500"}} class="lead"> Rs.{this.state.rentalperday} Per day </p>
+                                    <p style={{fontSize:"18px", fontWeight:"500"}} class="lead">{this.state.description}</p>      
                                     <p class="lead"> Available units : {this.state.availableunits}</p> 
-                                    <p class="lead"> {this.state.description} </p> 
+                                     
                                     
 
                                     <form onSubmit={this.addItem} class="d-flex justify-content-left">
                                         <div className="form-group">
                                             <label> Quantity </label>
                                             <input placeholder="Quantity" name="quantity" className="form-control" 
-                                            value={this.state.quantity} onChange={this.changeQuantityHandler} required/>
+                                            value={this.state.quantity} onChange={this.changeQuantityHandler} 
+                                            pattern="[0-9]{0,4}" title="The quantity should consist of numerical values"required/>
                                             <input style={{width:"150px", height:"40px",marginTop:"20px"}} className="btn btn-success" type="submit" value="Add to booking"></input>
                                         </div>
                                     </form>
