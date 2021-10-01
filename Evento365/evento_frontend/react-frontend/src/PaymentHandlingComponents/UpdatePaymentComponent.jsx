@@ -59,6 +59,7 @@ class UpdatePaymentComponent extends Component {
 
     render() {
         return (
+            <div className="container">
             <div  style={{marginTop: 120, marginBottom:270}}>
                 <br></br>
                    <div className = "form2">
@@ -78,7 +79,7 @@ class UpdatePaymentComponent extends Component {
                                         <div className = "form-group">
                                             <label> Customer Name: </label>
                                             <input placeholder="Customer Name" name="customerName" className="form-control" 
-                                                value={this.state.customerName} onChange={this.changecustomerNameHandler}/>
+                                                value={this.state.customerName} onChange={this.changecustomerNameHandler} disabled/>
                                         </div>
                                         <br />
                                         <div className = "form-group">
@@ -110,6 +111,7 @@ class UpdatePaymentComponent extends Component {
                    </div>
 
                    <br /> <br /><br /> <br /><br /> <br /><br /> <br /><br /> <br /><br /> <br />
+            </div>
             </div>
         )
     }

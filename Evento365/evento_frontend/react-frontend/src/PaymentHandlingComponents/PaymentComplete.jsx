@@ -51,6 +51,7 @@ class PaymentComplete extends Component {
 
     render() {
         return (
+            <div className="container">
             <div>
                 {this.testSession()}
                 <h2 style={{marginTop: 130,marginLeft: 10}}>Your Order is Complete!</h2>
@@ -62,6 +63,7 @@ class PaymentComplete extends Component {
                 <button className="edidelbtn" onClick={this.paymenthistory} style={{marginLeft: 100, marginBottom:20, width:"40%"}}> Payment History</button>
                 <div style={{fontStyle:'italic',marginLeft:"20px"}}>(Your payment will be confirmed soon, stay with us)</div>
                 <br /> <br />
+            </div>
             </div>
         );
     }

@@ -39,6 +39,15 @@ class PromoService{
         return axios.get(PROMO_API_BASE_URL + '/search/' + keyword);
     }
 
+    deletedPromos(){
+        return axios.get("http://localhost:8080/api/v1/deletedpromocodes");
+    }
+
+    searchDeletedPromos(keyword){
+        return axios.get("http://localhost:8080/api/v1//deletedpromocodes/search/" + keyword);
+    }
+    
+
 }
 
 export default new PromoService()

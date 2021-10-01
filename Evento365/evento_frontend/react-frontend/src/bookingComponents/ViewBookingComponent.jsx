@@ -8,10 +8,10 @@ class ViewBookingComponent extends Component {
         super(props)
 
         this.state = {
-            //id: this.props.match.params.id,
-            customer_id:11,
-            id:10,
-            
+            id: this.props.match.params.id,
+            customer_id:20,
+            //id:10,
+            //total:5000,
             booking: {},
             time: {},
             seconds: 10,

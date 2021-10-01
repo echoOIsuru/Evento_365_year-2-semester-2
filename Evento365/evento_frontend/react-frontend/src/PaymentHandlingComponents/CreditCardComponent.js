@@ -6,7 +6,8 @@ import "../PaymentHandlingStyles/CreditCardComponent.css";
 import Cards from "react-credit-cards";
 import "react-credit-cards/es/styles-compiled.css";
 import { useHistory } from "react-router-dom";
-
+import PromoService from '../PaymentHandlingServices/PromoService';
+import PaymentService from '../PaymentHandlingServices/PaymentService';
 
 const CreditCardComponent = () => {
   // this.State({
@@ -17,14 +18,45 @@ const CreditCardComponent = () => {
   // })
   const { handleChange, handleFocus, handleSubmit, values, errors } = useForm();
   const history = useHistory();
+
+  function cancel(){
+
+    history.push('/addpaydetails');
+
+  }
   
 
   function navigate(){
-    history.push('/complete');
+    
+
+
+    PaymentService.placeorder(payorder).then(res => {
+
+      history.push('/complete');
+
+  });
+
+  promoorder.count = promoorder.count - 1 ;
+
+  PromoService.updatePromocode(promoorder, promoorder.promoid).then( res => {
+
+  });
+
 
   }
+      //get session 1
+
+      var payorder = sessionStorage.getItem('insertpayment');
+      payorder = JSON.parse(payorder);
+      console.log(payorder, "Credit card Payment details object");
+  
+      //get session 2
+      var promoorder = sessionStorage.getItem('UpdatePromoCount');
+      promoorder = JSON.parse(promoorder);
+      console.log(promoorder, "Credit card Promo details object");
 
   
+//get session 3
 
   var data = sessionStorage.getItem('AmountID');
   data = JSON.parse(data);
@@ -44,6 +76,7 @@ const CreditCardComponent = () => {
 
 
   return (
+    <div className="container">
     <div >
       <div className="cardcss">
         <div className="box justify-content-center align-items-center">
@@ -177,7 +210,9 @@ const CreditCardComponent = () => {
             </Button>
           </div>
            
-        </div>    
+        </div>   
+
+        <button className="Creditcancel" onClick={cancel}  style={{marginLeft: "330px", marginTop:10}}>Cancel</button> 
      
 
           </Form>
@@ -193,6 +228,7 @@ const CreditCardComponent = () => {
           
         </div>
       </div>
+    </div>
     </div>
   );
 };

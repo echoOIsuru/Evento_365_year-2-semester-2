@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.project.evento.exception.ResourceNotFoundException;
+import com.project.evento.model.Payment;
 import com.project.evento.model.Promocode;
 import com.project.evento.repository.PromoCodeRepository;
 
@@ -96,6 +97,19 @@ public class PromoCodeController {
 				Map<String, Boolean> response = new HashMap<>();
 				response.put("Deleted", Boolean.TRUE); //Message to client that delete the record in postman
 				return ResponseEntity.ok(response);
+			}
+			
+			// search function
+			@GetMapping("/promocodes/search/{keyword}")
+			public ResponseEntity<List<Promocode>> SearchPromos(@PathVariable String keyword) {
+				List<Promocode> listPromos= promoCodeRepository.findByCodeOrAmountOrCount(keyword);
+				if (!listPromos.isEmpty()) {
+					return ResponseEntity.ok(listPromos);
+				} else {
+					
+					return ResponseEntity.ok(null);
+				}
+
 			}
 	
 
