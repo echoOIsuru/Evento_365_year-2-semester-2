@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import RentalItemService from '../rentingServices/RentalItemService';
+import './itemrent.css';
 
 class RentalItemComponent extends Component {
     constructor(props){
@@ -12,6 +13,9 @@ class RentalItemComponent extends Component {
         this.editItem = this.editItem.bind(this);
         this.deleteItem = this.deleteItem.bind(this);
         this.navigate = this.navigate.bind(this);
+        this.searchbuttonhandle = this.searchbuttonhandle.bind(this);
+        this.keywordhandle = this.keywordhandle.bind(this);
+        this.search = this.search.bind(this);
     }
 
     navigate(){
@@ -41,17 +45,46 @@ class RentalItemComponent extends Component {
         this.props.history.push('/add-rentalitem');
     }
 
+    searchbuttonhandle(event) {
+        this.search(this.keyword);
+
+    }
+
+    keywordhandle(event) {
+        this.keyword = event.target.value;
+
+    }
+
+    search(val) {
+        RentalItemService.searchItem(val).then((res) => {
+            this.setState({ rentalitems: res.data });
+
+        });
+        if (this.keyword == "") {
+            this.componentDidMount();
+        } else if (this.keyword == undefined) {
+            this.componentDidMount();
+        }
+
+    }
+
     render() { 
         return (
             <div>
                 <div className="row" style={{paddingTop:"170px", paddingBottom:"170px"}}>
                 <center>
-                <div class="formDiv" >
+                <div class="formrDivitemrent" >
                 <h2 style={{marginTop:"20px", marginBottom:"20px"}} className="text-center"> Rental Items </h2>
                 <div className="row">
                     <button className="btn btn-primary" onClick={this.addrentalitem.bind(this)}> Add Items </button>
-                    <button style={{marginTop:"20px"}}className="btn btn-primary" onClick={this.navigate}> Test button </button>
+                    {/* <button style={{marginTop:"20px"}} className="btn btn-primary" onClick={this.navigate}> Test button </button> */}
                 </div>
+                <div className="adminsearch" style={{ width: '200px',marginTop:"20px"}}>
+                                <input type="text" name="searchBox" onChange={this.keywordhandle.bind(this)}  className="searchBox" />
+                </div>
+                            <div className="adminsearch" style={{ width: '200px' }}>
+                                <button  onClick={this.searchbuttonhandle.bind(this)} className="searchButtonAdmin userButtons" style={{ height: '30px',marginBottom:"20px"}}>Search</button>
+                            </div>
                 <div className = "row">
                     <table className = "table table-striped table bordered">
                         <thead>

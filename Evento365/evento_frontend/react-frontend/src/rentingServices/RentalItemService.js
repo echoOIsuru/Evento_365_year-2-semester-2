@@ -5,8 +5,13 @@ const TEMPORARYITEMCART_API_BASE_URL = "http://localhost:8080/api/v1/temporaryit
 const RETRIEVE_ITEMS_API_BASE_URL = "http://localhost:8080/api/v1/retrieveitems"
 const HISTORY_API_BASE_URL = "http://localhost:8080/api/v1/itemrents"
 const UPDATE_AVAILABLE_API_BASE_URL = "http://localhost:8080/api/v1/updateavailable"
+const SEARCH_API_REST_URL = "http://localhost:8080/api/v1/rentalitem/search"
 
 class RentalItemService{
+
+    searchItem(keyword){
+        return axios.get(SEARCH_API_REST_URL + '/' + keyword)
+    }
 
     getRentalItems(){
         return axios.get(RENTALITEM_API_BASE_URL);
@@ -55,6 +60,11 @@ class RentalItemService{
 
     createRentHistory(rent){
         return axios.post(HISTORY_API_BASE_URL, rent);
+    }
+
+    //30-sep
+    updateQuantity(name){
+        return axios.put(TEMPORARYITEMCART_API_BASE_URL + '/' + name)
     }
 }
 

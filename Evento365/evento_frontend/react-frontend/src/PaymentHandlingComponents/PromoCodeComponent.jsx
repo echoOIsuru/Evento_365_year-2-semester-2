@@ -88,8 +88,13 @@ class PromoCodeComponent extends Component {
 
     render() {
         return (
+
             <div className="container">
             <div  style={{marginTop: 120, marginBottom:600}}>
+
+            <div class="container">
+            <div style={{marginTop: 120, marginBottom:500}}>
+
                 
                 <h2 className="text-center">Promo Code Management</h2> <br />
 
@@ -151,7 +156,7 @@ class PromoCodeComponent extends Component {
                     </table>
                     
             </div>
-
+</div>
 
 
             </div>

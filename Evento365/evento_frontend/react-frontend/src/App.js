@@ -75,6 +75,7 @@ import DeletedPromos from './PaymentHandlingComponents/DeletedPromos';
 
 
 
+
 import ListFoodComponent from './foodComponents/ListFoodComponent';
 import CreateFoodComponent from './foodComponents/CreateFoodComponent';
 import UpdateFoodComponent from './foodComponents/UpdateFoodComponent';
@@ -86,13 +87,9 @@ import chinesefoodComponent from './foodComponents/chinesefoodComponent';
 import bookfoodlistcomponent from './foodComponents/bookfoodlistcomponent';
 
 
-
-
-
-
 function App() {
   return (
-    <div >
+    <div>
       <div className="bg-image"
         style={{ backgroundImage: "url('https://thumbs.dreamstime.com/b/wedding-floral-decorative-vintage-background-ecru-bege-wedding-floral-decorative-vintage-background-ecru-bege-pale-wallpaper-119328289.jpg')" }} >
         <Router>
@@ -126,7 +123,15 @@ function App() {
               <Route path="/update_feedback/:id" component={UpdateFeedback}></Route>
 
 
-
+              <Route path="/food" component={ListFoodComponent}></Route>
+              <Route path="/add-food" component={CreateFoodComponent}></Route>
+              <Route path="/update-food/:id" component={UpdateFoodComponent}></Route>
+              <Route path="/view-food/:id" component={ViewFoodComponent}></Route>
+              <Route path="/custom" component={customerFoodList}></Route>
+              <Route path="/cus-book-food/:id" component={bookingFoodComponent}></Route>
+              <Route path="/cusview" component={customerviewcomponent}></Route>
+              <Route path="/chinese/:id" component={chinesefoodComponent}></Route>
+              <Route path="/confirm/:id" component={bookfoodlistcomponent}></Route>
 
 
               <Route path="/vehicle-admin" exact component={LandingComponent}></Route>
@@ -172,23 +177,6 @@ function App() {
               <Route path="/complete" component={PaymentComplete}></Route>
               <Route path = "/delpromo" component = {DeletedPromos}></Route>
               <Route path = "/payreport" component = {PaymentReport1}></Route>
-
-
-
-             
-              <Route path="/food" component={ListFoodComponent}></Route>
-              <Route path="/add-food" component={CreateFoodComponent}></Route>
-              <Route path="/update-food/:id" component={UpdateFoodComponent}></Route>
-              <Route path="/view-food/:id" component={ViewFoodComponent}></Route>
-              <Route path="/custom" component={customerFoodList}></Route>
-              <Route path="/cus-book-food/:id" component={bookingFoodComponent}></Route>
-              <Route path="/cusview" component={customerviewcomponent}></Route>
-              <Route path="/chinese/:id" component={chinesefoodComponent}></Route>
-              <Route path="/confirm/:id" component={bookfoodlistcomponent}></Route>
-
-
-
-
 
 
             </Switch>

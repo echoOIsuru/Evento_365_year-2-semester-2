@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import RentalItemService from '../rentingServices/RentalItemService';
 import Grid from '@material-ui/core/Grid'
 import Paper from '@material-ui/core/Paper'
+import './itemrent.css';
 
 class RentingServiceHomeComponent extends Component {
   constructor(props){
@@ -9,9 +10,11 @@ class RentingServiceHomeComponent extends Component {
 
       this.state = {
           rentalitems: [],
-          bookingID: 2,
+          bookingID:'',
       }
   }
+
+
 
 itemdetail(rentalitemid){
     this.props.history.push(`/item-detail/${rentalitemid}`);
@@ -25,8 +28,7 @@ componentDidMount(){
       var data = sessionStorage.getItem('bookingSession');
         data = JSON.parse(data);
 
-        console.log(data,"JSON");
-
+        this.state.bookingID = data.booking_id; 
 }
 
   
@@ -34,45 +36,48 @@ componentDidMount(){
   render() { 
       return (
           <div>
-              <div className="row" style={{paddingTop:"170px", paddingBottom:"170px"}}>
+              <div className="row" style={{paddingTop:"100px", paddingBottom:"170px"}}>
 
             <div>
 
             <br/>
-                <h1 className="text-center">Renting Items</h1>
+                <h2 className="text-center">Rental Items</h2>
             <br/>
 
             <center>
 
-                <div class="formDiv" >
+                <div className="formrDivitemrent">
+                <div className="mrgn">
                     <Grid container >
                         {
                             this.state.rentalitems.map(
                                 rentalitem =>(
                                     
+                                    
                                     <Grid item key ={rentalitem.rentalitemid} xs={12} md={6} lg={3}>
-                                        <Paper style={{width: 300,height: 380}} >
-                                            <div className="vmCard" >
-                                                <div className="imgCard">
+                                        <Paper style={{width: 220,height: 340,borderRadius:"20px"}} >
+                                            <div className="itemCard" >
+                                                <div className="itemimgCard">
                                                     <br/>
-                                                    <img style={{width:"150px", height:"150px",radius:"10px",borderRadius:"20px",marginTop:"15px"}} src={rentalitem.image} alt="" />
+                                                    <img src={rentalitem.image} alt="" />
                                                 </div>
 
-                                                <div className="vmCard-content">
+                                                <div className="itemCard-content">
 
-                                                    <div className="vmCard-title">
-                                                        <h3> {rentalitem.name} </h3>
-                                                        <h6> {rentalitem.description} </h6>
+                                                    <div className="itemCard-title">
+                                                         {rentalitem.name}                                                      
                                                     </div>
+                                                    
+                                    
 
-                                                    <div className="vmCard-body">
-                                                        <p> {rentalitem.rentalperday} /perDay </p>
+                                                     <div className="itemCard-body">
+                                                         Rs.{rentalitem.rentalperday} per day
                                                     </div>
 
                                                 </div>
 
-                                                <div className="vmBtn" >
-                                                <button style={{marginBottom:"20px"}} onClick= {() => this.itemdetail(rentalitem.rentalitemid)} className="btn btn-dark"> See more </button>
+                                                <div className="itemBtn" >
+                                                <button  onClick= {() => this.itemdetail(rentalitem.rentalitemid)} className="btn btn-dark"> See more </button>
                                                 </div>
                                             </div>
                                         </Paper>
@@ -84,6 +89,7 @@ componentDidMount(){
 
                         }
                     </Grid>
+                    </div>
                 </div>
                 <br/>
             </center>
