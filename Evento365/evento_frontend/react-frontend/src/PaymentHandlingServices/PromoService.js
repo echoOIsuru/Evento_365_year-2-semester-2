@@ -35,6 +35,10 @@ class PromoService{
 
     }
 
+    searchPromos(keyword){
+        return axios.get(PROMO_API_BASE_URL + '/search/' + keyword);
+    }
+
 }
 
 export default new PromoService()

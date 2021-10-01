@@ -10,19 +10,39 @@ class PromoCodeComponent extends Component {
         super(props)
             this.state={
                 Promo_Code: [],
-                input:''
+                keyword: ''
             }
 
             this.addpromo = this.addpromo.bind(this);
             this.editPromo = this.editPromo.bind(this);
             this.deletePromo = this.deletePromo.bind(this);
-            this.changeinputHandler = this.changeinputHandler.bind(this);
+           
 
     }
 
-    changeinputHandler= (event) => {
-        this.setState({input: event.target.value});
+    search(val) {
+        PromoService.searchPromos(val).then((res) => {
+            this.setState({ Promo_Code: res.data });
+            
+        });
+        if(this.keyword == ""){
+            this.componentDidMount();
+         }else if(this.keyword == undefined){
+             this.componentDidMount();
+         }
+         
     }
+
+    keywordhandle(event){
+        this.keyword=event.target.value;
+        
+    }
+
+    searchbuttonhandle(event){
+        this.search(this.keyword);
+        
+    }
+
 
     addpromo(){
 
@@ -62,17 +82,17 @@ class PromoCodeComponent extends Component {
 
     render() {
         return (
-            <div  style={{marginTop: 100, marginBottom:400}}>
+            <div  style={{marginTop: 120, marginBottom:500}}>
                 
                 <h2 className="text-center">Promo Code Management</h2> <br />
 
-                <div class="search_wrap search_wrap_4">
-                    <div class="search_box">
-
-                        <input type="text" className="input" placeholder="Search..." 
-                        onChange={this.changeinputHandler} />
+                <div >
+                        <input type="text" name="searchBox" onChange={this.keywordhandle.bind(this)} className="searchBox" style={{marginLeft:'985px'}}/>
+                        <button onClick={this.searchbuttonhandle.bind(this)} className="userButtons" style={{ marginLeft: '5px', width: '100px', height: '30px' }} >Search</button>
                     </div>
-			    </div>
+                    <br />
+                    <br />
+                    <br />
 
                 <div className = "row" >
                     <button className="my-button"  onClick={this.addpromo} style={{marginLeft: 10, marginBottom:20, width:"16%",  color:'black',borderRadius:9}}><img style={{width:30,height:25}}src={plus} alt="edit"/> <div style={{marginLeft: 10, color:'white'}}>Add Promo Code</div></button>
@@ -81,7 +101,7 @@ class PromoCodeComponent extends Component {
                  <br></br>
                 <div className = "containert">
 
-                    <table className = "table table-striped table-bordered">
+                    <table className = "table table-striped table-bordered" style={{backgroundColor:'white'}}>
 
                         <thead>
                             <tr>
@@ -94,17 +114,10 @@ class PromoCodeComponent extends Component {
                             </tr>
                         </thead>
                         <tbody>
-                            {
-                                this.state.Promo_Code.filter(val=>{
-                                    if(this.state.input === ""){
-                                        return val;
-                                    }else if(
-                                
-                                        val.code.toLowerCase().includes(this.state.input.toLowerCase()) 
-                                    ){
-                                        return val;
-                                    }
-                                }).map(
+                        { this.state.Promo_Code.length === 0?<tr>
+                                <td colSpan = "5">No entries Available.</td>
+                            </tr>:
+                                this.state.Promo_Code.map(
                                     Promo_Code =>
                                     <tr key ={Promo_Code.promo_ID}>
                                         <td>{Promo_Code.promo_ID}</td>

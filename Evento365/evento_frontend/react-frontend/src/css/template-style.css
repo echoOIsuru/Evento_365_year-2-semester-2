@@ -26,9 +26,7 @@ h1, .h1 {
 h3, .h3 {
   font-size: 1.2rem;
 }
-h4, .h4 {
-  font-size: 1.1rem;
-}
+
 h5, .h5 {
   font-size: 1rem;
 }
@@ -1916,7 +1914,7 @@ p.form-success {
 
 
 body {
-  font-family: "Work Sans";
+  
   font-weight: 400;
 }
 p {

@@ -124,6 +124,7 @@ class CreateEventPlannerComponent extends Component {
     render() {
         return (
     <div>
+        <br />  <br />  <br />
   <div className="background1"></div>
         <div className ="container">
               <div className ="row">
@@ -178,7 +179,7 @@ class CreateEventPlannerComponent extends Component {
 
                                     <input type="submit" className = "btn btn-success"  value="add" />
 
-                                    <button className = "btn btn-danger" onClick={this.cancel.bind(this)} style ={{marginLeft: "10px"}}>Cancel </button>
+                                    <button className = "btn btn-danger " onClick={this.cancel.bind(this)} style ={{marginLeft: "10px"}}>Cancel </button>
 
                             </form>    
                          

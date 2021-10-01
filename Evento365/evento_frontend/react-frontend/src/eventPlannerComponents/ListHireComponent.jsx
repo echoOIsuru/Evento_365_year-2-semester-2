@@ -52,12 +52,13 @@ class ListHireComponent extends Component {
     render() {
         return (
             <div>
-                <div className="background"></div>
+               <br />      <br />      <br />
                <h2 className="text-center"> Hire List</h2>
                <div className="row">
                    <button className="btn btn-primary" onClick={this.addHire}>APPLY NEW HIRE</button>
                </div>
                <div className="row">
+                     <div className="background1">
                     <table className = "table table-striped table-bordered">
 
                        <thead>
@@ -89,7 +90,7 @@ class ListHireComponent extends Component {
                                    
                                         <td>
                                           <button onClick ={()=> this.editHire(hire.hiring_id)} className = "btn btn-info">Update</button>
-                                          <button style= {{marginLeft: "10px"}} onClick ={()=> this.deleteHire(hire.hiring_id)} className = "btn btn-danger">Delete</button>
+                                          <button style= {{marginLeft: "10px"}} onClick ={()=> this.deleteHire(hire.hiring_id)} className = "btn btn-danger ">Delete</button>
 
                                         </td>
 
@@ -104,10 +105,13 @@ class ListHireComponent extends Component {
 
                       </tbody>
                     </table>
-
+                    </div>
 
                </div>
-            </div>
+               <br />      <br />      <br />      <br />      <br />      <br />      <br />   
+          </div>
+
+
         );
     }
 }

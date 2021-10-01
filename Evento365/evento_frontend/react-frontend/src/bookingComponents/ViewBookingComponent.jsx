@@ -8,7 +8,10 @@ class ViewBookingComponent extends Component {
         super(props)
 
         this.state = {
-            id: this.props.match.params.id,
+            //id: this.props.match.params.id,
+            customer_id:11,
+            id:10,
+            
             booking: {},
             time: {},
             seconds: 10,
@@ -153,7 +156,11 @@ class ViewBookingComponent extends Component {
     }
 
 
+    
     payNowBooking(id){
+        // var data = sessionStorage.getItem('payBooking');
+        // data = JSON.parse(data);
+
         let payBooking ={id:this.state.id, cusid:this.state.customer_id,total: this.state.booking.total};
         sessionStorage.setItem('payBooking', JSON.stringify(payBooking));
         

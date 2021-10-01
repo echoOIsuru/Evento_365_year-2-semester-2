@@ -307,3 +307,70 @@ html {
 .text-left {
   text-align: left!important;
 }
+
+.usercomponentimg{
+  border-radius: 250px;
+  object-fit: cover;
+  margin: auto;
+  width: 250px;
+  height: 250px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.usercomponentcarddrop{
+box-shadow: 0px 0px 45px -5px;
+overflow: hidden;
+border-radius: 10px;
+}
+
+
+
+
+.Ev_pro_pic2{    
+  width: 160px;
+  height: 260px;
+}
+
+.Ev_pro_pic{    
+  width: 60px;
+  height: 60px;
+}
+.combined_btn{
+
+display: flex;
+flex-direction: row;
+
+
+}
+
+
+.combined_btn1 button{
+
+width: 160px;
+
+}
+
+
+.combined_btn2 button{
+
+  width: 160px;
+  
+  }
+
+
+.ml_20{
+ 
+  font-size: 20px;
+ 
+}
+
+
+.background1 {
+  content: "";
+  opacity: 1;
+  background-color: white;
+}
+
+
+

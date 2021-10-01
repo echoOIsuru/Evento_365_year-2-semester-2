@@ -46,6 +46,10 @@ class PaymentService{
 
     }
 
+    searchPayment(keyword){
+        return axios.get(PAYMENT_API_BASE_URL + '/search/' + keyword);
+    }
+
 }
 
 export default new PaymentService()

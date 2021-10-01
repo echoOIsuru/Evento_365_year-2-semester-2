@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import EventPlannerService from '../eventPlannerServices/EventPlannerService';
+
 class UserInterface1 extends Component {
     
     constructor(props){
@@ -12,12 +13,61 @@ class UserInterface1 extends Component {
         this.viewEventPlanner=this.viewEventPlanner.bind(this);
         this.HireList=this.HireList.bind(this);
         this.FeedbackList=this.FeedbackList.bind(this);
+        this.search=this.search.bind(this);
+        this.searchbuttonhandle=this.searchbuttonhandle.bind(this);
+        this.keywordhandle=this.keywordhandle.bind(this);
     }  
+
+    search(val) {
+
+            EventPlannerService.searchEventplanner(val).then((res) => {
+
+            this.setState({ events: res.data });
+
+            
+
+        });
+
+        if(this.keyword == ""){
+
+            this.componentDidMount();
+
+         }else if(this.keyword == undefined){
+
+             this.componentDidMount();
+
+         }
+
+         
+
+    }
+
+
+
 
     viewEventPlanner(id){
 
         this.props.history.push(`/eventplannerprofile/${id}`);
 
+
+    }
+
+
+    searchbuttonhandle(event){
+
+        this.search(this.keyword);
+
+        
+
+    }
+
+
+    keywordhandle(event){
+
+        this.keyword=event.target.value;
+        console.log(this.keyword);
+
+        
 
     }
 
@@ -66,14 +116,29 @@ class UserInterface1 extends Component {
     render() {
         return (
            
-           
-            <div>
+           <div>
+            <div className="row">
                 <div className="background"></div>
-               <h2 className="text-center"> EVENT PLANNERS DETAILS</h2>
+<br /><br /><br /><br />
+                <div className="customersearchArea" style={{width:'500px'}}>
+
+<input type="text" name="searchBox" onChange={this.keywordhandle.bind(this)} style={{marginLeft:'400px',}} className="searchBox"/>
+
+<button onClick={this.searchbuttonhandle.bind(this)} className="searchButtonAdmin userButtons" style={{width:'100px',height:'30px',marginLeft:'450px'}}>Search</button> 
+
+</div>
+
+        <h2 className="text-center"> EVENT PLANNERS DETAILS</h2>
                <div className="row">
               
                </div>
                <div className="row">
+               <div className="background1">
+
+
+
+                <br/>
+                <br/>
                     <table className = "table table-striped table-bordered">
 
                        <thead>
@@ -118,13 +183,17 @@ class UserInterface1 extends Component {
 
                       </tbody>
                     </table>
-                    
-                    <button style= {{marginLeft: "350px"}} className = "btn btn-success" onClick={this.HireList.bind(this)}>MAKE HIRE</button>
-                    <button style= {{marginLeft: "50px"}} className = "btn btn-success" onClick={this.FeedbackList.bind(this)}>SEND FEEDBACK</button>
-  
+                    </div>
+                    <br/>
+                    <div className = "combined_btn"> 
+                    <div className="combined_btn1"><button  style= {{marginLeft: "350px",marginBottom:"10px"}} className = "btn btn-success" onClick={this.HireList.bind(this)}>MAKE HIRE</button></div>
+                    <div className="combined_btn2"><button style= {{marginLeft: "50px",}} className = "btn btn-success" onClick={this.FeedbackList.bind(this)}>SEND FEEDBACK</button></div> 
+                   </div>
                </div>
+              
+                  <br /> <br /> <br /> 
             </div>
-           
+            </div>
         );
     }
 }

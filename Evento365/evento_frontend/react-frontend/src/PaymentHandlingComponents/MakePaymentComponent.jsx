@@ -22,7 +22,8 @@ class MakePaymentComponent extends Component {
             payTypeID: 0,
             storeTotal: 2500,
             calTotal: 0,
-            cusID: 2,
+            cusID: 0,
+            //cusID: 0,
             cusName: '',
             description: '',
             paymentMethod: '',
@@ -35,13 +36,28 @@ class MakePaymentComponent extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.changedescriptionHandler = this.changedescriptionHandler.bind(this);
         this.test = this.test.bind(this);
+        this.passCussId = this.passCussId.bind(this);
         this.state.calTotal = this.state.storeTotal;
     }
 
     
     componentDidMount(){
 
-        PaymentService.getCustomerById(this.state.cusID).then( (res) =>{
+        var data = sessionStorage.getItem('payBooking');
+        data = JSON.parse(data);
+        console.log(data, "RETURN VALUES from booking");
+
+        this.setState({
+            cusID:data.cusid,
+            payTypeID: data.id,
+            storeTotal: data.total,
+            calTotal: data.total
+        })
+
+        var data = sessionStorage.getItem('payBooking');
+        data = JSON.parse(data);
+
+        PaymentService.getCustomerById(data.cusid).then( (res) =>{
             let Customer = res.data;
             console.log(Customer, "got the customer name");
             this.setState({cusName: Customer.name,
@@ -49,7 +65,23 @@ class MakePaymentComponent extends Component {
             });
         });
 
+        this.passCussId();
+
+
     }
+
+    
+    passCussId() {
+        var data = sessionStorage.getItem('payBooking');
+        data = JSON.parse(data);
+
+        sessionStorage.setItem('passCID', data.cusid);
+        var data = sessionStorage.getItem('test');
+        console.log(data, "SESSION Passed Cutomer Id");
+        
+    }
+
+
 
     retrievecode() {
 
@@ -79,6 +111,8 @@ class MakePaymentComponent extends Component {
                this.caltotal(); 
                console.log(this.state.calTotal);
 
+
+
             } catch (error) {
                     //this.state.code = 'ROSE19';
                     //alert display
@@ -87,8 +121,6 @@ class MakePaymentComponent extends Component {
                     else
                         alert("You have Entered an Incorrect Value!")
             }
-
-             
 
             });
 
@@ -118,6 +150,12 @@ class MakePaymentComponent extends Component {
 
         else{
 
+         //make session
+         var data = sessionStorage.getItem('payBooking');
+         data = JSON.parse(data);
+         let obj = { total: this.state.calTotal, cusid: data.cusid };
+         sessionStorage.setItem('AmountID', JSON.stringify(obj));
+
         e.preventDefault();
         let payorder = {
             customerId: this.state.cusID, customerName: this.state.cusName, status: this.state.status, promoID: this.state.promoid,
@@ -134,12 +172,14 @@ class MakePaymentComponent extends Component {
                 //console.log(tot);
                 //this.props.history.push(`/card/${tot}`);
 
+
                 this.props.history.push('/card');
 
             }    
 
             else if (this.state.paymentMethod === "Cash on Delivery")
 
+                
                 this.props.history.push('/complete');
 
         });
@@ -246,21 +286,25 @@ class MakePaymentComponent extends Component {
                                         </span>
                                     </div>
                                 </div>
-                               
+                                </form>
 
                                 <br />
                                 <div className="form-group">
                                     <label> Promo Code </label><br /><br />
+                                    <div className = "samelinebtn">
                                     <div className="inputwidth2">
                                         <input type="text" placeholder="" name="code" className="form-control" value={this.state.code}                                           
                                         onChange={this.test}/>
                                     </div>
 
+                               <div className="applybtn">
+            	                
+                                <button  onClick={this. retrievecode}>APPLY</button>
                                 </div>
-            	                </form>
-                                <button className="applybtn" onClick={this. retrievecode}>APPLY</button>
+                                </div>
+                                </div>
                                 <form>
-                                <br />
+                                
 
 
                                 
@@ -273,7 +317,7 @@ class MakePaymentComponent extends Component {
                                 }} />
 
 
-                                <br />
+                               
 
                                 <div className="form-group">
                                     <label style={{ float: "left" }}> Total </label>
@@ -291,7 +335,7 @@ class MakePaymentComponent extends Component {
 
                                 <br />
 
-                                <br />
+
 
                                 <button className="placebtn" onClick={this.placeorder}>Place Order</button>
 

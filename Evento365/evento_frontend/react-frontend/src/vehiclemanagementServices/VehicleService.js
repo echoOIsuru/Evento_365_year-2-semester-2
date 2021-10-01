@@ -2,6 +2,8 @@ import axios from 'axios';
 
 const VEHICLE_API_BASE_URL = "http://localhost:8090/api/v1/vehicles";
 const VEHICLE_API_AVILABLE_URL = "http://localhost:8090/api/v1/available";
+const VEHICLE_API_SEARCH_URL = "http://localhost:8090/api/v1//vehicles/search";
+
 
 class VehicleService{
 
@@ -27,6 +29,9 @@ class VehicleService{
 
     getAvailableVehicles(){
         return axios.get(VEHICLE_API_AVILABLE_URL);
+    }
+    searchVehicle(keyword){
+        return axios.get(VEHICLE_API_SEARCH_URL + '/' + keyword);
     }
 
 

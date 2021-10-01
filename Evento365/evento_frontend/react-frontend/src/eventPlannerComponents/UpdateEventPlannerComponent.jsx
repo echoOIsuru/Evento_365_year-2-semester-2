@@ -123,6 +123,7 @@ class UpdateEventPlannerComponent extends Component {
        render() {
            return (
        <div>
+           <br />  <br />  <br />
      <div className="background1"></div>
            <div className ="container">
                  <div className ="row">
@@ -177,7 +178,7 @@ class UpdateEventPlannerComponent extends Component {
                                       
                                        <input type="submit" className = "btn btn-success"  value="Update" />
    
-                                       <button className = "btn btn-danger" onClick={this.cancel.bind(this)} style ={{marginLeft: "10px"}}>Cancel </button>
+                                       <button className = "btn btn-danger " onClick={this.cancel.bind(this)} style ={{marginLeft: "10px"}}>Cancel </button>
    
                                </form>    
                             

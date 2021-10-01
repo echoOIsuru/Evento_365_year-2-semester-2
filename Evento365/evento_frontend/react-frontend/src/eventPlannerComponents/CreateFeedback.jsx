@@ -74,12 +74,14 @@ cancel(){
 
     render() {
         return (
+         
             <div>
+                   <br />      <br />      <br />
                  <div className="background1"></div>
         <div className ="container">
               <div className ="row">
                   <div className = "card col-md-6 offset-md-3 offset-md-3 form-background-color">
-                 
+               
                    <h3 className = "text-center"> Feedback </h3>   
                         <div className = "card-body">
                             <form>

@@ -25,7 +25,7 @@ h1,h2,h3,h4,h5,h6 {
 h1 {font-size:2.7rem;}
 h2 {font-size:2.2rem;}  
 h3 {font-size:1.8rem;}  
-h4 {font-size:1.4rem;}  
+ 
 h5 {font-size:1.1rem;}  
 h6 {font-size:0.9rem;}    
 a, a:link, a:visited, a:hover, a:active {
@@ -382,7 +382,7 @@ nav.breadcrumb-nav ul li:last-child:after {content:"";}
 .line .line {padding:0;}
 .hide-xxl {display:none!important;}
 .box {
-  background:none repeat scroll 0 0 #fff;
+  
   display:block;
   padding:1.25rem;
   width:100%;
