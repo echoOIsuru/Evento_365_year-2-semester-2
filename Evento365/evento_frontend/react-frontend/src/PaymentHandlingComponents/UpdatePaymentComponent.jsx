@@ -78,7 +78,7 @@ class UpdatePaymentComponent extends Component {
                                         <div className = "form-group">
                                             <label> Customer Name: </label>
                                             <input placeholder="Customer Name" name="customerName" className="form-control" 
-                                                value={this.state.customerName} onChange={this.changecustomerNameHandler}/>
+                                                value={this.state.customerName} onChange={this.changecustomerNameHandler} disabled/>
                                         </div>
                                         <br />
                                         <div className = "form-group">

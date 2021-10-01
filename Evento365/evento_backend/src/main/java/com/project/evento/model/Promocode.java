@@ -16,7 +16,7 @@ public class Promocode {
 	@GeneratedValue(strategy = GenerationType.IDENTITY )
 	private long promo_ID;
 	
-	@Column(name ="code")
+	@Column(unique = true ,name ="code")
 	private String code;
 	
 	@Column(name ="amount")

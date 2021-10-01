@@ -17,7 +17,33 @@ class AddPromoComponent extends Component {
 
 
     AddPromo = (e) => {
+        
         e.preventDefault();
+        
+
+        PromoService.getPromocodes().then((res) => {
+
+            let Promocheck = res.data;
+            console.log(Promocheck, "promos from database");
+            var len = Promocheck.length;
+            var flag=1;
+        
+
+        //for loop to check duplicate records
+                
+        for (var i = 0; i < len; i++) {
+            if(Promocheck[i].code == this.state.code){
+                
+                alert("You have entered a Duplicate Value, Try Again!!")
+                flag=0;
+                
+            }    
+        } 
+
+      
+
+       if (flag==1){
+
         let Promo_Code = {code: this.state.code, amount: this.state.amount, count: this.state.count};
         console.log('Promo_Code => ' + JSON.stringify(Promo_Code));
 
@@ -26,6 +52,10 @@ class AddPromoComponent extends Component {
             this.props.history.push('/promomanage');
 
         });
+    }
+    });
+
+    
         
     }
     

@@ -75,6 +75,7 @@ class MakePaymentComponent extends Component {
         var data = sessionStorage.getItem('payBooking');
         data = JSON.parse(data);
 
+        //set session 1
         sessionStorage.setItem('passCID', data.cusid);
         var data = sessionStorage.getItem('test');
         console.log(data, "SESSION Passed Cutomer Id");
@@ -107,9 +108,35 @@ class MakePaymentComponent extends Component {
                     promoid: Promo_Code[0].promo_ID
                 });
 
+                var data = sessionStorage.getItem('payBooking');
+                data = JSON.parse(data);
+
+            PaymentService.getPaymentsByCus(data.cusid).then( (res) =>{
+                let Customer = res.data;
+                console.log(Customer, "payment table customer with promoid");
+                var len = Customer.length;
+                console.log(len, "length of payment retrieved");
+                var promoCount;
+                var flag=1;
+
+                //for loop to check already used promos
+                
+                for (var i = 0; i < len; i++) {
+                    if(Customer[i].promoID == this.state.promoid){
+                        
+                        alert("You have already used this promocode!")
+                        flag=0;
+                        
+                    }    
+                } 
+                if(flag==1)
+                this.caltotal(); 
                 //console.log(this.state.calTotal);
-               this.caltotal(); 
-               console.log(this.state.calTotal);
+                
+                console.log(this.state.calTotal);
+        
+                  
+                });
 
 
 
@@ -134,7 +161,7 @@ class MakePaymentComponent extends Component {
 
         else if(this.state.code==this.state.fetchedcode && this.state.count > 0 ){
             this.state.calTotal = this.state.storeTotal - this.state.amount;
-            this.state.count = this.state.count - 1;
+            //this.state.count = this.state.count - 1;
             
 
         }
@@ -150,40 +177,57 @@ class MakePaymentComponent extends Component {
 
         else{
 
-         //make session
-         var data = sessionStorage.getItem('payBooking');
-         data = JSON.parse(data);
-         let obj = { total: this.state.calTotal, cusid: data.cusid };
-         sessionStorage.setItem('AmountID', JSON.stringify(obj));
+        if(this.state.paymentMethod == "Cash on Delivery"){
+
+            this.state.count = this.state.count - 1;
+        }
+
 
         e.preventDefault();
         let payorder = {
             customerId: this.state.cusID, customerName: this.state.cusName, status: this.state.status, promoID: this.state.promoid,
             paymentMethod: this.state.paymentMethod, description: this.state.description, amount: this.state.calTotal, paymentDate: this.state.currentDate, payTypeID: this.state.payTypeID
         };
-        let Promo_Code = {code: this.state.code, amount: this.state.amount,count: this.state.count};
+        //set session 2
+        sessionStorage.setItem('insertpayment', JSON.stringify(payorder));
+        // var testorder = sessionStorage.getItem('insertpayment');
+        // testorder = JSON.parse(testorder);
+        // console.log(testorder, "Credit card Payment details object");
+
+        let Promo_Code = {promoid:this.state.promoid ,code: this.state.code, amount: this.state.amount,count: this.state.count};
+
+        //set session 3
+        sessionStorage.setItem('UpdatePromoCount', JSON.stringify(Promo_Code));
+
         console.log('payorder => ' + JSON.stringify(payorder));
         console.log('Promo_Code => ' + JSON.stringify(Promo_Code));
 
+        if(this.state.paymentMethod == "Cash on Delivery"){
+
         PaymentService.placeorder(payorder).then(res => {
 
-            if (this.state.paymentMethod === "Card Payment"){
+            this.props.history.push('/complete');
+
+        });
+
+        }
+
+            else{
 
                 //console.log(tot);
                 //this.props.history.push(`/card/${tot}`);
+                         //make session
+            var data = sessionStorage.getItem('payBooking');
+            data = JSON.parse(data);
+            let obj = { total: this.state.calTotal, cusid: data.cusid, count: this.state.count};
 
+            //set session 4
 
-                this.props.history.push('/card');
+            sessionStorage.setItem('AmountID', JSON.stringify(obj));
+            this.props.history.push('/card');
 
             }    
-
-            else if (this.state.paymentMethod === "Cash on Delivery")
-
-                
-                this.props.history.push('/complete');
-
-        });
-        this.state.count = this.state.count + 1;
+ 
         PromoService.updatePromocode(Promo_Code, this.state.promoid).then( res => {
 
         });

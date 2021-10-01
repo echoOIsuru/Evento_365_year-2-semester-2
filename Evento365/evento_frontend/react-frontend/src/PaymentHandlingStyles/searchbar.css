@@ -39,6 +39,43 @@
 	border: 1px solid;
 	  border-radius: 50px;
   }
+
+  /*.btnCombine2{
+
+    display:flex; 
+    flex-direction:row;
+
+}
+
+.Addpromo button{
+    
+    margin-top:20px;
+    margin-left: 280px;
+    background-color: rgba(100, 97, 92, 0.7);
+    width: 90px;
+    cursor: pointer;
+    height: 40px;
+    background-color: rgba(100, 97, 92, 0.7);
+    border-radius: 5px;
+    border-color: transparent;
+    font-weight: bold;
+  
+  }
+
+  .PReport button{
+
+    margin-top:20px;
+    background-color: rgba(100, 97, 92, 0.7);
+    width: 90px;
+    cursor: pointer;
+    height: 40px;
+    background-color: rgba(100, 97, 92, 0.7);
+    border-radius: 5px;
+    border-color: transparent;
+    font-weight: bold;
+
+  }*/
+
   
   
   

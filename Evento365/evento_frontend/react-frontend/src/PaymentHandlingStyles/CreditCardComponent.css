@@ -98,6 +98,25 @@
 
   }
 
+  .Creditcancel{
+
+    background-color: rgba(100, 97, 92, 0.7);
+    width: 90px;
+    cursor: pointer;
+    height: 40px;
+    background-color: rgba(100, 97, 92, 0.7);
+    border-radius: 5px;
+    border-color: transparent;
+    font-weight: bold;
+    color:white;
+
+  }
+
+  .Creditcancel:hover{
+  
+    background-color: rgba(255, 0, 0, 0.7);
+  }
+
   .form2 {
     
     width: 600px;

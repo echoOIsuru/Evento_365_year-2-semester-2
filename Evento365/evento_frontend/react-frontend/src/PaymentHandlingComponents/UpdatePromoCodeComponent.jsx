@@ -9,7 +9,8 @@ class UpdatePromoCodeComponent extends Component {
             id: this.props.match.params.id,
             code: '',
             amount: '',
-            count: ''
+            count: '',
+            retrivedcode:''
         }
         this.changeCodeHandler = this.changeCodeHandler.bind(this);
         this.changeAmountHandler = this.changeAmountHandler.bind(this);
@@ -20,6 +21,7 @@ class UpdatePromoCodeComponent extends Component {
         PromoService.getPromocodeById(this.state.id).then( (res) =>{
             let Promo_Code = res.data;
             this.setState({code: Promo_Code.code,
+                retrivedcode: Promo_Code.code,
                 amount: Promo_Code.amount,
                 count : Promo_Code.count
             });
@@ -28,12 +30,38 @@ class UpdatePromoCodeComponent extends Component {
 
     updatePromo = (e) => {
         e.preventDefault();
+
+        PromoService.getPromocodes().then((res) => {
+
+            let Promocheck = res.data;
+            console.log(Promocheck, "promos from database");
+            var len = Promocheck.length;
+            var flag=1;
+        
+
+        //for loop to check duplicate records
+                
+        for (var i = 0; i < len; i++) {
+            if(Promocheck[i].code == this.state.code && Promocheck[i].code != this.state.retrivedcode){
+                
+                alert("Value you have entered is already exists, Try Again!!")
+                flag=0;
+                
+            }    
+        } 
+
+      
+
+       if (flag==1){
         let Promo_Code = {code: this.state.code, amount: this.state.amount, count: this.state.count};
         console.log('Promo_Code => ' + JSON.stringify(Promo_Code));
         console.log('id => ' + JSON.stringify(this.state.id));
          PromoService.updatePromocode(Promo_Code, this.state.id).then( res => {
             this.props.history.push('/promomanage');
+
         });
+    }
+    });
     }
     
     changeCodeHandler= (event) => {

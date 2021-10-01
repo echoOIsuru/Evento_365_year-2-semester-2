@@ -16,7 +16,7 @@ class PromoCodeComponent extends Component {
             this.addpromo = this.addpromo.bind(this);
             this.editPromo = this.editPromo.bind(this);
             this.deletePromo = this.deletePromo.bind(this);
-           
+            this.deleted = this.deleted.bind(this);
 
     }
 
@@ -80,23 +80,36 @@ class PromoCodeComponent extends Component {
 
     }
 
+    deleted(){
+
+        this.props.history.push('/delpromo');
+
+    }
+
     render() {
         return (
-            <div  style={{marginTop: 120, marginBottom:500}}>
+            <div  style={{marginTop: 120, marginBottom:600}}>
                 
                 <h2 className="text-center">Promo Code Management</h2> <br />
 
                 <div >
                         <input type="text" name="searchBox" onChange={this.keywordhandle.bind(this)} className="searchBox" style={{marginLeft:'985px'}}/>
-                        <button onClick={this.searchbuttonhandle.bind(this)} className="userButtons" style={{ marginLeft: '5px', width: '100px', height: '30px' }} >Search</button>
+                        <button onClick={this.searchbuttonhandle.bind(this)} className="userButtons" style={{ marginLeft: '5px', width: '100px', height: '30px'}} >Search</button>
                     </div>
                     <br />
                     <br />
-                    <br />
+                 <br />
 
+                <div >
                 <div className = "row" >
-                    <button className="my-button"  onClick={this.addpromo} style={{marginLeft: 10, marginBottom:20, width:"16%",  color:'black',borderRadius:9}}><img style={{width:30,height:25}}src={plus} alt="edit"/> <div style={{marginLeft: 10, color:'white'}}>Add Promo Code</div></button>
+                    <button className="my-button"  onClick={this.addpromo} style={{marginLeft: 10, marginBottom:20, width:"16%",  color:'white', borderRadius:9}}><img style={{width:30,height:25}}src={plus} alt="edit"/> <div style={{marginLeft: 10, color:'white'}}>Add Promo Code</div></button>
                  </div>
+
+                 <div>
+                    <button className="my-button"  style={{width:"11%", color:'white'}}onClick={this.deleted}>Deleted Records</button>
+                </div>
+                </div>
+                    <br />
 
                  <br></br>
                 <div className = "containert">

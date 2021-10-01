@@ -50,6 +50,14 @@ class PaymentService{
         return axios.get(PAYMENT_API_BASE_URL + '/search/' + keyword);
     }
 
+    getreport1(){
+        return axios.get(PAYMENT_API_BASE_URL + '/report/'+'one');
+    }
+
+    getreport2(){
+        return axios.get(PAYMENT_API_BASE_URL + '/report/'+'two');
+    }
+
 }
 
 export default new PaymentService()

@@ -19,8 +19,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.project.evento.exception.ResourceNotFoundException;
+import com.project.evento.model.Customer;
+import com.project.evento.model.Event_planner;
 import com.project.evento.model.Payment;
 import com.project.evento.model.Promocode;
+import com.project.evento.projectioninterface.PayemntInterface;
+import com.project.evento.projectioninterface.PromoInterface;
 import com.project.evento.repository.PaymentRepository;
 
 @CrossOrigin(origins = "http://localhost:3000")
@@ -89,6 +93,34 @@ public class PaymentController {
 			response.put("Deleted", Boolean.TRUE); //Message to client that delete the record in postman
 			return ResponseEntity.ok(response);
 		}
+		
+		// search function
+		@GetMapping("/payments/search/{keyword}")
+		public ResponseEntity<List<Payment>> SearchPayments(@PathVariable String keyword) {
+			List<Payment> listPayments= paymentRepository.findByPromoIDOrCustomerIdOrCustomerNameOrPaymentDateOrStatusOrPaymentMethodOrDescriptionOrAmount(keyword);
+			if (!listPayments.isEmpty()) {
+				return ResponseEntity.ok(listPayments);
+			} else {
+				
+				return ResponseEntity.ok(null);
+			}
+
+		}
+		
+		//get Report1 Deails
+		@GetMapping("/payments/report/one")
+		public ResponseEntity<List<PayemntInterface>> getReportOne() {
+		List<PayemntInterface> Payments_Promousage = paymentRepository.Payments_Promousage();
+			return ResponseEntity.ok(Payments_Promousage);
+		}
+		
+		//get Report2 Deails
+		@GetMapping("/payments/report/two")
+		public ResponseEntity<List<PromoInterface>> getReportTwo() {
+		List<PromoInterface> Promousage = paymentRepository.Promousage();
+			return ResponseEntity.ok(Promousage);
+		}
+
 		
 		
 		
