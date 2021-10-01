@@ -22,37 +22,39 @@ class ViewFoodComponent extends Component {
         return (
             
             <div className="viewback"  style={{marginBottom: "30px" , marginTop: "30px" }}>
+                <br></br><br></br><br></br><br></br><br></br><br></br>
                 <div className = "card col-md-6 offset-md-3">
                     <h3 className = "text-center">View Food Details</h3>
 
                   
                     
-                    <div className="viewback1" >
+                    
                     <div className = "card-body">
                         <div className = "row">
                             <label> </label>
-                            <div> <img style={{width:"100%", height:"100%"}} src={this.state.food.fimage}></img>
+                            <div> <img style={{width:"100%", height:"300px"}} src={this.state.food.fimage}></img>
                             </div>
                         </div>
+                        <div className="viewback2" style={{marginTop:"20px"}} >
                         <div className = "row">
-                            <label> food package ID: </label>
-                            <div> { this.state.food.foodcategoryid }</div>
+                          <br></br>  <label style={{marginLeft:"20px" }}> food package ID:  { this.state.food.foodcategoryid }</label> 
+                         
                         </div>
                         <div className = "row">
-                            <label> food package Name: </label>
-                            <div> { this.state.food.foodcategory }</div>
+                            <label style={{marginLeft:"20px"}}> food package Name: { this.state.food.foodcategory }</label>
+                          
                         </div>
                         <div className = "row">
-                            <label> food types: </label>
-                            <div> { this.state.food.foodname }</div>
+                            <label style={{marginLeft:"20px"}}> food types:  { this.state.food.foodname } </label>
+                           
                         </div>
                         <div className = "row">
-                            <label> package cost: </label>
-                            <div> { this.state.food.cost }</div>
+                            <label style={{marginLeft:"20px"}}> plate price: { this.state.food.cost }</label>
+                        
                         </div>
                         <div className = "row">
-                            <label> Description: </label>
-                            <div> { this.state.food.description }</div>
+                            <label style={{marginLeft:"20px"}}> Description: { this.state.food.description }</label>  <br></br>
+                            
                         </div>
                        
                     </div>

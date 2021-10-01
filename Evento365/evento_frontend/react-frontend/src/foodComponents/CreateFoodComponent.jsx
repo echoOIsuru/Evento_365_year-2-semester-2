@@ -77,12 +77,12 @@ class CreateFoodComponent extends Component {
     
         return (
             <div>
-                
+                <br></br><br></br><br></br><br></br><br></br><br></br>
                 <div className="container">
                     <div className="row">
                         
                         <div className="card col-md-6 offset-md-3 offset-md-3">
-                            <h3 className="text-center"> ADD NEW FOOD PACKAGE </h3>
+                        <br></br>  <h3 className="text-center" > ADD NEW FOOD PACKAGE </h3> <br></br>
 
                             <img src="../images/image02.jpg" alt="food package"/>
 
@@ -90,7 +90,7 @@ class CreateFoodComponent extends Component {
                             <div className="card-body">  
                                 <form onSubmit={this.saveFood}  style={{marginBottom: "10px"}} > 
                                     <div className="from-group" >
-                                        <label> Food package ID</label>
+                                        <label style={{fontWeight:"bold"}}> Food package ID</label>
                                             <select name="foodcategoryid" className="form-control" onChange={this.changeFoodCategoryIDHandler} value={this.state.foodcategoryid} required="required" >
                                                     <option value="" disabled={true}>Select food package id</option>
                                                     <option value="01-Chinese">01-Chinese</option>
@@ -103,32 +103,32 @@ class CreateFoodComponent extends Component {
                                     </div>
 
                                     <div className="from-group">
-                                        <label> Food package Name</label>
+                                        <label style={{fontWeight:"bold"}}> Food package Name</label>
                                         <input  required="required" placeholder="food package" name ="foodcategory" className="form-control"
                                             value={this.state.foodcategory} onChange={this.changeFoodCategoryHandler}/>
                                     </div>
 
                                     <div className="from-group">
-                                        <label> Food Types</label>
+                                        <label style={{fontWeight:"bold"}}> Food Type</label>
                                         <input  required="required" placeholder="food types" name ="foodname" className="form-control"
                                             value={this.state.foodname} onChange={this.changeFoodNameHandler}/>
                                     </div>
 
                                     <div className="from-group">
-                                        <label> Package Cost</label>
-                                        <input  required="required" placeholder="package cost" name ="cost" className="form-control"
+                                        <label style={{fontWeight:"bold"}}> Plate Cost</label>
+                                        <input pattern="[0-9]{0,5}" title="This field should consist only numerical values." required="required" placeholder="package cost" name ="cost" className="form-control"
                                             value={this.state.cost} onChange={this.changeCostHandler}/>
                                     </div>
 
                                     <div className="from-group">
-                                        <label> Description</label>
+                                        <label style={{fontWeight:"bold"}}> Description</label>
                                         <input  placeholder="package description" name ="description" className="form-control"
                                             value={this.state.description} onChange={this.changeFoodDescriptionHandler}/>
                                     </div>
 
                                     <div className="from-group">
-                                        <label> Image</label>
-                                        <input  required={true} placeholder="package description" name ="fimage" className="form-control"
+                                        <label style={{fontWeight:"bold"}}> Image</label>
+                                        <input  required={true} placeholder="package image" name ="fimage" className="form-control"
                                             value={this.state.fimage} onChange={this.changeFoodImageHandler}/>
                                     </div>
 
@@ -146,6 +146,7 @@ class CreateFoodComponent extends Component {
 
                     </div>
                 </div>
+                <br></br><br></br>
             </div>
         );
     }

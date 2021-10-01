@@ -7,13 +7,16 @@ class ListFoodComponent extends Component {
 
         this.state = {
 
-            food: []
+            food: [],
+            fsearch: ''
 
         }
        
         this.addFood = this.addFood.bind(this);
         this.editFood = this.editFood.bind(this);
         this.deleteFood = this.deleteFood.bind(this);
+       this.searchfood = this.searchfood.bind(this);
+        this.Gosearch = this.Gosearch.bind(this);
     }
 
 
@@ -54,31 +57,72 @@ class ListFoodComponent extends Component {
 
 
 
+    searchfood(event) {
+        this.fvalue = event.target.value;
+
+    }
+
+
+    Gosearch = (e) => {
+        this.foodsearch(this.fvalue);
+
+    }
+
+    foodsearch(foodval) {
+        FoodService.getSearchfood(foodval).then((res) => {
+            this.setState({ food: res.data });
+            console.log(res.data);
+        });
+        if (this.fvalue == "") {
+            this.componentDidMount();
+        } else if (this.fvalue == undefined) {
+            this.componentDidMount();
+        }
+    }
+
+
+    cancelfoodSearch = () => {
+        FoodService.getFood().then((res) => {
+            this.setState({
+                food: res.data
+            });
+
+        });
+    }
+
+
     render() {
         return (
          
-           // <div className="bg">
-                
+           
+        //    <div className="container formDivgg"
+        //    style={{ backgroundImage: "url('https://cdn.wallpapersafari.com/22/18/riY3Ba.jpg')" }} >
             <div className="text-center">
 
+                <br></br><br></br><br></br><br></br><br></br><br></br>
+                
+                
                 <div style={{ "float": "right" }}>
                     <div className="input-group btn-group-sm ">
-                        <input type="text" style={{ border: 0 }} className="form-control" placeholder="Search here..." name="search" value={this.state.search} onChange={this.searchChange} />
+                        <input type="text" style={{ border: 0 }} className="form-control" placeholder="Search here..." name="searchfood"  onChange={this.searchfood} />
 
                             <div className="input-group-append btn-group-sm">
-                                    <button className="btn btn-outline-success" onClick={this.searchData}>search</button>
+                                    <button style={{marginLeft:"10px" , fontSize:"17px"}} className="btn btn-success" onClick={this.Gosearch}>
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                    <button style={{marginLeft:"3px" , fontSize:"17px"}} className="btn btn-danger" onClick={this.cancelfoodSearch}>
+                                         <i class="fa fa-close"></i>
+                                    </button>
                             </div>
                     </div>
                 </div>
 
+                
 
-                <h2 style={{marginBottom: "30px" , marginTop: "10px" }} className="test-center">EVENTO356 FOOD SERVICE</h2>
+                <br></br>
 
-               {/*
-                <div >
-                <img style={{width:"100%" , height:"250px"}} className="image01" src="../images/im11.jpg" alt="food package"/>
-                </div> 
-            */}
+                <h2 style={{marginBottom: "30px" , marginTop: "10px" , marginLeft:"230px" }} className="test-center">EVENTO356 FOOD SERVICE</h2>
+
 
                 <div className = "row">
                     <button style={{ marginBottom: "10px" , marginTop: "10px"}} className="btn btn-primary" onClick={this.addFood}> Add Food</button>
@@ -86,16 +130,17 @@ class ListFoodComponent extends Component {
 
                 </div>
                 <div className = "row">
-                    <table className = "table table-striped table-bordered">
+                <div className="foodtable">
+                    <table style={{ backgroundColor: "rgba(255, 237, 213, 0.8)"}} className = "table table-striped table-bordered">
                         <thead>
                             <tr className="customerTR">
-                                <th style={{ width:"10%"}}>Food package ID</th>
-                                <th style={{ width:"10%"}}>Food package Name</th>
-                                <th style={{ width:"10%"}}>Food package Types </th>
-                                <th style={{ width:"18%"}}>Description</th>
-                                <th style={{ width:"8%"}}>Cost</th>
-                                <th style={{ width:"20%"}}>Image</th>
-                                <th style={{ width:"25%"}}>Actions</th>
+                                <th style={{textAlign:"center",fontSize:"20px", width:"10%"}}>Food package ID</th>
+                                <th style={{textAlign:"center",fontSize:"20px", width:"10%"}}>Food package Name</th>
+                                <th style={{textAlign:"center",fontSize:"20px", width:"10%"}}>Food package Type </th>
+                                <th style={{textAlign:"center",fontSize:"20px", width:"18%"}}>Description</th>
+                                <th style={{textAlign:"center",fontSize:"20px", width:"8%"}}>plate Cost</th>
+                                <th style={{textAlign:"center",fontSize:"20px", width:"20%"}}>Image</th>
+                                <th style={{textAlign:"center",fontSize:"20px", width:"25%"}}>Actions</th>
                             </tr>
                         </thead>
 
@@ -104,20 +149,20 @@ class ListFoodComponent extends Component {
                                 this.state.food.map(
                                     food =>
                                    <tr key ={food.foodid}>
-                                       <td> {food.foodcategoryid} </td>
-                                       <td> {food.foodcategory} </td>
-                                       <td> {food.foodname} </td>
-                                       <td> {food.description} </td>
-                                       <td> {food.cost} </td>
-                                       <td> <img style={{width:"100%", height:"100%"}} src={food.fimage}></img> </td>
-                                       <td>
+                                       <td style={{textAlign:"center",fontSize:"17px"}}> {food.foodcategoryid} </td>
+                                       <td style={{textAlign:"center",fontSize:"17px"}}> {food.foodcategory} </td>
+                                       <td style={{textAlign:"center",fontSize:"17px"}}> {food.foodname} </td>
+                                       <td style={{textAlign:"center",fontSize:"17px"}}> {food.description} </td>
+                                       <td style={{textAlign:"center",fontSize:"17px"}}> {food.cost} </td>
+                                       <td style={{textAlign:"center",fontSize:"17px"}}> <img style={{width:"100%", height:"100%"}} src={food.fimage}></img> </td>
+                                       <td style={{textAlign:"center",fontSize:"17px"}}>
                                            <button onClick = { () => this.editFood(food.foodid)} className="btn btn-info">Update </button>
                            
 
-
-                                           <button style={{marginLeft: "10px"}} className="btn btn-danger" onClick={() => {
-                                                                    const confirmBox = window.confirm(
-                                                                      "Are ypu sure want to delete this?"
+                                           <button style={{marginLeft: "10px"}} className="btn btn-danger" 
+                                           //Delete validation
+                                                    onClick={() => {  const confirmBox = window.confirm(
+                                                                      "Are you sure want to delete this?"
                                                                     )
                                                                     if (confirmBox === true) {
                                                                         this.deleteFood(food.foodid)
@@ -134,11 +179,12 @@ class ListFoodComponent extends Component {
                         </tbody>
 
                     </table>
-
+                    </div>
                     </div>
 
             </div>
-           // </div>
+        //    </div>
+          
         );
     }
 }

@@ -8,7 +8,7 @@ import FoodService from '../foodServices/FoodService';
         this.state = {
             
             fid: this.props.match.params.id,
-           food:[]
+            food:[]
         }
 
         this.addtobookingfood = this.addtobookingfood.bind(this);
@@ -25,9 +25,9 @@ import FoodService from '../foodServices/FoodService';
 
     }
 
-    viewFood(foodid){
-        this.props.history.push(`/view-food/${foodid}`);
-    }
+    // viewFood(foodid){
+    //     this.props.history.push(`/view-food/${foodid}`);
+    // }
     addtobookingfood(foodid){
         this.props.history.push(`/cus-book-food/${foodid}`);
         
@@ -36,20 +36,26 @@ import FoodService from '../foodServices/FoodService';
     render() {
         
         return (
+            // <div className="container formDivgg"
+            //         style={{ backgroundImage: "url('https://cdn.wallpapersafari.com/22/18/riY3Ba.jpg')" }} >
+                
             <div>
+                <br></br><br></br><br></br><br></br><br></br>
+                
                 <div className="text-center">
                 <h2 style={{marginBottom: "30px" , marginTop: "10px" }} className="test-center">FOOD PACKAGES</h2>
                 </div>
                 <div className = "row">
-                    <table className = "table table-striped table-bordered">
+                <div className="foodtable">
+                    <table style={{ backgroundColor: "rgba(255, 237, 213, 0.8)" }} className = "table table-striped table-bordered">
                         <thead>
                             <tr className="customerTR">
-                                <th style={{ width:"10%"}}>Food package Name </th>
-                                <th style={{ width:"10%"}}>Food Types </th>
-                                <th style={{ width:"20%"}}>Description</th>
-                                <th style={{ width:"10%"}}>Package Cost</th>
-                                <th style={{ width:"20%"}}>Image</th>
-                                <th style={{ width:"18%"}}>Actions</th>
+                                <th style={{textAlign:"center", fontSize:"20px",width:"10%"}}>Food package Name </th>
+                                <th style={{textAlign:"center",fontSize:"20px", width:"10%"}}>Food Types </th>
+                                <th style={{textAlign:"center",fontSize:"20px", width:"20%"}}>Description</th>
+                                <th style={{textAlign:"center",fontSize:"20px", width:"10%"}}>Package Cost</th>
+                                <th style={{textAlign:"center",fontSize:"20px" ,width:"20%"}}>Image</th>
+                                <th style={{textAlign:"center",fontSize:"20px", width:"18%"}}>Actions</th>
                             </tr>
                         </thead>
 
@@ -58,14 +64,14 @@ import FoodService from '../foodServices/FoodService';
                                 this.state.food.map(
                                     food =>
                                    <tr  key ={food.foodid}>
-                                       <td> {food.foodcategory} </td>
-                                       <td> {food.foodname} </td>
-                                       <td> {food.description} </td>
-                                       <td> {food.cost} </td>
-                                       <td> <img style={{width:"100%", height:"100%"}} src={food.fimage}></img> </td>
-                                       <td>
-                                           <button  onClick = { () => this.viewFood(food.foodid)} className="btn btn-info">View </button>
-                                           <button style={{marginLeft: "10px"}} className="btn btn-success" onClick = { () => this.addtobookingfood(food.foodid)} > Add to booking</button>
+                                       <td style={{textAlign:"center",fontSize:"17px"}}> {food.foodcategory} </td>
+                                       <td style={{textAlign:"center",fontSize:"17px"}}> {food.foodname} </td>
+                                       <td style={{textAlign:"center",fontSize:"17px"}}> {food.description} </td>
+                                       <td style={{textAlign:"center",fontSize:"17px"}}> {food.cost} </td>
+                                       <td style={{textAlign:"center",fontSize:"17px"}}> <img style={{width:"100%", height:"100%"}} src={food.fimage}></img> </td>
+                                       <td style={{textAlign:"center",fontSize:"17px"}}>
+                                           {/* <button  onClick = { () => this.viewFood(food.foodid)} className="btn btn-info">View </button> */}
+                                           <button style={{marginLeft: "10px"}} className="btn btn-success" onClick = { () => this.addtobookingfood(food.foodid)} > Add</button>
                                        </td>
                                    </tr> 
                                 )
@@ -73,8 +79,10 @@ import FoodService from '../foodServices/FoodService';
                         </tbody>
 
                     </table>
+                    </div>
                 </div>
             </div>
+            // </div>
         )
     }
 }
