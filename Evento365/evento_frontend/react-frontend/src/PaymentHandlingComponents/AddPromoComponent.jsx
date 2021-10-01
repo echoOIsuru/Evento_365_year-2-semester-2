@@ -47,12 +47,12 @@ class AddPromoComponent extends Component {
 
     render() {
         return (
-            <div  style={{marginTop: 100, marginBottom:120}}>
+            <div  style={{marginTop: 100, marginBottom:230}}>
                 <br></br>
                    <div className = "form">
                         <div className = "row">
                         <div className = "formDiv">
-                                <h3 className="text-center">Add Promo Code</h3>
+                                <h2 className="text-center">Add Promo Code</h2>
                                 <div className = "card-body">
                                     <form id="form1" onSubmit = {this.AddPromo}><br />
 
@@ -66,13 +66,13 @@ class AddPromoComponent extends Component {
                                         <div className = "form-group">
                                             <label> Reduced Amount: </label>
                                             <input placeholder="500" name="amount" className="form-control" 
-                                                value={this.state.amount} onChange={this.changeAmountHandler} required/>
+                                                value={this.state.amount} onChange={this.changeAmountHandler} pattern="[0-9]{0,7}" title="The Count should consist of numerical values only."required = {true}/>
                                         </div>
                                         <br />
                                         <div className = "form-group">
                                             <label> Count: </label>
                                             <input placeholder="10" name="count" className="form-control" 
-                                                value={this.state.count}  onChange={this.changeCountHandler} required/>
+                                                value={this.state.count}  onChange={this.changeCountHandler} pattern="[0-9]{0,6}" title="The Amount should consist of numerical values with maximum 6 digits only."required = {true}/>
                                         </div>
                                         <br />
                                        

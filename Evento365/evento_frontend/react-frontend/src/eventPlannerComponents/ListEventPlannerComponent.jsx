@@ -58,13 +58,14 @@ class ListEventPlannerComponent extends Component {
     render() {
         return (
             <div>
-                <div className="background1"></div>
+                  <br />  <br />  <br />  
                <h2 className="text-center"> EVENT PLANNERS DETAILS</h2>
                <div className="row">
                    <button className="btn btn-primary" onClick={this.addevents}>ADD NEW EVENT PlANNER</button>
                </div>
-               <div className="row">
-                    <table className = "table table-striped table-bordered">
+               <div className="row" >
+                   <div className = "background1">
+                    <table className = "table table-hover table-striped table-bordered">
 
                        <thead>
 
@@ -102,7 +103,7 @@ class ListEventPlannerComponent extends Component {
                                        </td>
                                         <td>
                                           <button onClick ={()=> this.editEventPlanner(events.event_planner_id)} className = "btn btn-info">Update</button>
-                                          <button style= {{marginLeft: "10px"}} onClick ={()=> this.deleteEventPlanner(events.event_planner_id)} className = "btn btn-danger">Delete</button>
+                                          <button style= {{marginLeft: "10px"}} onClick ={()=> this.deleteEventPlanner(events.event_planner_id)} className = "btn btn-danger ">Delete</button>
 
                                         </td>
 
@@ -118,7 +119,7 @@ class ListEventPlannerComponent extends Component {
                       </tbody>
                     </table>
 
-
+                    </div>
                </div>
             </div>
         );

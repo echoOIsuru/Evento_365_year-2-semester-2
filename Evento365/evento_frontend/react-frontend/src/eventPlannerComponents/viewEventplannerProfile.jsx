@@ -26,32 +26,38 @@ class viewEventplannerProfile extends Component {
     render() {
         return (
             <div>
+                <br />   <br />  <br />
                  <div className="background1"></div>
-               <div className = "card col-md-7  offset-md-2">
-                   <h3 className= "text-center">VIEW EVENT PLANNER</h3>
+               <div style={{marginTop:"30px"}}className = "card col-md-12 offset-md-2">
+                   <h4  className= "text-center"> EVENT PLANNER DETAILS </h4>
                    <div className="card-body">
   
                    <div className="row">
-                    <img className="Ev_pro_pic2 lb" src={this.state.events.img}/>
-                </div>
+                   <center>
 
+                    <img style = {{width:"200px", height:"200Px"}}  src={this.state.events.img}/>
+                    </center>
+   
+
+                </div>
+                   <center>
 
                       <div className="row ml_20">
-                    <label> Name: &nbsp;</label>
-                    <div>{this.state.events.name }</div>
+                    <label> Name:{this.state.events.name } </label>
+                    <div></div>
                     
                 </div>
 
                 <div className="row ml_20">
-                    <label>Email: &nbsp;</label>
-                    <div>{this.state.events.email }</div>
+                    <label>Email:{this.state.events.email } </label>
+                    <div></div>
                     
                 </div>
 
                 
                 <div className="row ml_20">
-                    <label>Phone number: &nbsp;</label>
-                    <div>{this.state.events.phone_number }</div>
+                    <label>Phone number:{this.state.events.phone_number }</label>
+                    <div></div>
                     
                 </div>
 
@@ -59,8 +65,8 @@ class viewEventplannerProfile extends Component {
 
                 
                 <div className="row ml_20">
-                    <label>Experience: &nbsp;</label>
-                    <div>{this.state.events.experience }</div>
+                    <label>Experience:{this.state.events.experience } </label>
+                    <div></div>
                     
                 </div>
 
@@ -71,8 +77,8 @@ class viewEventplannerProfile extends Component {
 
                 
                 <div className="row ml_20">
-                    <label>Skills: &nbsp;</label>
-                    <div>{this.state.events.skills }</div>
+                    <label>Skills:{this.state.events.skills } </label>
+                    <div></div>
                     
                 </div>
 
@@ -80,15 +86,19 @@ class viewEventplannerProfile extends Component {
 
                 
                 <div className="row ml_20">
-                    <label>Price: &nbsp;</label>
-                    <div>{this.state.events.price }</div>
+                    <label>Price: {this.state.events.price }</label>
+                    <div></div>
                     
                 </div>
 
 
-
+</center>
+    
         </div>
+
+        
      </div>
+
  </div>
         );
     }

@@ -9,18 +9,41 @@ class PaymentManagementComponent extends Component {
         super(props)
             this.state={
                 payments: [],
-                input:''
+                keyword: ''
             }
 
             this.editPayments = this.editPayments.bind(this);
             this.deletePayments = this.deletePayments.bind(this);
-            this.changeinputHandler = this.changeinputHandler.bind(this);
+            
 
     }
 
-    changeinputHandler= (event) => {
-        this.setState({input: event.target.value});
+
+
+    search(val) {
+        PaymentService.searchPayment(val).then((res) => {
+            this.setState({ payments: res.data });
+            
+        });
+        if(this.keyword == ""){
+            this.componentDidMount();
+         }else if(this.keyword == undefined){
+             this.componentDidMount();
+         }
+         
     }
+
+    keywordhandle(event){
+        this.keyword=event.target.value;
+        
+    }
+
+    searchbuttonhandle(event){
+        this.search(this.keyword);
+        
+    }
+
+
 
     editPayments(id){
 
@@ -55,21 +78,21 @@ class PaymentManagementComponent extends Component {
 
     render() {
         return (
-            <div  style={{marginTop: 100, marginBottom:100}}>
+            <div  style={{marginTop: 120, marginBottom:370}}>
                 
                 <h2 className="text-center">Payment Management</h2> <br />
                 <div className = "containert">
 
-                <div class="search_wrap search_wrap_4">
-                    <div class="search_box">
-
-                        <input type="text" className="input" placeholder="Search..." 
-                        onChange={this.changeinputHandler} />
+                <div >
+                        <input type="text" name="searchBox" onChange={this.keywordhandle.bind(this)} className="searchBox" style={{marginLeft:'985px'}}/>
+                        <button onClick={this.searchbuttonhandle.bind(this)} className="userButtons" style={{ marginLeft: '5px', width: '100px', height: '30px' }} >Search</button>
                     </div>
-			    </div>
+                    <br />
+                    <br />
+                    <br />
 
 
-                    <table className = "table table-striped table-bordered">
+                    <table className = "table table-striped table-bordered" style={{backgroundColor:'white'}}>
 
                         <thead>
                             <tr>
@@ -87,20 +110,10 @@ class PaymentManagementComponent extends Component {
                             </tr>
                         </thead>
                         <tbody>
-                            {
-                                this.state.payments.filter(val=>{
-                                    if(this.state.input === ""){
-                                        return val;
-                                    }else if(
-                                
-                                        val.customerName.toLowerCase().includes(this.state.input.toLowerCase()) ||
-                                        val.customerId.toLowerCase().includes(this.state.input.toLowerCase()) ||
-                                        val.paymentMethod.toLowerCase().includes(this.state.input.toLowerCase()) ||
-                                        val.status.toLowerCase().includes(this.state.input.toLowerCase())
-                                    ){
-                                        return val;
-                                    }
-                                }).map(
+                            { this.state.payments.length === 0?<tr>
+                                <td colSpan = "10">No entries Available.</td>
+                            </tr>:
+                                this.state.payments.map( 
                                     Payment =>
                                     <tr key ={Payment.paymentID}>
                                         <td>{Payment.paymentID}</td>

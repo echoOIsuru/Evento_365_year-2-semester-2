@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import CustomerService from '../UserServices/CustomerService';
 import Grid from '@material-ui/core/Grid';
 
+
 class CreateCustomerComponent extends React.Component {
 
 
@@ -83,17 +84,18 @@ class CreateCustomerComponent extends React.Component {
 
         if (this.state.id === '_addcus') {
             CustomerService.createCustomer(customer).then(res => {
-                this.props.history.push('/customer');
+                this.props.history.push('/view-customer/' + this.state.id);
             });
         } else {
             CustomerService.updateCustomer(customer, this.state.id).then(res => {
-                this.props.history.push('/customer');
+                this.props.history.push('/view-customer/' + this.state.id);
             });
         }
     }
 
     cancel() {
-        this.props.history.push('/customer');
+
+        this.props.history.push('/view-customer/' + this.state.id);
     }
 
     changeNameHandler = (event) => {
@@ -259,16 +261,16 @@ class CreateCustomerComponent extends React.Component {
             <div >
                 <br /><br /><br /><br />
                 <div class="container">
-                    <div class="py-5 text-center">
-
-                        {
-                            this.getTitle1()
-                        }
-                    </div>
-
                     <Grid container spacing={2} justify="center">
-                        <div className="text-center transformDiv" style={{ width: '750px', height: '880px' }}>
-                            <h4 class="mb-3">EVENTO 365</h4>
+                        <div className="text-center transformDiv" style={{ width: '750px', height: '1100px' }}>
+                            <div class="py-5 text-center">
+                                {
+                                    this.getTitle1()
+                                    
+                                }
+                                <h4 class="mb-3">EVENTO 365</h4>
+                            </div>
+                            
                             <form class="needs-validation" onSubmit={this.saveOrUpdateCustomer} novalidate>
                                 <hr class="mb-4" />
                                 <div class="mb-3 text-left">
@@ -337,17 +339,17 @@ class CreateCustomerComponent extends React.Component {
                                     {this.changeSecQues()}
                                     <div class="col-md-3 mb-2 text-left">
                                         <label for="zip">Answer</label>
-                                        <input type="text" value={this.state.sec_ques_answer} onChange={this.changeSecQuesAnsHandler} class="form-control"  placeholder="Answer" required />
+                                        <input type="text" value={this.state.sec_ques_answer} onChange={this.changeSecQuesAnsHandler} class="form-control" placeholder="Answer" required />
                                     </div>
                                 </div>
                                 <div class="mb-3 text-left">
                                     <label for="username">Image<span class="text-muted"> (Put your image link here.)</span></label>
                                     <div class="input-group">
-                                        <input type="text" value={this.state.image} onChange={this.changeImageHandler} class="form-control"  placeholder="Ex: https://picsum.photos/200/300" required />
+                                        <input type="text" value={this.state.image} onChange={this.changeImageHandler} class="form-control" placeholder="Ex: https://picsum.photos/200/300" required />
                                     </div>
                                 </div>
                                 <hr class="mb-4 " />
-                                <button type='submit' className="userButtons" value='SAVE' style={{marginBottom:'5px'}} >SAVE</button>
+                                <button type='submit' className="userButtons" value='SAVE' style={{ marginBottom: '5px' }} >SAVE</button>
                                 <button className="userButtons" onClick={this.cancel.bind(this)} >Cancel</button>
                                 <hr class="mb-4" />
                             </form>

@@ -9,14 +9,38 @@ class PaymentComplete extends Component {
         super(props)
             this.state={
                 Promo_Code: [],
-                input:''
+                input:'',
+                cusid:''
             }
 
             this.paymenthistory = this.paymenthistory.bind(this);
-
-            
+            this.testSession = this.testSession.bind(this);
+            this.passCussId = this.passCussId.bind(this);
 
     }
+
+    componentDidMount(){
+
+        this.testSession();
+        this.passCussId();
+
+
+    }
+
+    testSession() {
+        var data = sessionStorage.getItem('passCID');
+        console.log(data, "SESSION Passed Cutomer Id");
+        this.state.cusid = data;
+
+    }
+
+    passCussId() {
+        
+        sessionStorage.setItem('cusid', this.state.cusid);
+        
+        
+    }
+    
 
     paymenthistory(){
 
@@ -28,7 +52,8 @@ class PaymentComplete extends Component {
     render() {
         return (
             <div>
-                <h2 style={{marginTop: 100,marginLeft: 30}}>Your Order is Complete!</h2>
+                {this.testSession()}
+                <h2 style={{marginTop: 130,marginLeft: 10}}>Your Order is Complete!</h2>
                 <h4>Thank you for your order at Evento365</h4><br /><br /><br />
 
                 <img  style={{width:200,height:200,marginLeft: 100}}src={complete} alt="fireSpot"/> <br /><br /><br />

@@ -13,7 +13,7 @@ class CreateHirecomponents extends Component {
             hire:[],
 
             cus_address: '',
-            cus_id: '',
+            cus_id: 2,
             event_date: '',
             event_planner: ''
 
@@ -134,25 +134,23 @@ class CreateHirecomponents extends Component {
     render() {
         return (
             <div>
+                   <br />      <br />      <br />
                 <div className="background"></div>
                 <div className="container">
                     <div className="row">
-                        <div className="card col-md-6 offset-md-3 offset-md-3 form-background-color">
+                        
+                        <div className="card col-md-6 offset-md-3 offset-md-3 form-background-color"style={{ marginTop: "30px"}}>
                             <h3 className="text-center"> ADD NEW HIRE </h3>
                             <div className="card-body">
                                 <form onSubmit={this.savehiring}>
 
                                     <div className="from-group">
-                                        <label> Customer Address:</label>
-                                        <input placeholder="customer Address" name=" cus_address" className="form-control"
+                                        <label>Location:</label>
+                                        <input placeholder="Location" name=" cus_address" className="form-control"
                                             value={this.state.cus_address} onChange={this.changeCustomerAddressHandler} required = {true}/>
 
                                     </div>
-                                    <div className="from-group">
-                                        <label> customer Name:</label>
-                                        <input placeholder="customer Name" name="cus_id" className="form-control"
-                                            value={this.state.cus_id} onChange={this.changeCustomerIdHandler} />
-                                    </div>
+                                 
                                     <tbody>
                             
 
@@ -166,10 +164,10 @@ class CreateHirecomponents extends Component {
 
                                     {this.dateGen()}
 
-                                    {/* <button type="submit" className="btn btn-success" onClick={this.savehiring.bind(this)}>Save </button> */}
-                                      
-                                    <input type="submit" className = "btn btn-success"  value="Apply" />
-                                    <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{ marginLeft: "10px" }}>Cancel </button>
+                                 
+                                
+                                    <input type="submit"style={{ marginTop: "30px",marginBottom:"10px" }} className = "btn btn-success"  value="Apply" />
+                                    <button className="btn btn-danger " onClick={this.cancel.bind(this)} style={{ marginLeft: "10px",marginTop: "30px",marginBottom:"10px"  }}>Cancel </button>
 
                                 </form>
                                 

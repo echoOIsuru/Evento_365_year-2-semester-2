@@ -133,7 +133,7 @@ class CustomerResetPassword extends Component {
 
                         <fieldset className="blackborder transformDiv">
                             <form onSubmit={this.validatePasswords}>
-                                <h3>Reset Password</h3>
+                            <p style={{fontSize:'30px'}}>Reset Password</p>
                                 <br />
 
                                 <div className="form-group">

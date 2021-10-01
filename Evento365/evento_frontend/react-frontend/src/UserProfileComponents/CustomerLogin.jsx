@@ -31,7 +31,7 @@ class CustomerLogin extends Component {
             this.state.id = res.data.id;
 
             if (res.data.username !== null) {
-                this.props.history.push(`/homepage/` + this.state.id);
+                this.props.history.push(`/view-customer/` + this.state.id);
             } else {
                 alert("Username or Password Incorrect. Please try again.");
             }
@@ -53,11 +53,11 @@ class CustomerLogin extends Component {
     render() {
         return (
             <Grid container spacing={2} justify="center">
-                <div style={{ width: '450px' }}>
+                <div style={{ width: '450px', marginTop:'80px' }}>
 
                     <fieldset className="blackborder transformDiv">
                         <form id="customer_login" onSubmit={this.validateLoginInfo}>
-                            <h3>Customer Login</h3>
+                            <p style={{fontSize:'30px'}}>Customer Login</p>
                             <br />
 
                             <div className="form-group" style={{marginTop:'10px',marginBottom:'10px'}}>

@@ -66,10 +66,13 @@ class FeedBackList extends Component {
         return (
             <div>
                 <div className="background1"></div>
+                <br />      <br />      <br />       
                 <h2 className="text-center">Feedback</h2>
                 <div className="row">
-                    <button className="btn btn-primary" onClick={this.addfeedback}>Give feedback</button>
 
+                
+                    <button className="btn btn-primary" onClick={this.addfeedback}>Give feedback</button>
+                    <div className="background1">
                     <table className="table table-striped table-bordered">
                         <thead>
 
@@ -120,10 +123,12 @@ class FeedBackList extends Component {
 
                     </table>
 
-
+               
+                    </div>
 
 
                 </div>
+                <br />      <br />      <br />      <br />      <br />      <br />      <br />      <br />      <br />      
             </div>
         );
     }

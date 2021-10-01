@@ -9,7 +9,7 @@ class UpdateHiringComponent extends Component {
         this.state = {
             id: this.props.match.params.id,
             cus_address: '',
-            cus_id: '',
+            cus_id: 2,
             event_date: '',
             event_planner: '',
             events: [],
@@ -108,7 +108,8 @@ class UpdateHiringComponent extends Component {
     dateGen() {
 
         return (
-            <div>
+            <div> 
+              
                 <div className="from-group">
 
                     <label> Event planner name:</label>
@@ -138,38 +139,33 @@ class UpdateHiringComponent extends Component {
     render() {
         return (
             <div>
+                   <br />      <br />      <br />
                <div className="background"></div>
                 <div className="container">
                     <div className="row">
-                    <div className="card col-md-6 offset-md-3 offset-md-3 form-background-color">
+                    <div className="card col-md-6 offset-md-3 offset-md-3 form-background-color"style={{ marginTop: "30px"}}>
                             <h3 className="text-center"> Update HIRE </h3>
                             <div className="card-body">
-                                <form>
+                                <form  onSubmit={this.Updatehiring}>
                                     <div className="from-group">
-                                        <label> Customer Address:</label>
-                                        <input placeholder="customer Address" name=" cus_address" className="form-control"
-                                            value={this.state.cus_address} onChange={this.changeCustomerAddressHandler}required />
+                                        <label> Location:</label>
+                                        <input placeholder="Location" name=" cus_address" className="form-control"
+                                            value={this.state.cus_address} onChange={this.changeCustomerAddressHandler} required = {true} />
                                     </div>
-                                    <div className="from-group">
-                                        <label> customer ID:</label>
-                                        <input placeholder="customer ID" name="cus_id" className="form-control"
-                                            value={this.state.cus_id} onChange={this.changeCustomerIdHandler} />
-                                    </div>
-
-                                   
+                                  
 
 
                                     <div className="from-group">
                                         <label> Event Date:</label>
                                         <input type="date" placeholder="Event Date" name="event_date" className="form-control"
-                                            value={this.state.event_date} onChange={this.changeEventDateHandler} />
+                                            value={this.state.event_date} onChange={this.changeEventDateHandler} required = {true} />
                                     </div>
 
                                     {this.dateGen()}
 
-                                    <button  className="btn btn-success"onClick={this.Updatehiring.bind(this)}>Save </button>
+                                    <input type="submit" style={{ marginTop: "30px",marginBottom:"10px" }}className = "btn btn-success"  value="Update" />
 
-                                    <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{ marginLeft: "10px" }}>Cancel </button>
+                                    <button className="btn btn-danger " onClick={this.cancel.bind(this)} style={{ marginLeft: "10px",marginBottom:"10px" ,marginTop: "30px" }}>Cancel </button>
 
                                 </form>
 

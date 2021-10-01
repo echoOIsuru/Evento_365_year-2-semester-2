@@ -59,12 +59,12 @@ class UpdatePaymentComponent extends Component {
 
     render() {
         return (
-            <div  style={{marginTop: 120, marginBottom:140}}>
+            <div  style={{marginTop: 120, marginBottom:270}}>
                 <br></br>
                    <div className = "form2">
                         <div className = "row">
                             <div className = "formDiv">
-                                <h3 className="text-center">Update Payment Details</h3>
+                                <h2 className="text-center">Update Payment Details</h2>
                                 <div className = "card-body">
                                     <form id="form1">
                                     <br />

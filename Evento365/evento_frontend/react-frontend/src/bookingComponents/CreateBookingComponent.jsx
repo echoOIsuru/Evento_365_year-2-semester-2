@@ -430,7 +430,7 @@ class CreateBookingComponent extends Component {
 
 
             this.bookingSession(res.data);
-            this.props.history.push(`/test123`);
+            this.props.history.push(`/user-vehicle`);
         });
 
 
@@ -443,7 +443,13 @@ class CreateBookingComponent extends Component {
 
     goToEq() {
 
-        this.props.history.push('/success-booking');
+        let booking = { event_type: this.state.eventType, booking_date: this.state.bookingDate, gusts: this.state.gustsCount, location_id: this.state.locationID, date: this.state.toDay, status: "pending", total: this.state.finalAmount };
+        BookingService.createBooking(booking).then(res => {
+
+
+            this.bookingSession(res.data);
+            this.props.history.push(`/test123`);
+        });
     }
 
     render() {

@@ -103,7 +103,7 @@ class CustomerForgetPassword extends Component {
             <div style={{width:'450px'}} >
                 <fieldset className="blackborder transformDiv">
                 <form id="form_login">
-                <h3>Security Question Validation</h3>
+                <p style={{fontSize:'30px'}}>Security Question Validation</p>
 
                 <div className="form-group">
                     <label>Enter your Email</label>

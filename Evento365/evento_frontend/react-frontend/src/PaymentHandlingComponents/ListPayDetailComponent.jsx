@@ -6,14 +6,16 @@ class ListPayDetailComponent extends Component {
         super(props)
             this.state={
                // cusID: this.props.match.params.id,
-               cusID:'C0011',
+               cusID:0,
                PaymentDetails: []
             }
+
+            this.testSession = this.testSession.bind(this);
 
     }
     componentDidMount(){
 
-
+        this.testSession();
         PaymentService.getPaymentsByCus(this.state.cusID).then((res) => {
             
             let PaymentDetails = res.data;
@@ -24,6 +26,8 @@ class ListPayDetailComponent extends Component {
 
         });
 
+        
+
         /*PaymentService.getPayments().then((res) => {
 
             this.setState({PaymentDetails:res.data});
@@ -32,13 +36,20 @@ class ListPayDetailComponent extends Component {
 
     }
 
+    testSession() {
+        var data = sessionStorage.getItem('cusid');
+        console.log(data, "SESSION Passed Cutomer Id");
+        this.state.cusID = data;
+
+    }
+
     render() {
         return (
-            <div style={{marginTop: 100, marginBottom:100}}>
+            <div style={{marginTop: 120, marginBottom:150}}>
                 
                 <h2 className="text-center">Payment History</h2> <br />
                 <div className = "containert">
-                    <table className = "table table-striped table-bordered">
+                    <table className = "table table-striped table-bordered" style={{backgroundColor:'white'}}>
 
                         <thead>
                             <tr>

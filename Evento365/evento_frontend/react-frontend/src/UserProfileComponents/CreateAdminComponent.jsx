@@ -226,8 +226,8 @@ class CreateAdminComponent extends React.Component {
                 <div>
                     <select class="custom-select d-block w-100" onChange={this.changeGenderHandler} name="secQues" required>
                         <option value="" >Choose...⠀⠀⠀⠀⠀▼</option>
-                        <option value='M' selected="selected">Male</option>
-                        <option value='F' >Female</option>
+                        <option value='Male' selected="selected">Male</option>
+                        <option value='Female' >Female</option>
                     </select>
                 </div>
             )
@@ -236,8 +236,8 @@ class CreateAdminComponent extends React.Component {
                 <div>
                     <select class="custom-select d-block w-100" onChange={this.changeGenderHandler} name="secQues" required>
                         <option value="" >Choose...⠀⠀⠀⠀⠀▼</option>
-                        <option value='M' >Male</option>
-                        <option value='F' selected="selected" >Female</option>
+                        <option value='Male' >Male</option>
+                        <option value='Female' selected="selected" >Female</option>
                     </select>
                 </div>
             )
@@ -246,8 +246,8 @@ class CreateAdminComponent extends React.Component {
                 <div>
                     <select class="custom-select d-block w-100" onChange={this.changeGenderHandler} name="secQues" required>
                         <option value="" >Choose...⠀⠀⠀⠀⠀▼</option>
-                        <option value='M' >Male</option>
-                        <option value='F' >Female</option>
+                        <option value='Male' >Male</option>
+                        <option value='Female' >Female</option>
                     </select>
                 </div>
             )
@@ -263,14 +263,14 @@ class CreateAdminComponent extends React.Component {
             <div >
                 <br/><br/><br/><br/>
                 <div class="container">
+                    
+                    <Grid container spacing={2} justify="center">
+                    <div className="text-center transformDiv" style={{ width: '750px',height:'1200px'}}>
                     <div class="py-5 text-center">
-
                         {
                             this.getTitle2()
                         }
                     </div>
-                    <Grid container spacing={2} justify="center">
-                    <div className="text-center transformDiv" style={{ width: '750px',height:'880px'}}>
                         <h4 class="mb-3">EVENTO 365</h4>
                         <form class="needs-validation" onSubmit={this.saveOrUpdateAdmin} novalidate>
                             <hr class="mb-4" />

@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import useForm from "./useForm";
 import { Button, Form, Alert, Row, Col } from "react-bootstrap";
-
+//import React, { useState } from 'react';
 import "../PaymentHandlingStyles/CreditCardComponent.css";
 import Cards from "react-credit-cards";
 import "react-credit-cards/es/styles-compiled.css";
@@ -9,6 +9,12 @@ import { useHistory } from "react-router-dom";
 
 
 const CreditCardComponent = () => {
+  // this.State({
+
+  //   Total:0,
+  //   CusID:''
+
+  // })
   const { handleChange, handleFocus, handleSubmit, values, errors } = useForm();
   const history = useHistory();
   
@@ -18,12 +24,30 @@ const CreditCardComponent = () => {
 
   }
 
+  
+
+  var data = sessionStorage.getItem('AmountID');
+  data = JSON.parse(data);
+  console.log(data, "RETURN VALUES-------->");
+
+  // this.State({
+
+    const [amount, setamount] = useState(data.total)
+    
+
+
+    var data2 = sessionStorage.getItem('passCID');
+    sessionStorage.setItem('passCID', data2);
+
+
+// })
+
 
   return (
-    <div>
+    <div >
       <div className="cardcss">
         <div className="box justify-content-center align-items-center">
-          <div className="formDiv">
+          <div className="formDiv" style={{width:800}}>
           <div className="creditCard">
           <Cards
             cvc={values.cardSecurityCode}
@@ -124,6 +148,7 @@ const CreditCardComponent = () => {
                     type="number"
                     id="amount"
                     name="amount"
+                    value = {amount}
                     placeholder="Rs.1000"
                     disabled
 
