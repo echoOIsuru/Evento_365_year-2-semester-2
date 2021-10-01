@@ -154,7 +154,7 @@ class ListAdminComponent extends Component {
                 
 
                 <main role="main">
-                    <header class="section background-white">
+                    <header class="section">
                         <article>
                             <div class="line text-center">
                             <button className="userButtons" onClick={this.goToRegAdmin.bind(this)} style={{width:'40%',borderRadius:'10px',height:'40px',marginRight:'40px'}}>REGISTER NEW ADMIN</button>
@@ -167,7 +167,7 @@ class ListAdminComponent extends Component {
                                 <br/>
                             </div>
                             <Grid container spacing={2} justify="center">
-                            <section class="full-width background-white" style={{width:'1400px'}}>
+                            <section class="full-width" style={{width:'1400px'}}>
 
                                 <div className="row" >
 

@@ -281,104 +281,104 @@ class CreateAdminComponent extends React.Component {
 
 
                     <Grid container spacing={2} justify="center">
-                    <div className="text-center " style={{ width: '500px'}}>
-                        <h4 class="mb-3">EVENTO 365</h4>
-                        <form class="needs-validation" novalidate>
-                            <hr class="mb-4" />
-                            <div class="mb-3">
-                                <label >Name</label>
-                                <input type="text" value={this.state.name} onChange={this.changeNameHandler} class="form-control" id="username" placeholder="Ex : John Doe" required />
-                            </div>
+                        <div className="text-center " style={{ width: '500px' }}>
+                            <h4 class="mb-3">EVENTO 365</h4>
+                            <form class="needs-validation" novalidate>
+                                <hr class="mb-4" />
+                                <div class="mb-3">
+                                    <label >Name</label>
+                                    <input type="text" value={this.state.name} onChange={this.changeNameHandler} class="form-control" id="username" placeholder="Ex : John Doe" required />
+                                </div>
 
-                            <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <label for="firstName">Email</label>
-                                    <input type="text" value={this.state.email} onChange={this.changeEmailHandler} class="form-control" id="username" placeholder="abc@example.com" required />
-                                    <div class="invalid-feedback">
-                                        Valid first name is required.
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="firstName">Email</label>
+                                        <input type="text" value={this.state.email} onChange={this.changeEmailHandler} class="form-control" id="username" placeholder="abc@example.com" required />
+                                        <div class="invalid-feedback">
+                                            Valid first name is required.
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="lastName">NIC</label>
+                                        <input type="text" value={this.state.nic} onChange={this.changeNICHandler} class="form-control" id="username" placeholder="123456789V" required />
+                                        <div class="invalid-feedback">
+                                            Valid last name is required.
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="lastName">NIC</label>
-                                    <input type="text" value={this.state.nic} onChange={this.changeNICHandler} class="form-control" id="username" placeholder="123456789V" required />
-                                    <div class="invalid-feedback">
-                                        Valid last name is required.
+
+
+                                <div class="mb-3">
+                                    <label for="email">Address </label>
+                                    <input type="email" value={this.state.address} onChange={this.changeAddressHandler} class="form-control" id="email" placeholder="you@example.com" />
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="firstName">Username</label>
+                                        <input type="text" value={this.state.username} onChange={this.changeUsernameHandler} class="form-control" id="username" required />
+                                        <div class="invalid-feedback">
+                                            Valid first name is required.
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="lastName">Password</label>
+                                        <input type="password" value={this.state.password} onChange={this.changePasswordHandler} class="form-control" id="username" required />
+                                        <div class="invalid-feedback">
+                                            Valid last name is required.
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-
-
-                            <div class="mb-3">
-                                <label for="email">Address </label>
-                                <input type="email" value={this.state.address} onChange={this.changeAddressHandler} class="form-control" id="email" placeholder="you@example.com" />
-
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <label for="firstName">Username</label>
-                                    <input type="text" value={this.state.username} onChange={this.changeUsernameHandler} class="form-control" id="username" required />
-                                    <div class="invalid-feedback">
-                                        Valid first name is required.
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="firstName">Birthday</label>
+                                        <input type="date" value={this.state.birthday} onChange={this.changeBirthdayHandler} class="form-control" id="username" placeholder="077-XXXXXXX" required />
+                                        <div class="invalid-feedback">
+                                            Valid first name is required.
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="lastName">Mobile</label>
+                                        <input type="text" value={this.state.mobile} onChange={this.changeMobileHandler} class="form-control" id="username" placeholder="077-XXXXXXX" required />
+                                        <div class="invalid-feedback">
+                                            Valid last name is required.
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="lastName">Password</label>
-                                    <input type="password" value={this.state.password} onChange={this.changePasswordHandler} class="form-control" id="username" required />
-                                    <div class="invalid-feedback">
-                                        Valid last name is required.
+                                <div class="row">
+                                    <div class="col-md-3 mb-3">
+                                        <label >Gender</label>
+                                        {this.changeGender()}
+                                    </div>
+
+                                    {this.changeSecQues()}
+
+                                    <div class="col-md-3 mb-2">
+                                        <label for="zip">Answer</label>
+                                        <input type="text" value={this.state.sec_ques_answer} onChange={this.changeSecQuesAnsHandler} class="form-control" id="zip" placeholder="" required />
+                                        <div class="invalid-feedback">
+                                            Zip code required.
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <label for="firstName">Birthday</label>
-                                    <input type="date" value={this.state.birthday} onChange={this.changeBirthdayHandler} class="form-control" id="username" placeholder="077-XXXXXXX" required />
-                                    <div class="invalid-feedback">
-                                        Valid first name is required.
+
+                                <div class="mb-3">
+                                    <label for="username">Image<span class="text-muted"> (Put your image link here.)</span></label>
+                                    <div class="input-group">
+
+                                        <input type="text" value={this.state.image} onChange={this.changeImageHandler} class="form-control" id="username" placeholder="Ex: https://picsum.photos/200/300" required />
                                     </div>
                                 </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="lastName">Mobile</label>
-                                    <input type="text" value={this.state.mobile} onChange={this.changeMobileHandler} class="form-control" id="username" placeholder="077-XXXXXXX" required />
-                                    <div class="invalid-feedback">
-                                        Valid last name is required.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-3 mb-3">
-                                    <label >Gender</label>
-                                    {this.changeGender()}
-                                </div>
 
-                                {this.changeSecQues()}
+                                <hr class="mb-4" />
 
-                                <div class="col-md-3 mb-2">
-                                    <label for="zip">Answer</label>
-                                    <input type="text" value={this.state.sec_ques_answer} onChange={this.changeSecQuesAnsHandler} class="form-control" id="zip" placeholder="" required />
-                                    <div class="invalid-feedback">
-                                        Zip code required.
-                                    </div>
-                                </div>
-                            </div>
+                                <button className="btn btn-primary btn-lg btn-block" onClick={this.saveOrUpdateAdmin}>Save</button>
+                                <button className="btn btn-primary btn-lg btn-block" onClick={this.cancel.bind(this)} >Cancel</button>
 
-                            <div class="mb-3">
-                                <label for="username">Image<span class="text-muted"> (Put your image link here.)</span></label>
-                                <div class="input-group">
-
-                                    <input type="text" value={this.state.image} onChange={this.changeImageHandler} class="form-control" id="username" placeholder="Ex: https://picsum.photos/200/300" required />
-                                </div>
-                            </div>
-
-                            <hr class="mb-4" />
-
-                            <button className="btn btn-primary btn-lg btn-block" onClick={this.saveOrUpdateAdmin}>Save</button>
-                            <button className="btn btn-primary btn-lg btn-block" onClick={this.cancel.bind(this)} >Cancel</button>
-
-                            <br /><br />
-                            <hr class="mb-4" />
-                        </form>
-                    </div>
+                                <br /><br />
+                                <hr class="mb-4" />
+                            </form>
+                        </div>
                     </Grid>
 
                     <footer class="my-5 pt-5 text-muted text-center text-small">
