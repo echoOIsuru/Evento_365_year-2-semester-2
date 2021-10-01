@@ -1,0 +1,157 @@
+.card{
+  margin-left: 40px;
+  box-shadow: 0px 0px 35px -5px;
+  border-radius: 3%;
+  width: 580px;
+
+}
+
+/*#form1 input{
+
+  background-color: rgba(163, 139, 82, 0.6);
+
+}*/
+
+
+
+.formDiv {
+  margin-left: 40px;
+  width: 58px;
+  padding: 30px;
+  border-radius: 10px;
+  -webkit-box-shadow: -1px 8px 15px 0px rgba(0, 0, 0, 0.44);
+  -moz-box-shadow: -1px 8px 15px 0px rgba(0, 0, 0, 0.44);
+  box-shadow: -1px 8px 15px 0px rgba(0, 0, 0, 0.44);
+  background-color: rgba(170, 141, 73, 0.4);
+}
+
+.my-button {
+  display: flex;
+  align-items: center;
+  width: 60px;
+  height:50px;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100px;
+  height: 45px;
+  background-color: rgba(100, 97, 92, 0.7);
+  border-radius: 5px;
+  border-color: transparent;
+  font-weight: bold;
+}
+
+.right {
+  order: 1;
+}
+
+.my-button:hover{
+
+  background-color: rgba(0, 22, 117, 0.7);
+}
+
+
+
+span {
+  display: block;
+  overflow: hidden;
+  padding: 0 4px 0 6px
+}
+
+.inputwidth {
+  margin-left: 450px;
+  width: 200px;
+}
+
+.inputwidth2 {
+  float: left;
+  width: 200px;
+}
+
+.datewidth {
+  margin-left: 130px;
+  width: 200px;
+}
+
+.samelinebtn{
+
+  display:flex; 
+  flex-direction:row;
+
+}
+
+
+.applybtn button {
+  
+  margin-left: 230px;
+  border-color: green;
+  color:green;
+  width: 100px;
+  height:35px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1px solid green;
+  background-color: transparent;
+}
+
+.applybtn button:hover{
+
+background-color: rgba(81, 248, 3, 0.7);
+}
+
+.placebtn {
+  
+
+  border-color: green;
+  font-weight:600;
+  border-radius: 8px;
+  background-color:green;
+  color:white;
+  margin-top: 10px;
+  width: 550px;
+  height:50px;
+}
+
+
+.payformDiv {
+  width: 800px;
+  padding: 30px;
+  border-radius: 10px;
+  -webkit-box-shadow: -1px 8px 15px 0px rgba(0, 0, 0, 0.44);
+  -moz-box-shadow: -1px 8px 15px 0px rgba(0, 0, 0, 0.44);
+  box-shadow: -1px 8px 15px 0px rgba(0, 0, 0, 0.44);
+}
+/*.main1{
+
+  display:flex; 
+  flex-direction:column;
+  flex:2;
+  justify-content: space-between;
+  
+}
+
+.paycompo {
+
+  margin-top: 43px;
+  position: fixed;
+  left: 0px;
+  width: 110%;
+  padding: 20px;
+  text-align: left;
+
+}
+
+.cuponcompo {
+
+  margin-top: 40px;
+      /*margin-right: 20px;
+  margin: 10px;*/
+/*   position: fixed;   
+  right: 0px;
+  width: 49%;
+  padding: 20px;
+  max-width: 900px;
+  text-align: left;
+  
+
+}*/
+
