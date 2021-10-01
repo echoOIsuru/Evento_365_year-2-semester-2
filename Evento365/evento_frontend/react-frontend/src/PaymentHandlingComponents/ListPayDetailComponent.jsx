@@ -45,6 +45,7 @@ class ListPayDetailComponent extends Component {
 
     render() {
         return (
+            <div className="container">
             <div style={{marginTop: 120, marginBottom:150}}>
                 
                 <h2 className="text-center">Payment History</h2> <br />
@@ -80,6 +81,7 @@ class ListPayDetailComponent extends Component {
                     </table>
             </div>
                                 <br /> <br /><br /> <br />
+            </div>
             </div>
         )
     }

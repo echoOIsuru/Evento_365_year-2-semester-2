@@ -59,6 +59,7 @@ class UpdatePaymentComponent extends Component {
 
     render() {
         return (
+            <div className="container">
             <div  style={{marginTop: 120, marginBottom:270}}>
                 <br></br>
                    <div className = "form2">
@@ -110,6 +111,7 @@ class UpdatePaymentComponent extends Component {
                    </div>
 
                    <br /> <br /><br /> <br /><br /> <br /><br /> <br /><br /> <br /><br /> <br />
+            </div>
             </div>
         )
     }

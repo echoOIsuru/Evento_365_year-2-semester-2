@@ -77,6 +77,7 @@ class AddPromoComponent extends Component {
 
     render() {
         return (
+            <div className="container">
             <div  style={{marginTop: 100, marginBottom:230}}>
                 <br></br>
                    <div className = "form">
@@ -116,6 +117,7 @@ class AddPromoComponent extends Component {
 
                    </div>
                    <br /> <br /><br /> <br />
+            </div>
             </div>
         )
     }

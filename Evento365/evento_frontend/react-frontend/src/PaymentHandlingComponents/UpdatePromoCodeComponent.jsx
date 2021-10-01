@@ -82,6 +82,7 @@ class UpdatePromoCodeComponent extends Component {
 
     render() {
         return (
+            <div className="container">
             <div  style={{marginTop: 100, marginBottom:250}}>
                 <br></br>
                    <div className = "form">
@@ -126,6 +127,7 @@ class UpdatePromoCodeComponent extends Component {
 
                    </div>
                    <br /> <br /><br /> <br /><br /> <br />
+            </div>
             </div>
         )
     }

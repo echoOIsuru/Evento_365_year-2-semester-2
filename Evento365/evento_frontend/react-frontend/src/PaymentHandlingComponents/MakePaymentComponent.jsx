@@ -260,6 +260,7 @@ class MakePaymentComponent extends Component {
     }
     render() {
         return (
+            <div className="container">
          <div style={{marginTop: 100, marginBottom:100}}>
 
             <div class="row" style={{ marginTop:75}}>
@@ -396,6 +397,7 @@ class MakePaymentComponent extends Component {
 
                 
             </div>
+        </div>
         </div>
 
 

@@ -85,6 +85,7 @@ class PaymentManagementComponent extends Component {
 
     render() {
         return (
+            <div className="container">
             <div  style={{marginTop: 120, marginBottom:460}}>
                 
                 <h2 className="text-center">Payment Management</h2> <br />
@@ -150,6 +151,7 @@ class PaymentManagementComponent extends Component {
             </div>
            
             <br /> <br /><br /> <br /><br /> <br /><br /> <br /><br /> <br /><br /> <br /><br /> <br />
+     </div>
      </div>
         )
     }

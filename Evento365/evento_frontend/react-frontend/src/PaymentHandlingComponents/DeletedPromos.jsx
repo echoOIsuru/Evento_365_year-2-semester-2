@@ -60,6 +60,7 @@ class DeletedPromos extends Component {
 
     render() {
         return (
+            <div className="container">
             <div style={{marginTop: 120, marginBottom:400}}>
 
                 <div className = "row" >
@@ -106,6 +107,7 @@ class DeletedPromos extends Component {
                     </table>
             </div>
                                 <br /> <br /><br /> <br />
+            </div>
             </div>
         )
     }

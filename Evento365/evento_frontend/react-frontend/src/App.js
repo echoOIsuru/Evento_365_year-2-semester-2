@@ -70,6 +70,7 @@ import AddPromoComponent from './PaymentHandlingComponents/AddPromoComponent';
 import CreditCardComponent from './PaymentHandlingComponents/CreditCardComponent';
 import PaymentComplete from './PaymentHandlingComponents/PaymentComplete';
 import ListPayDetailComponent from './PaymentHandlingComponents/ListPayDetailComponent';
+import PaymentReport1 from './PaymentHandlingComponents/PaymentReport';
 import DeletedPromos from './PaymentHandlingComponents/DeletedPromos';
 
 
@@ -97,7 +98,7 @@ function App() {
         <Router>
 
           <HeaderComponent />
-          <div className="container">
+          <div>
             <Switch>
 
               <Route path="/" exact component={ListBookingComponent} ></Route>
@@ -169,10 +170,12 @@ function App() {
               <Route path="/update-promo/:id" component={UpdatePromoCodeComponent}></Route>
               <Route path="/card" component={CreditCardComponent}></Route>
               <Route path="/complete" component={PaymentComplete}></Route>
-              <Route path = "/delpromo" component = {DeletedPromos}></Route>             
+              <Route path = "/delpromo" component = {DeletedPromos}></Route>
+              <Route path = "/payreport" component = {PaymentReport1}></Route>
 
 
 
+             
               <Route path="/food" component={ListFoodComponent}></Route>
               <Route path="/add-food" component={CreateFoodComponent}></Route>
               <Route path="/update-food/:id" component={UpdateFoodComponent}></Route>

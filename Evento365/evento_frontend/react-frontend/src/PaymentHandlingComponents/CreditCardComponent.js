@@ -76,6 +76,7 @@ const CreditCardComponent = () => {
 
 
   return (
+    <div className="container">
     <div >
       <div className="cardcss">
         <div className="box justify-content-center align-items-center">
@@ -227,6 +228,7 @@ const CreditCardComponent = () => {
           
         </div>
       </div>
+    </div>
     </div>
   );
 };
