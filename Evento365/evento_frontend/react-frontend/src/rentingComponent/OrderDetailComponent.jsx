@@ -7,7 +7,7 @@ class OrderDetailComponent extends Component {
 
         this.state = {
             temporaryitems: [],
-            bookingid:2,
+            bookingid:'',
             Alltotal:0
         }
         this.deleteTemporaryitem = this.deleteTemporaryitem.bind(this);
@@ -51,9 +51,12 @@ class OrderDetailComponent extends Component {
         //     this.calculate(res.data);
         // });
 
+        var data = sessionStorage.getItem('bookingSession');
+        data = JSON.parse(data);
 
+        
 
-        RentalItemService.retrieveItems(this.state.bookingid).then((res) => {
+        RentalItemService.retrieveItems(data.booking_id).then((res) => {
             this.setState({temporaryitems: res.data});
             this.calculate(res.data);
         })
@@ -73,7 +76,7 @@ class OrderDetailComponent extends Component {
             <div>
                 <div className="row" style={{paddingTop:"170px", paddingBottom:"170px"}}>
                 <center>
-                <div class="formDiv" >
+                <div class="formrDivitemrent2">
                 <h2 className="text-center"> Order Details </h2>
                 <div className="row">
                 </div>

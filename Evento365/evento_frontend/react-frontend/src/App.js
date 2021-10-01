@@ -98,7 +98,7 @@ function App() {
         <Router>
 
           <HeaderComponent />
-          <div className="container">
+          <div>
             <Switch>
 
               <Route path="/" exact component={ListBookingComponent} ></Route>
