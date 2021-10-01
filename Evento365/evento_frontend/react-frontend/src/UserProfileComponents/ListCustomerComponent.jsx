@@ -139,17 +139,17 @@ class ListCustomerComponent extends Component {
         const totalPage = Math.ceil(all_customer.length / usersPerPage);
 
         return (
-            <div  style={{marginTop:'100px'}}>
+            <div  style={{marginTop:'60px'}}>
 
                 <main role="main">
-                    <header class="section background-white">
+                    <header class="section">
                         <article>
                             <div class="line text-center">
                                 <h2 class="text-dark   text-thin text-line-height-1">USER MANAGER</h2>
                                 <br></br>
                             </div>
                             <Grid container spacing={2} justify="center">
-                            <section class="full-width background-white"  style={{width:'1400px'}}>
+                            <section class="full-width"  style={{width:'1400px'}}>
 
                                 <div className="row" >
 

@@ -71,25 +71,6 @@ import CreditCardComponent from './PaymentHandlingComponents/CreditCardComponent
 import PaymentComplete from './PaymentHandlingComponents/PaymentComplete';
 import ListPayDetailComponent from './PaymentHandlingComponents/ListPayDetailComponent';
 
-
-
-
-
-import ListFoodComponent from './foodComponents/ListFoodComponent';
-import CreateFoodComponent from './foodComponents/CreateFoodComponent';
-import UpdateFoodComponent from './foodComponents/UpdateFoodComponent';
-import ViewFoodComponent from './foodComponents/ViewFoodComponent';
-import customerFoodList from './foodComponents/customerFoodList';
-import bookingFoodComponent from './foodComponents/bookingFoodComponent';
-import customerviewcomponent from './foodComponents/customerviewcomponent';
-import chinesefoodComponent from './foodComponents/chinesefoodComponent';
-import bookfoodlistcomponent from './foodComponents/bookfoodlistcomponent';
-
-
-
-
-
-
 function App() {
   return (
     <div >
@@ -98,7 +79,7 @@ function App() {
         <Router>
 
           <HeaderComponent />
-          <div className="container">
+          <div>
             <Switch>
 
               <Route path="/" exact component={ListBookingComponent} ></Route>
@@ -170,23 +151,6 @@ function App() {
               <Route path="/update-promo/:id" component={UpdatePromoCodeComponent}></Route>
               <Route path="/card" component={CreditCardComponent}></Route>
               <Route path="/complete" component={PaymentComplete}></Route>
-
-
-
-             
-              <Route path="/food" component={ListFoodComponent}></Route>
-              <Route path="/add-food" component={CreateFoodComponent}></Route>
-              <Route path="/update-food/:id" component={UpdateFoodComponent}></Route>
-              <Route path="/view-food/:id" component={ViewFoodComponent}></Route>
-              <Route path="/custom" component={customerFoodList}></Route>
-              <Route path="/cus-book-food/:id" component={bookingFoodComponent}></Route>
-              <Route path="/cusview" component={customerviewcomponent}></Route>
-              <Route path="/chinese/:id" component={chinesefoodComponent}></Route>
-              <Route path="/confirm/:id" component={bookfoodlistcomponent}></Route>
-
-
-
-
 
 
             </Switch>
