@@ -71,6 +71,25 @@ import CreditCardComponent from './PaymentHandlingComponents/CreditCardComponent
 import PaymentComplete from './PaymentHandlingComponents/PaymentComplete';
 import ListPayDetailComponent from './PaymentHandlingComponents/ListPayDetailComponent';
 
+
+
+
+
+import ListFoodComponent from './foodComponents/ListFoodComponent';
+import CreateFoodComponent from './foodComponents/CreateFoodComponent';
+import UpdateFoodComponent from './foodComponents/UpdateFoodComponent';
+import ViewFoodComponent from './foodComponents/ViewFoodComponent';
+import customerFoodList from './foodComponents/customerFoodList';
+import bookingFoodComponent from './foodComponents/bookingFoodComponent';
+import customerviewcomponent from './foodComponents/customerviewcomponent';
+import chinesefoodComponent from './foodComponents/chinesefoodComponent';
+import bookfoodlistcomponent from './foodComponents/bookfoodlistcomponent';
+
+
+
+
+
+
 function App() {
   return (
     <div >
@@ -89,22 +108,22 @@ function App() {
               <Route path="/view-bookings/:id" component={ViewBookingComponent}></Route>
               <Route path="/success-booking" component={SuccessBooking}></Route>
               <Route path="/locations" component={ListLocationComponent}></Route>
-    
-       
 
-              <Route path="/hiring" component ={ListHireComponent}></Route>
 
-<Route path="/add-hire" component ={CreateHirecomponents}></Route>
-<Route path="/update-hire/:id" component ={UpdateHiringComponent}></Route>
-<Route path="/eventplanner" component ={ ListEventPlannerComponent}></Route>
-<Route path="/add-eventplanner" component ={ CreateEventPlannerComponent}></Route>
-<Route path="/Update-eventplanner/:id" component ={ UpdateEventPlannerComponent}></Route>
-<Route path="/ui" component ={ UserInterface1}></Route>
-<Route path="/eventplannerprofile/:id" component ={ viewEventplannerProfile}></Route>
-<Route path="/hiredlist" component ={ HiredEventPlannersList}></Route>
-<Route path="/feedback" component ={ FeedBackList}></Route>
-<Route path="/create_feedback" component ={ CreateFeedback}></Route>
-<Route path="/update_feedback/:id" component ={UpdateFeedback}></Route>
+
+              <Route path="/hiring" component={ListHireComponent}></Route>
+
+              <Route path="/add-hire" component={CreateHirecomponents}></Route>
+              <Route path="/update-hire/:id" component={UpdateHiringComponent}></Route>
+              <Route path="/eventplanner" component={ListEventPlannerComponent}></Route>
+              <Route path="/add-eventplanner" component={CreateEventPlannerComponent}></Route>
+              <Route path="/Update-eventplanner/:id" component={UpdateEventPlannerComponent}></Route>
+              <Route path="/ui" component={UserInterface1}></Route>
+              <Route path="/eventplannerprofile/:id" component={viewEventplannerProfile}></Route>
+              <Route path="/hiredlist" component={HiredEventPlannersList}></Route>
+              <Route path="/feedback" component={FeedBackList}></Route>
+              <Route path="/create_feedback" component={CreateFeedback}></Route>
+              <Route path="/update_feedback/:id" component={UpdateFeedback}></Route>
 
 
 
@@ -119,7 +138,7 @@ function App() {
               <Route path="/user-view-vehicle/:regNo" component={UserViewVehicleComponent}></Route>
               <Route path="/rent-vehicle/:regNo" component={UserAddRentComponent}></Route>
 
-              
+
               <Route path="/list-admin" component={ListAdminComponent}></Route>
               <Route path="/add-admin/:id" component={CreateAdminComponent}></Route>
               <Route path="/view-admin/:id" component={ViewAdminComponent}></Route>
@@ -134,23 +153,40 @@ function App() {
               <Route path="/homepage" component={EventoHomepage}></Route>
 
 
-              <Route path="/rentalitems" component = {RentalItemComponent}></Route>
-              <Route path="/add-rentalitem" component = {CreateItemComponent}></Route>
-              <Route path="/update-rentalitem/:rentalitemid" component = {UpdateItemComponent}></Route>
-              <Route path="/test123" component = {RentingServiceHomeComponent}></Route>
-              <Route path="/item-detail/:rentalitemid" component = {ItemDetailComponent}></Route>
-              <Route path="/order-detail" component = {OrderDetailComponent}></Route>
-              <Route path="/test" component = {test}></Route>
+              <Route path="/rentalitems" component={RentalItemComponent}></Route>
+              <Route path="/add-rentalitem" component={CreateItemComponent}></Route>
+              <Route path="/update-rentalitem/:rentalitemid" component={UpdateItemComponent}></Route>
+              <Route path="/test123" component={RentingServiceHomeComponent}></Route>
+              <Route path="/item-detail/:rentalitemid" component={ItemDetailComponent}></Route>
+              <Route path="/order-detail" component={OrderDetailComponent}></Route>
+              <Route path="/test" component={test}></Route>
 
-              <Route path = "/payments" component = {ListPayDetailComponent}></Route>
-                  <Route path = "/addpaydetails" component = {MakePaymentComponent}></Route>
-                  <Route path = "/paymanagement" component = {PaymentManagementComponent}></Route>  
-                  <Route path = "/update-paydetails/:id" component = {UpdatePaymentComponent}></Route>
-                  <Route path = "/promomanage" component = {PromoCodeComponent}></Route>
-                  <Route path = "/addpromo" component = {AddPromoComponent}></Route>
-                  <Route path = "/update-promo/:id" component = {UpdatePromoCodeComponent}></Route>
-                  <Route path = "/card" component = {CreditCardComponent}></Route>
-                  <Route path = "/complete" component = {PaymentComplete}></Route>
+              <Route path="/payments" component={ListPayDetailComponent}></Route>
+              <Route path="/addpaydetails" component={MakePaymentComponent}></Route>
+              <Route path="/paymanagement" component={PaymentManagementComponent}></Route>
+              <Route path="/update-paydetails/:id" component={UpdatePaymentComponent}></Route>
+              <Route path="/promomanage" component={PromoCodeComponent}></Route>
+              <Route path="/addpromo" component={AddPromoComponent}></Route>
+              <Route path="/update-promo/:id" component={UpdatePromoCodeComponent}></Route>
+              <Route path="/card" component={CreditCardComponent}></Route>
+              <Route path="/complete" component={PaymentComplete}></Route>
+
+
+
+             
+              <Route path="/food" component={ListFoodComponent}></Route>
+              <Route path="/add-food" component={CreateFoodComponent}></Route>
+              <Route path="/update-food/:id" component={UpdateFoodComponent}></Route>
+              <Route path="/view-food/:id" component={ViewFoodComponent}></Route>
+              <Route path="/custom" component={customerFoodList}></Route>
+              <Route path="/cus-book-food/:id" component={bookingFoodComponent}></Route>
+              <Route path="/cusview" component={customerviewcomponent}></Route>
+              <Route path="/chinese/:id" component={chinesefoodComponent}></Route>
+              <Route path="/confirm/:id" component={bookfoodlistcomponent}></Route>
+
+
+
+
 
 
             </Switch>

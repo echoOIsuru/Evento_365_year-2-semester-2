@@ -16,8 +16,8 @@ class Slider extends Component {
 
   render() {
     return (
-      <div className="slider test">
-        <ul className="slides">
+      <div className="slider test" >
+        <ul className="slides" style={{fontStyle:"italic" , fontFamily:"Cursive"}}>
         
           <SliderImage
         
