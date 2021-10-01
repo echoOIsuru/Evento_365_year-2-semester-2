@@ -28,17 +28,29 @@ public class bookFood {
 	@Column(name = "cost")
 	private String cost;
 	
+	@Column(name = "count")
+	private String count;
+	
+	@Column(name = "total")
+	private String total;
+	
+	@Column(name = "fimage")
+	private String fimage;
+	
 	public bookFood() {
 		
 	}
 	
 
-	public bookFood(String booking_id, String food_package_id, String food_package_name, String cost) {
+	public bookFood(String booking_id, String food_package_id, String food_package_name, String cost , String count , String total , String fimage) {
 		super();
 		this.booking_id = booking_id;
 		this.food_package_id = food_package_id;
 		this.food_package_name = food_package_name;
 		this.cost = cost;
+		this.count = count;
+		this.total = total;
+		this.fimage = fimage;
 	}
 
 	public long getOrder_food_id() {
@@ -81,6 +93,28 @@ public class bookFood {
 		this.cost = cost;
 	}
 	
+	public String getCount() {
+		return count;
+	}
+
+	public void setCount(String count) {
+		this.count = count;
+	}
+	
+	public String getTotal() {
+		return total;
+	}
+
+	public void setTotal(String total) {
+		this.total = total;
+	}
+	public String getFimage() {
+		return fimage;
+	}
+
+	public void setFimage(String fimage) {
+		this.fimage = fimage;
+	}
 	
 
 }

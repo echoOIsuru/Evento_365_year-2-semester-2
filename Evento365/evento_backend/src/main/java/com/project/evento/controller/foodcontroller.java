@@ -100,15 +100,24 @@ public class foodcontroller {
 		return ResponseEntity.ok(result);
 	}
 	
-//	//search
-//		@GetMapping("/bookings/search")
-//		public ResponseEntity<List<Booking>> findAllSearch(@RequestParam("id") Long searchText,
-//				@RequestParam("value") String name){
-//			List<Booking> booking = bookingRepository.findAllSearchBooking(searchText,name);
-//			//List<Booking> booking = null;
-//			return ResponseEntity.ok(booking);
-//		}
+	//search for admin interface
 	
+		@GetMapping("/foods/search/{fvalue}")
+		public ResponseEntity<List<food>> validatefood(@PathVariable String fvalue){
+			List<food> listfood= FoodRepository.findByFoodcategoryOrFoodcategoryid(fvalue);
+			if (!listfood.isEmpty()) {
+			return ResponseEntity.ok(listfood);
+			}
+			else {
+			List<food> listFoodEmpty = List.of(new food());
+			return ResponseEntity.ok(listFoodEmpty);
+			}
+			
+		}
+			
+
+
+
 	
 	
 	
