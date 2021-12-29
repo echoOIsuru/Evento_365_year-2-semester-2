@@ -39,25 +39,25 @@ class AdminLogin extends Component {
         });
     }
 
-    navigateToAdminPage(type){
-        if (type == 'Main'){
+    navigateToAdminPage(type) {
+        if (type == 'Main') {
             this.props.history.push(`/list-admin`);
-        }else if(type == 'Planner' ){
+        } else if (type == 'Planner') {
             this.props.history.push(`/admin-planner`);
-        }else if(type == 'Food' ){
+        } else if (type == 'Food') {
             this.props.history.push(`/admin-food`);
-        }else if(type == 'Vehicle' ){
+        } else if (type == 'Vehicle') {
             this.props.history.push(`/admin-vehicle`);
-        }else if(type == 'Equipment' ){
+        } else if (type == 'Equipment') {
             this.props.history.push(`/admin-equipment`);
-        }else if(type == 'Store' ){
+        } else if (type == 'Store') {
             this.props.history.push(`/admin-store`);
-        }else if(type == 'Booking' ){
+        } else if (type == 'Booking') {
             this.props.history.push(`/admin-booking`);
-        }else if(type == 'Payment' ){
+        } else if (type == 'Payment') {
             this.props.history.push(`/admin-payment`);
         }
-        
+
     }
 
 
@@ -76,7 +76,7 @@ class AdminLogin extends Component {
         return (
             <Grid container spacing={2} justify="center">
                 <div style={{ width: '450px' }}>
-                <br/>
+                    <br />
                     <fieldset className="blackborder transformDiv">
                         <form id="admin_login">
                             <h3>Admin Login</h3>
@@ -90,11 +90,11 @@ class AdminLogin extends Component {
                                 <input type="password" className="form-control" placeholder="Enter password" onChange={this.passwordhandle.bind(this)} />
                             </div>
                             <br />
-                            <button type="submit" onClick={this.validateLoginInfo} className="btn btn-primary btn-block">LOGIN</button>
-                            <p className="forgot-password text-right"><br/></p>
+                            <button type="submit" onClick={this.validateLoginInfo} className="userButtons">LOGIN</button>
+                            <p className="forgot-password text-right"><br /></p>
                         </form>
                     </fieldset>
-                    <br/><br/><br/>
+                    <br /><br /><br />
                 </div>
             </Grid>
 
